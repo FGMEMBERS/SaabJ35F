@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+Saab J35F
+
+3D model: Oliver Reischl, oliver.reischl@chello.at
+FDM, instruments, systems: Anders Martinsson jandersmartinsson@gmail.com
+************************************************************************
+-->
+
+<PropertyList>
+
+ <sim>
+
+  <description>Saab J35F Draken</description>
+  <author>Oliver Reischl (3D model), Anders M (FDM, Cockpit)</author>
+  <rating>
+    <FDM type="int">3</FDM>
+    <systems type="int">2</systems>
+    <cockpit type="int">3</cockpit>
+    <model type="int">3</model>
+  </rating>
+  <aircraft-version>0.9.1</aircraft-version> 
+  <status>beta</status> 
+
+  <flight-model>jsb</flight-model>
+  <aero>DrakenJ35F</aero>
+
+  <startup>
+   <splash-texture>Aircraft/SaabJ35F/SaabJ35F-splash.jpg</splash-texture>
+  </startup>
+  
+  <sound>
+   <path>Aircraft/SaabJ35F/Sounds/sound.xml</path>
+  </sound>
+
+  <virtual-cockpit archive="y">true</virtual-cockpit>
+  <allow-toggle-cockpit archive="y">false</allow-toggle-cockpit>
+  
+  <view n="0">
+   <internal archive="y">true</internal>
+   <config>
+    <pitch-offset-deg>-9</pitch-offset-deg>
+    <x-offset-m archive="y">0.0</x-offset-m>
+    <y-offset-m archive="y">0.85</y-offset-m>
+    <z-offset-m archive="y">-3.42</z-offset-m>
+   </config>
+  </view>
+
+  <model>
+   <path>Aircraft/SaabJ35F/Model/draken.xml</path>
+  </model>
+
+  <chase-distance-m>-21</chase-distance-m>
+  
+  <systems>
+    <autopilot>
+      <path>Systems/draken_autopilot.xml</path>
+    </autopilot>
+  </systems>
+<!--
+  <ai>
+   <scenario>refueling_demo</scenario>
+  </ai>
+-->
+
+  <!-- turns off GA tower communications -->
+  <ATC>
+   <enabled type="bool">false</enabled>
+  </ATC>
+
+  <!-- turns off GA traffic -->
+  <ai-traffic>
+   <enabled type="bool">false</enabled>
+  </ai-traffic>
+
+  <help>
+   <key>
+    <name>S</name>
+    <desc>Automated engine start</desc>
+   </key>
+   <key>
+    <name>Shift-Q</name>
+    <desc>Fuel cutoff switch or lever</desc>
+   </key>
+   <key>
+    <name>Shift-J</name>
+    <desc>Jettison Droptanks in flight</desc>
+   </key>
+   <key>
+    <name>Ctrl-L</name>
+    <desc>Attache or remove Droptanks before flight</desc>
+   </key>
+   <key>
+    <name>Ctrl-B</name>
+    <desc>Speed brakes extend/retract</desc>
+   </key>
+  </help>
+
+  <rendering>
+    <redout>
+      <parameters>
+        <blackout-complete-g>9.3</blackout-complete-g>
+        <blackout-onset-g>6.5</blackout-onset-g>
+      </parameters>
+    </redout>
+  </rendering>
+  
+ <flight-recorder>
+	<replay-config type="int">0</replay-config>
+		<config n="0" include="Systems/draken_recorder.xml">
+			<name type="string">Drakens's Flight Recorder</name>
+	 </config>
+ </flight-recorder>
+ 
+ </sim>
+
+ <limits>
+  <vne type="double">729</vne> 
+  <max-gear-extended-speed type="double">370</max-gear-extended-speed>
+  <max-positive-g type="double">11</max-positive-g>
+  <max-negative-g type="double">-5</max-negative-g> 
+ </limits>
+ 
+ <consumables>
+  <fuel>
+   <tank n="0">
+    <level-gal_us archive="y">798.0</level-gal_us>
+   </tank>
+   <tank n="1">
+    <level-gal_us archive="y">143.5</level-gal_us>
+   </tank>
+   <tank n="2">
+    <level-gal_us archive="y">143.5</level-gal_us>
+   </tank>
+   <using-droptanks type ="bool">false</using-droptanks>
+  </fuel>
+  <droptanks type="bool">true</droptanks>
+ </consumables>
+
+
+  <!-- Start with Parking Brake on -->
+  <controls>
+     <gear>
+        <brake-parking type="double">1.0</brake-parking>
+     </gear>
+  </controls>
+
+
+ <engines>
+  <engine n="0">
+    <running>false</running>
+  </engine>
+ </engines>
+
+<input>
+ <keyboard>
+
+   <key n="81">
+    <name>Shift-Q</name>
+    <desc>Fuel Cutoff Switch or Lever.</desc>
+    <binding>
+      <condition>
+        <property>/sim/input/selected/engine[0]</property>
+      </condition>
+     <command>property-toggle</command>
+     <property>/controls/engines/engine[0]/cutoff</property>
+   </binding>
+  </key>
+
+  <key n="83">
+   <name>Shift-S</name>
+   <desc>Autostart system.</desc>
+   <binding>
+     <command>nasal</command>
+     <script>SaabJ35F.autostart();</script>
+   </binding>
+  </key>
+
+  <key n="74">
+   <name>Shift-J</name>
+   <desc>Drop droptanks.</desc>
+   <binding>
+     <command>nasal</command>
+     <script>SaabJ35F.drophandle(1);</script>
+   </binding>
+  </key>
+
+  <key n="12">
+   <name>Ctrl-L</name>
+   <desc>Drop droptanks.</desc>
+   <binding>
+     <command>nasal</command>
+     <script>SaabJ35F.drophandle(0);</script>
+   </binding>
+  </key>
+
+ </keyboard>
+</input>
+
+<!-- Target in meters -->
+<autopilot>
+  <settings>
+     <target-altitude-m type="double">0</target-altitude-m>
+  </settings>
+</autopilot>
+            
+<instrumentation>
+ <AHK>
+  <mode type="int">0</mode>
+  <needle_target type="double">0</needle_target>
+  <needle_dist type="double">0</needle_dist>
+ </AHK>
+ <radar>
+  <mode type="int" archive="y">1</mode>
+  <scan_mode type="float">120</scan_mode>
+  <antenna_pitch type="float">0</antenna_pitch>
+  <antenna_yaw type="float">0</antenna_yaw>
+ </radar>
+ <gear_warning type="bool">false</gear_warning>
+ <alt_indicator type="bool">false</alt_indicator>
+ <master_alarm type="bool">false</master_alarm>
+ <fuel>
+  <needleF_rot type="double">0</needleF_rot>
+  <needleB_rot type="double">0</needleB_rot>
+ </fuel>
+</instrumentation>
+
+<nasal>
+ <SaabJ35F>
+  <file>Nasal/SaabJ35F.nas</file>
+    <file>Nasal/draken_limits.nas</file>
+  <file>Nasal/draken_AHK.nas</file>
+  <file>Radar/radar.nas</file>
+ </SaabJ35F>
+</nasal>
+
+</PropertyList>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <path>airbrakes.ac</path>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>Plane</object-name>
+  <property>/controls/flight/speedbrake</property>
+  <factor>0.5</factor>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+  </axis>
+ </animation>
+
+</PropertyList>

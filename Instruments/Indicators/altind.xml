@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <path>hojdlampa.ac</path>
+
+ <animation>
+  <type>material</type> 
+  <object-name>Circle</object-name>				
+  <emission>
+   <red>1.0</red>
+   <green>0.9</green>
+   <blue>0.0</blue>
+   <factor-prop>/instrumentation/alt_indicator</factor-prop>
+  </emission>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>Circle</object-name>
+  <property>/instrumentation/alt_indicator</property>
+  <factor>0.5</factor>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+  </axis>
+ </animation>
+
+</PropertyList>

@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <path>altselect.ac</path>
+
+    <!-- Altitude Display -->
+    
+    <animation>
+        <type>textranslate</type>
+        <object-name>D10000</object-name>
+        <property>/autopilot/settings/target-altitude-m</property>
+        <factor>0.00001</factor>
+        <step>10000</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <animation>
+        <type>textranslate</type>
+        <object-name>D1000</object-name>
+        <property>/autopilot/settings/target-altitude-m</property>
+        <factor>0.0001</factor>
+        <step>1000</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>D100</object-name>
+        <property>/autopilot/settings/target-altitude-m</property>
+        <factor>0.001</factor>
+        <step>100</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>D10</object-name>
+        <property>/autopilot/settings/target-altitude-m</property>
+        <factor>0.01</factor>
+        <step>10</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>D1</object-name>
+        <property>/autopilot/settings/target-altitude-m</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+
+  <!--             Altimeter setting       -->  
+
+ <animation>
+  <type>pick</type>
+  <object-name>CW</object-name>
+  <visible>false</visible>
+  <action>
+    <name>decrease calibrate fine</name>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+        <property>/autopilot/settings/target-altitude-m</property>
+      <step>-10</step>
+      <min>0.0</min>
+      <max>18000.0</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>decrease calibrate coarse</name>
+    <button>1</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+        <property>/autopilot/settings/target-altitude-m</property>
+      <step>-1000</step>
+      <min>0</min>
+      <max>18000</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>decrease calibrate fine (scrollwheel)</name>
+    <button>3</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+        <property>/autopilot/settings/target-altitude-m</property>
+      <step>-10</step>
+      <min>0</min>
+      <max>18000</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>increase calibrate fine (scrollwheel)</name>
+    <button>4</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+        <property>/autopilot/settings/target-altitude-m</property>
+      <step>10</step>
+      <min>0</min>
+      <max>18000</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>CCW</object-name>
+  <visible>false</visible>
+  <action>
+    <name>increase calibrate fine</name>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+        <property>/autopilot/settings/target-altitude-m</property>
+      <step>10</step>
+      <min>0</min>
+      <max>18000</max>>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>increase calibrate coarse</name>
+    <button>1</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+        <property>/autopilot/settings/target-altitude-m</property>
+      <step>1000</step>
+      <min>0</min>
+      <max>18000</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>decrease calibrate fine (scrollwheel)</name>
+    <button>3</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+        <property>/autopilot/settings/target-altitude-m</property>
+      <step>-10</step>
+      <min>0</min>
+      <max>18000</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>increase calibrate fine (scrollwheel)</name>
+    <button>4</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+        <property>/autopilot/settings/target-altitude-m</property>
+      <step>10</step>
+      <min>0</min>
+      <max>18000</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+ </animation>
+
+</PropertyList>
+

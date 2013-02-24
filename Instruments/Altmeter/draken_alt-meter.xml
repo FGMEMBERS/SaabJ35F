@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <path>draken_alt-meter.ac</path>
+
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Hundred_meter_hand</object-name>
+  <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+  <factor>0.1098</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.00</y-m>
+   <z-m>0.0139</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>km_hand</object-name>
+  <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+  <factor>0.01098</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.00</y-m>
+   <z-m>0.0139</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+    <!-- Pressure Display -->
+    <animation>
+        <type>textranslate</type>
+        <object-name>Dig1000</object-name>
+        <property>/instrumentation/altimeter/setting-hpa</property>
+        <factor>0.0001</factor>
+        <step>1000</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Dig100</object-name>
+        <property>/instrumentation/altimeter/setting-hpa</property>
+        <factor>0.001</factor>
+        <step>100</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Dig10</object-name>
+        <property>/instrumentation/altimeter/setting-hpa</property>
+        <factor>0.01</factor>
+        <step>10</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Dig1</object-name>
+        <property>/instrumentation/altimeter/setting-hpa</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Dig0.1</object-name>
+        <property>/instrumentation/altimeter/setting-hpa</property>
+        <factor>1</factor>
+        <step>0.1</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+  <!--             Altimeter setting       -->  
+
+ <animation>
+  <type>pick</type>
+  <object-name>Click-L</object-name>
+  <visible>false</visible>
+  <action>
+    <name>decrease calibrate fine</name>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/instrumentation/altimeter/setting-hpa</property>
+      <step>-0.1</step>
+      <min>500.0</min>
+      <max>1200.0</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>decrease calibrate coarse</name>
+    <button>1</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/instrumentation/altimeter/setting-hpa</property>
+      <step>1</step>
+      <min>500.0</min>
+      <max>1200.0</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>decrease calibrate fine (scrollwheel)</name>
+    <button>3</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/instrumentation/altimeter/setting-hpa</property>
+      <step>-0.1</step>
+      <min>500.0</min>
+      <max>1200.0</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>increase calibrate fine (scrollwheel)</name>
+    <button>4</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/instrumentation/altimeter/setting-hpa</property>
+      <step>0.1</step>
+      <min>500.0</min>
+      <max>1200.0</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>Click-R</object-name>
+  <visible>false</visible>
+  <action>
+    <name>increase calibrate fine</name>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/instrumentation/altimeter/setting-hpa</property>
+      <step>0.1</step>
+      <min>500.0</min>
+      <max>1200.0</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>increase calibrate coarse</name>
+    <button>1</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/instrumentation/altimeter/setting-hpa</property>
+      <step>1</step>
+      <min>500.0</min>
+      <max>1200.0</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>decrease calibrate fine (scrollwheel)</name>
+    <button>3</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/instrumentation/altimeter/setting-hpa</property>
+      <step>-0.1</step>
+      <min>500.0</min>
+      <max>1200.0</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>increase calibrate fine (scrollwheel)</name>
+    <button>4</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/instrumentation/altimeter/setting-hpa</property>
+      <step>0.1</step>
+      <min>500.0</min>
+      <max>1200.0</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+ </animation>
+
+</PropertyList>
+
+

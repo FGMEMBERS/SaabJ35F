@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <path>gearindicator.ac</path>
+
+ <animation>
+  <type>material</type> 
+  <object-name>NoseW</object-name>
+  <emission>
+   <red>0.0</red>
+   <green>1.0</green>
+   <blue>0.0</blue>
+   <factor-prop>/gear/gear[0]/position-norm</factor-prop>
+   <step>1</step>
+  </emission>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>NoseW</object-name>
+  <property>/gear/gear[0]/position-norm</property>
+  <factor>0.5</factor>
+  <step>0.5</step>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>material</type> 
+  <object-name>LeftW</object-name>
+  <emission>
+   <red>0.0</red>
+   <green>1.0</green>
+   <blue>0.0</blue>
+   <factor-prop>/gear/gear[1]/position-norm</factor-prop>
+   <step>1</step>
+  </emission>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>LeftW</object-name>
+  <property>/gear/gear[1]/position-norm</property>
+  <factor>0.5</factor>
+  <step>0.5</step>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>material</type> 
+  <object-name>RightW</object-name>
+  <emission>
+   <red>0.0</red>
+   <green>1.0</green>
+   <blue>0.0</blue>
+   <factor-prop>/gear/gear[2]/position-norm</factor-prop>
+   <step>1</step>
+  </emission>
+
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>RightW</object-name>
+  <property>/gear/gear[2]/position-norm</property>
+  <factor>0.5</factor>
+  <step>0.5</step>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>material</type> 
+  <object-name>TailW</object-name>
+  <emission>
+   <red>0.0</red>
+   <green>1.0</green>
+   <blue>0.0</blue>
+   <factor-prop>/gear/gear[3]/position-norm</factor-prop>
+   <step>1</step>
+  </emission>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>TailW</object-name>
+  <property>/gear/gear[3]/position-norm</property>
+  <factor>0.5</factor>
+  <step>0.5</step>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+  </axis>
+</animation>
+
+</PropertyList>

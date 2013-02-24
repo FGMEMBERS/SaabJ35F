@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <path>masteralarm.ac</path>
+
+ <animation>
+  <type>material</type> 
+  <object-name>Circle</object-name>				
+  <emission>
+   <red>1.0</red>
+   <green>0.6</green>
+   <blue>0.0</blue>
+   <factor-prop>/instrumentation/master_alarm</factor-prop>
+  </emission>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>Circle</object-name>
+  <property>/instrumentation/master_alarm</property>
+  <factor>0.5</factor>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+  </axis>
+ </animation>
+
+</PropertyList>

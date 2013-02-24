@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <path>draken_hast.ac</path>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>Needle_kmh</object-name>
+  <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+  <interpolation>
+   <entry><ind>70.2</ind><dep>0.0</dep></entry>
+   <entry><ind>109</ind><dep>-0.0567</dep></entry>
+   <entry><ind>158</ind><dep>-0.1565</dep></entry>
+   <entry><ind>214</ind><dep>-0.2206</dep></entry>
+   <entry><ind>319</ind><dep>-0.3067</dep></entry>
+   <entry><ind>428</ind><dep>-0.3687</dep></entry>
+   <entry><ind>536</ind><dep>-0.4170</dep></entry>
+   <entry><ind>643</ind><dep>-0.4559</dep></entry>
+   <entry><ind>752</ind><dep>-0.4905</dep></entry>
+   <entry><ind>768</ind><dep>-0.5</dep></entry>
+  </interpolation>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>Needle_mach</object-name>
+  <property>instrumentation/airspeed-indicator/indicated-mach</property>
+  <interpolation>
+   <entry><ind>0.55</ind><dep>0.0</dep></entry>
+   <entry><ind>0.95</ind><dep>-0.130</dep></entry>
+   <entry><ind>1.485</ind><dep>-0.318</dep></entry>
+   <entry><ind>1.985</ind><dep>-0.4916</dep></entry>
+   <entry><ind>2.035</ind><dep>-0.5</dep></entry>
+  </interpolation>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+  </axis>
+ </animation>
+
+</PropertyList>

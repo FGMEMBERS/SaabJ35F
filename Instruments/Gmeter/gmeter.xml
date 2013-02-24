@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <path>gmeter.ac</path>
+
+<!--effect>
+	<inherits-from>Effect/model-combined-deferred</inherits-from>
+	<parameters>
+		<texture n="1">
+			<image>fuel_gauge_lm.png</image>
+		</texture>
+		<condition><use>/controls/lighting/logo-lights</use></condition>
+		<factor><use>/controls/lighting/panel-norm</use></factor >
+	</parameters>
+ 	<object-name>Gauge</object-name> 
+</effect -->
+
+<animation>
+        <type>rotate</type>
+        <object-name>Gneedle</object-name>
+        <property>/accelerations/pilot-gdamped</property>
+        <factor>21.16666667</factor>
+        <min>-13</min>
+        <max>250</max>
+        <center>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+</animation>
+
+<animation>
+        <type>rotate</type>
+        <object-name>Gmaxneedle</object-name>
+        <property>/instrumentation/g-max</property>
+        <factor>21.16666667</factor>
+        <min>-13</min>
+        <max>250</max>
+        <center>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>Cylinder</object-name>
+  <visible>true</visible>
+  <action>
+    <name>Reset Gmax</name>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <command>property-assign</command>
+     <property>/instrumentation/g-max</property>
+     <property>/accelerations/pilot-gdamped</property>
+    </binding>
+  </action>
+ </animation>
+
+</PropertyList>

@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+ <path>cs.ac</path>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Face360</object-name>
+  <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Face10</object-name>
+  <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+  <factor>36</factor>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+  <!--             Course setting       -->  
+
+ <animation>
+  <type>pick</type>
+  <object-name>CCW</object-name>
+  <visible>false</visible>
+  <action>
+    <name>decrease calibrate fine</name>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+      <step>-0.5</step>
+      <min>0.0</min>
+      <max>360.0</max>
+      <wrap>true</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>decrease calibrate coarse</name>
+    <button>1</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+      <step>-10</step>
+      <min>0.0</min>
+      <max>360.0</max>
+      <wrap>true</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>decrease calibrate fine (scrollwheel)</name>
+    <button>3</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+      <step>-0.5</step>
+      <min>0.0</min>
+      <max>360.0</max>
+      <wrap>true</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>increase calibrate fine (scrollwheel)</name>
+    <button>4</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+      <step>0.5</step>
+      <min>0.0</min>
+      <max>360.0</max>
+      <wrap>true</wrap>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>CW</object-name>
+  <visible>false</visible>
+  <action>
+    <name>increase calibrate fine</name>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+      <step>0.5</step>
+      <min>0.0</min>
+      <max>360.0</max>
+      <wrap>true</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>increase calibrate coarse</name>
+    <button>1</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+      <step>10</step>
+      <min>0.0</min>
+      <max>360.0</max>
+      <wrap>true</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>decrease calibrate fine (scrollwheel)</name>
+    <button>3</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+      <step>-0.1</step>
+      <min>500.0</min>
+      <max>1200.0</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>increase calibrate fine (scrollwheel)</name>
+    <button>4</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+      <step>0.5</step>
+      <min>0.0</min>
+      <max>360.0</max>
+      <wrap>true</wrap>>
+    </binding>
+  </action>
+ </animation>
+
+</PropertyList>
+
+

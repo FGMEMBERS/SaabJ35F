@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <path>draken_AHK.ac</path>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>Needle_dist</object-name>
+  <property>/instrumentation/AHK/needle_dist</property>
+  <interpolation>
+   <entry><ind>0</ind><dep>-0.043</dep></entry>
+   <entry><ind>1</ind><dep>-0.5</dep></entry>
+  </interpolation>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>Needle_h1000</object-name>
+  <property>instrumentation/altimeter/pressure-alt-ft</property>
+  <interpolation>
+   <entry><ind>0.0</ind><dep>-0.043</dep></entry>
+   <entry><ind>67213</ind><dep>-0.5</dep></entry>
+  </interpolation>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>Needle_h100</object-name>
+  <property>instrumentation/altimeter/pressure-alt-ft</property>
+  <interpolation>
+   <entry><ind>-328</ind><dep>-0.007</dep></entry>
+   <entry><ind>0.0</ind><dep>0.0</dep></entry>
+   <entry><ind>6721</ind><dep>0.1423</dep></entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>Needle_target</object-name>
+  <property>/instrumentation/AHK/needle_target</property>
+  <interpolation>
+   <entry><ind>0.0</ind><dep>0.0</dep></entry>
+   <entry><ind>1.0</ind><dep>0.1423</dep></entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>Command</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-cycle</command>
+      <property>/instrumentation/AHK/mode</property>
+      <value type="int">1</value>
+      <value type="int">2</value>
+      <value type="int">0</value>
+    </binding>
+    <mod-up>
+     <binding>
+       <command>nasal</command>
+       <script>SaabJ35F.set_mode();</script>
+     </binding>
+    </mod-up>
+   </action>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>Command</object-name>
+  <property>/instrumentation/AHK/mode</property>
+  <factor>-0.09375</factor>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+  </axis>
+ </animation>
+
+</PropertyList>

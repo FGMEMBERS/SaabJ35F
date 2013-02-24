@@ -1,0 +1,51 @@
+Special aircraft keys:
+Shift-S Autmatic start sequence (Airoplane needs to be stationary and fuel cut off.)
+Shift-Q Fuel cut off
+Shift_L Attache or remove droptanks on ground. (Stationary and fuel cut off.)
+Ctrl-J Jettison droptanks in air.
+
+Special indicators:
+"GLÖM EJ LAND-STÄLL" ("Do not forget landing gear") flashes if altitude < 1450 m, airspeed < 450 km/h and throttle < 85%
+
+"HUVUDVARN." Main warning light. Indicates important system warnings. Not implemented yet.
+
+"HÖJDV" Flashes when target altitude is not 0 and aircraft not at target altitude. Lit when stable at target altitude.
+
+Gauges and instruments:
+Fuel gauge shows percent of droptanks left until they are empty if attached. Otherwise percent of internal fuel remaining.
+
+G-gauge max G-force is displayed by a striped needle. Reset by clicking the small reset pin on the right side of the instrument.
+
+Altitude pressure setting is done by clicking left or right side of the setting knob (lower left of he instrument).
+
+AHK
+The real AHK (swe.Avstånd Höjd Kommando, eng. distance altitude command), on the right side of the radar, was an instrument connected to the Swedish air combat control centers (The system is part of "STRIL60"). It gave tactical information to the pilot by 20 different commands, displayed as words at the top of the instrument, and also the distance scale and the arrow needle on the height scale.
+I have reused three of the commands as instrument modes.*
+In all modes the "HÖJD" (altitude) scale shows pressure-altitude. Dot-needle from 0-2000 m and tape-needle from 0-20000 m.
+Modes: 0 (zero), HÖJDÄNDRING (altitude change), LANDA (land)
+Click the command text to change mode.
+0: Only altitude shown
+HÖJDÄNDRING: Arrow shows height reached in one minute at current vertical speed. Scale 0-20000 m. "AVST" tape shows distance over ground to change altitude 1000 m at current vertical speed. Speed over ground calculated from IAS using standard atmosphere.
+LANDA: Arrow shows height reached in one minute at current vertical speed. Scale 0-2000 m.
+"AVST" tape shows distance over ground until tuchdown at sealevel and current vertical speed. Speed over ground calculated from IAS using standard atmosphere.
+
+Altitude selector
+Right side below secondary AI. Sets target altitude for autopilot. Autopilot not implemented yet.
+
+Course selector
+Below Heading indicator. Sets course needle on the heading indicator (compass).
+
+Radar:
+Only showing a sweep and antenna azimut. Prepared for different functions but no setting input etc. implemented.
+Yellow lines are nav indicators. Not implemented
+
+Flying:
+* Maxspeed approx: Mach 1 at low altitude Mach 1.8 at 12 000 m
+* Too long with negative G causes fuel starvation.
+* Watch alpha and speed.
+* Fuel will be drawn from droptanks until they are nearly emtpy then from internal tank.
+* Implemented experimental yawing and pitching moments from vortices in stall.
+
+
+
+*)This might change as I start working on radio and navigation equipment.

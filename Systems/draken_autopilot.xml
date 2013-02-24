@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<PropertyList>
+   <params>
+     <controls>
+       <aileron>controls/flight/aileron</aileron>
+       <rudder>controls/flight/rudder</rudder>
+       <elevator>controls/flight/elevator</elevator>
+     </controls>
+   </params>
+   
+   <filter>
+     <name>Altconversion</name>
+     <type>gain</type>
+     <gain>3.278689</gain>
+   <input>/autopilot/settings/target-altitude-m</input>
+   <output>/autopilot/settings/target-altitude-ft</output>
+   </filter>
+   
+</PropertyList>

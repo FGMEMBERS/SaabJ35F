@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <path>landwarn.ac</path>
+
+ <animation>
+  <type>material</type> 
+  <object-name>On</object-name>				
+  <emission>
+   <red>1.0</red>
+   <green>0.64</green>
+   <blue>0.0</blue>
+   <factor-prop>/instrumentation/gear_warning</factor-prop>
+  </emission>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>On</object-name>
+  <property>/instrumentation/gear_warning</property>
+  <factor>0.5</factor>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+  </axis>
+ </animation>
+
+</PropertyList>

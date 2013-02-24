@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+ <path>compass.ac</path>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Face</object-name>
+  <property>orientation/heading-deg</property>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Needle</object-name>
+  <property>orientation/heading-deg</property>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Needle</object-name>
+  <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+</PropertyList>
+
+

@@ -1,0 +1,49 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "Material" rgb 0.8 0.8 0.8 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 64 trans 0
+OBJECT world
+kids 2
+OBJECT poly
+name "On"
+loc 0.001576 -0.008505 -0
+data 2
+On
+texture "landstallampa.png"
+texrep 1.000000 1.000000
+crease 179.000000
+numvert 4
+0 -0.007571 0.007571
+-0 0.007571 0.007571
+0 -0.007571 -0.007571
+-0 0.007571 -0.007571
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+2 0.479919999838 0.110001295805
+3 0.479919999838 0.835347533226
+1 0.120079994202 0.835347533226
+0 0.120079994202 0.110001295805
+kids 0
+OBJECT poly
+name "Plane"
+loc 0 0 -0
+data 5
+Plane
+texture "landstall.png"
+texrep 1.000000 1.000000
+crease 179.000000
+numvert 4
+0 -0.01875 0.0125
+-0 0.01875 0.0125
+0 -0.01875 -0.0125
+-0 0.01875 -0.0125
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+2 0.58801227808 0.000794190215
+3 0.58801227808 0.889830827713
+1 0.002612668555 0.889830827713
+0 0.002612668555 0.000794190215
+kids 0

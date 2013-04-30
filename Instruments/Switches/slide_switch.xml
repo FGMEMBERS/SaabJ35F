@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <path>slide_switch.ac</path>
+
+ <params>
+  <pos>/instrumentation/switches/default/pos</pos>
+ </params>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>Pin</object-name>
+  <property alias="../../params/pos"/>
+  <factor>-0.011</factor>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>Pin</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/pos"/>
+   </binding>
+  </action>
+ </animation>
+  
+</PropertyList>

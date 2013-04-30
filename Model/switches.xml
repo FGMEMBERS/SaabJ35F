@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<!-- Switches -->
+ 
+<model>
+   <name>Start panel</name>
+   <path>Instruments/Switches/start_panel.xml</path>
+   <offsets>
+     <x-m>-3.95</x-m>
+     <y-m>-0.36</y-m>
+     <z-m>0.245</z-m>
+     <pitch-deg>7</pitch-deg>
+     <roll-deg>1.5</roll-deg>
+     <heading-deg>-2</heading-deg>
+   </offsets>
+</model>
+
+<model>
+   <name>Drop tank switch</name>
+   <path>Instruments/Switches/pin_switch.xml</path>
+  <overlay>
+   <params>
+    <pos>/instrumentation/switches/drop_selector/pos</pos>
+   </params>
+  </overlay>
+   <offsets>
+     <x-m>-4.078</x-m>
+     <y-m>0.297</y-m>
+     <z-m>0.639</z-m>
+     <pitch-deg>-5</pitch-deg>
+     <roll-deg>10</roll-deg>
+   </offsets>
+</model>
+
+<model>
+   <name>Suit vent switch</name>
+   <path>Instruments/Switches/pin_switch.ac</path>
+   <offsets>
+     <x-m>-4.03</x-m>
+     <y-m>0.299</y-m>
+     <z-m>0.645</z-m>
+     <pitch-deg>-5</pitch-deg>
+     <roll-deg>10</roll-deg>
+   </offsets>
+</model>
+
+<model>
+   <name>Landing lights switch</name>
+   <path>Instruments/Switches/pin_switch.ac</path>
+   <offsets>
+     <x-m>-4.027</x-m>
+     <y-m>-0.30</y-m>
+     <z-m>0.646</z-m>
+     <pitch-deg>-5</pitch-deg>
+     <roll-deg>-10</roll-deg>
+   </offsets>
+</model>
+
+<model>
+   <name>Taxing lights switch</name>
+   <path>Instruments/Switches/pin_switch.ac</path>
+   <offsets>
+     <x-m>-4.079</x-m>
+     <y-m>-0.298</y-m>
+     <z-m>0.639</z-m>
+     <pitch-deg>-5</pitch-deg>
+     <roll-deg>-10</roll-deg>
+   </offsets>
+</model>
+
+
+</PropertyList>

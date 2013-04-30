@@ -5,6 +5,25 @@
  <path>draken_tc.ac</path>
 
  <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>10</max-m>
+ </animation>
+ 
+ <animation>
+  <type>material</type> 
+  <object-name>Ball</object-name>
+  <object-name>Needle</object-name>
+  <object-name>Face</object-name>
+  <emission>	
+   <red>1</red>	
+   <green>0.3</green>	
+   <blue>0.3</blue>
+   <factor-prop>controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+ 
+ <animation>
   <type>rotate</type>
   <object-name>Needle</object-name>
   <property>/instrumentation/turn-indicator/indicated-turn-rate</property>

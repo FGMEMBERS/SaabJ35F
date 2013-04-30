@@ -6,6 +6,12 @@
  <animation>
   <type>material</type> 
   <object-name>NoseW</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/battery</property>
+    <value>20</value>
+   </greater-than>
+  </condition>
   <emission>
    <red>0.0</red>
    <green>1.0</green>
@@ -18,6 +24,12 @@
  <animation>
   <type>textranslate</type>
   <object-name>NoseW</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/battery</property>
+    <value>20</value>
+   </greater-than>
+  </condition>
   <property>/gear/gear[0]/position-norm</property>
   <factor>0.5</factor>
   <step>0.5</step>
@@ -30,6 +42,12 @@
  <animation>
   <type>material</type> 
   <object-name>LeftW</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/battery</property>
+    <value>20</value>
+   </greater-than>
+  </condition>
   <emission>
    <red>0.0</red>
    <green>1.0</green>
@@ -42,6 +60,12 @@
 <animation>
   <type>textranslate</type>
   <object-name>LeftW</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/battery</property>
+    <value>20</value>
+   </greater-than>
+  </condition>
   <property>/gear/gear[1]/position-norm</property>
   <factor>0.5</factor>
   <step>0.5</step>
@@ -54,6 +78,12 @@
  <animation>
   <type>material</type> 
   <object-name>RightW</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/battery</property>
+    <value>20</value>
+   </greater-than>
+  </condition>
   <emission>
    <red>0.0</red>
    <green>1.0</green>
@@ -67,6 +97,12 @@
 <animation>
   <type>textranslate</type>
   <object-name>RightW</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/battery</property>
+    <value>20</value>
+   </greater-than>
+  </condition>
   <property>/gear/gear[2]/position-norm</property>
   <factor>0.5</factor>
   <step>0.5</step>
@@ -79,6 +115,12 @@
  <animation>
   <type>material</type> 
   <object-name>TailW</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/battery</property>
+    <value>20</value>
+   </greater-than>
+  </condition>
   <emission>
    <red>0.0</red>
    <green>1.0</green>
@@ -91,6 +133,12 @@
 <animation>
   <type>textranslate</type>
   <object-name>TailW</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/battery</property>
+    <value>20</value>
+   </greater-than>
+  </condition>
   <property>/gear/gear[3]/position-norm</property>
   <factor>0.5</factor>
   <step>0.5</step>

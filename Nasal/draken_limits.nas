@@ -8,7 +8,7 @@ var checklimits = func {
     return;
     
   var msg = "";
-  var g = getprop("/accelerations/pilot-gdamped") or 1;  
+  var g = getprop("/accelerations/pilot-gdamped") or 0;  
   var airspeed = getprop("velocities/airspeed-kt") or 0;
   if (getprop("controls/gear/gear-down") == 1 and 
      airspeed > getprop("limits/max-gear-extended-speed"))
@@ -45,5 +45,28 @@ var checklimits = func {
   }
 }
 
+var testTouchDown = func(n) {
+   var wow = n.getValue() or 0.0;
+   var dn_spd = getprop("/velocities/speed-down-fps")*60;
+   if (wow and dn_spd > getprop("limits/max-touch-down-fpm")){
+      screen.log.write("Touch down vertical speed to high!");
+   }
+}
+
+var testDroptanks = func(n) {
+   var drp = n.getValue() or 0.0;
+   var airspeed = getprop("instrumentation/airspeed-indicator/indicated-mach") or 0;
+   if (drp==0 and airspeed > getprop("limits/max-drop-speed-mach")){
+      screen.log.write("Droptank eject speed exceeded!");
+   }
+}
+
+
 # Start
 checklimits();
+setlistener("/gear/gear[0]/wow", testTouchDown, 0, 0);
+setlistener("/gear/gear[1]/wow", testTouchDown, 0, 0);
+setlistener("/gear/gear[2]/wow", testTouchDown, 0, 0);
+setlistener("/gear/gear[3]/wow", testTouchDown, 0, 0);
+setlistener("/consumables/droptanks", testDroptanks, 0, 0);
+

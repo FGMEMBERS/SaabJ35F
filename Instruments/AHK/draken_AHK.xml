@@ -3,6 +3,46 @@
   <path>draken_AHK.ac</path>
 
  <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>10</max-m>
+ </animation>
+
+ <animation>
+  <type>material</type> 
+  <object-name>Instrument</object-name>
+  <condition>		
+    <greater-than>		
+     <property>/sim/time/sun-angle-rad</property>
+     <value>1.57</value>
+    </greater-than>
+  </condition>
+  <emission>	
+   <red>0.15</red>	
+   <green>0.03</green>	
+   <blue>0.03</blue>
+   <factor-prop>controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+  
+ <animation>
+  <type>material</type> 
+  <object-name>Needle_dist</object-name>
+  <object-name>Needle_h1000</object-name>
+  <object-name>Needle_h100</object-name>
+  <object-name>Needle_target</object-name>
+  
+  <object-name>Command</object-name>
+  <object-name>Face</object-name>
+  <emission>	
+   <red>1</red>	
+   <green>0.3</green>	
+   <blue>0.3</blue>
+   <factor-prop>controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+
+ <animation>
   <type>textranslate</type>
   <object-name>Needle_dist</object-name>
   <property>/instrumentation/AHK/needle_dist</property>
@@ -59,29 +99,6 @@
    <y>0</y>
    <z>1</z>
   </axis>
- </animation>
-
- <animation>
-  <type>pick</type>
-   <object-name>Command</object-name>
-   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <interval-sec>0.2</interval-sec>
-    <binding>
-      <command>property-cycle</command>
-      <property>/instrumentation/AHK/mode</property>
-      <value type="int">1</value>
-      <value type="int">2</value>
-      <value type="int">0</value>
-    </binding>
-    <mod-up>
-     <binding>
-       <command>nasal</command>
-       <script>SaabJ35F.set_mode();</script>
-     </binding>
-    </mod-up>
-   </action>
  </animation>
 
  <animation>

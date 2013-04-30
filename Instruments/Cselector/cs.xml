@@ -2,11 +2,29 @@
 <PropertyList>
 
  <path>cs.ac</path>
-
+ <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>10</max-m>
+ </animation>
+ 
+ <animation>
+  <type>material</type> 
+  <object-name>Face10</object-name>
+  <object-name>Face360</object-name>
+  <object-name>Cover</object-name>
+  <emission>	
+   <red>1</red>	
+   <green>0.3</green>	
+   <blue>0.3</blue>
+   <factor-prop>controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+ 
  <animation>
   <type>rotate</type>
   <object-name>Face360</object-name>
-  <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+  <property>instrumentation/heading-indicator/heading-bug-deg</property>
   <axis>
    <x>1</x>
    <y>0</y>
@@ -17,7 +35,7 @@
  <animation>
   <type>rotate</type>
   <object-name>Face10</object-name>
-  <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+  <property>instrumentation/heading-indicator/heading-bug-deg</property>
   <factor>36</factor>
   <axis>
    <x>1</x>
@@ -38,7 +56,7 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+      <property>instrumentation/heading-indicator/heading-bug-deg</property>
       <step>-0.5</step>
       <min>0.0</min>
       <max>360.0</max>
@@ -51,7 +69,7 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+      <property>instrumentation/heading-indicator/heading-bug-deg</property>
       <step>-10</step>
       <min>0.0</min>
       <max>360.0</max>
@@ -64,7 +82,7 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+      <property>instrumentation/heading-indicator/heading-bug-deg</property>
       <step>-0.5</step>
       <min>0.0</min>
       <max>360.0</max>
@@ -77,7 +95,7 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+      <property>instrumentation/heading-indicator/heading-bug-deg</property>
       <step>0.5</step>
       <min>0.0</min>
       <max>360.0</max>
@@ -96,7 +114,7 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+      <property>instrumentation/heading-indicator/heading-bug-deg</property>
       <step>0.5</step>
       <min>0.0</min>
       <max>360.0</max>
@@ -109,7 +127,7 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+      <property>instrumentation/heading-indicator/heading-bug-deg</property>
       <step>10</step>
       <min>0.0</min>
       <max>360.0</max>
@@ -122,7 +140,7 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+      <property>instrumentation/heading-indicator/heading-bug-deg</property>
       <step>-0.1</step>
       <min>500.0</min>
       <max>1200.0</max>
@@ -135,7 +153,7 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+      <property>instrumentation/heading-indicator/heading-bug-deg</property>
       <step>0.5</step>
       <min>0.0</min>
       <max>360.0</max>

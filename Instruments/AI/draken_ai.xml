@@ -3,10 +3,28 @@
 
   <path>draken_ai.ac</path>
 
+ <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>10</max-m>
+ </animation>
+ 
+ <animation>
+  <type>material</type> 
+  <object-name>sphere</object-name>
+  <object-name>bank-index</object-name>
+  <emission>	
+   <red>1</red>	
+   <green>0.3</green>	
+   <blue>0.3</blue>
+   <factor-prop>controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+
   <animation>
     <type>rotate</type>
     <object-name>sphere</object-name>
-    <property>orientation/roll-deg</property>
+    <property>instrumentation/attitude-indicator/indicated-roll-deg</property>
     <center>
       <x-m>-0.01442</x-m>
       <y-m>0</y-m>
@@ -18,7 +36,7 @@
   <animation>
     <type>rotate</type>
     <object-name>sphere</object-name>
-    <property>orientation/pitch-deg</property>
+    <property>instrumentation/attitude-indicator/indicated-pitch-deg</property>
     <center>
       <x-m>-0.01442</x-m>
       <y-m>0</y-m>
@@ -29,15 +47,9 @@
   <animation>
     <type>rotate</type>
     <object-name>bank-index</object-name>
-    <property>orientation/roll-deg</property>
+    <property>instrumentation/attitude-indicator/indicated-roll-deg</property>
     <axis><x>1</x></axis>
   </animation>
 
-
-  <animation>
-    <type>range</type>
-    <min-m>0</min-m>
-    <max-m>15</max-m>
-  </animation>
 
 </PropertyList>

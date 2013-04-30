@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<!-- Instruments -->
+ <model>
+   <name>airspeed</name>
+   <path>Instruments/Speed/draken_hast.xml</path>
+   <offsets>
+     <x-m>-4.235</x-m>
+     <y-m>-0.137</y-m>
+     <z-m>0.499</z-m>
+     <pitch-deg>-13</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <name>AHK</name>
+   <path>Instruments/AHK/draken_AHK.xml</path>
+   <offsets>
+     <x-m>-4.235</x-m>
+     <y-m>0.14</y-m>
+     <z-m>0.499</z-m>
+     <pitch-deg>-13</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <name>clock</name>
+   <path>Instruments/Clock/clock.xml</path>
+   <offsets>
+     <x-m>-4.263</x-m>
+     <y-m>0.220</y-m>
+     <z-m>0.648</z-m>
+     <pitch-deg>-12</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <name>secAI</name>
+   <path>Instruments/SecAI/secai.xml</path>
+   <offsets>
+     <x-m>-4.24</x-m>
+     <y-m>0.232</y-m>
+     <z-m>0.57</z-m>
+     <pitch-deg>-13</pitch-deg>
+   </offsets>
+ </model>
+ 
+ <model>
+   <name>altselector</name>
+   <path>Instruments/Altselector/altselector.xml</path>
+   <offsets>
+     <x-m>-4.24</x-m>
+     <y-m>0.234</y-m>
+     <z-m>0.50</z-m>
+     <pitch-deg>-13</pitch-deg>
+   </offsets>
+ </model>
+ 
+ <model>
+   <name>Gmeter</name>
+   <path>Instruments/Gmeter/gmeter.xml</path>
+   <offsets>
+     <x-m>-4.272</x-m>
+     <y-m>-0.215</y-m>
+     <z-m>0.648</z-m>
+     <pitch-deg>-13</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <name>fuel</name>
+   <path>Instruments/Fuel/fuel_gauge.xml</path>
+   <offsets>
+     <x-m>-4.233</x-m>
+     <y-m>0.11</y-m>
+     <z-m>0.427</z-m>
+     <pitch-deg>-13</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <name>AI</name>
+   <path>Instruments/AI/draken_ai.xml</path>
+   <offsets>
+     <x-m>-4.225</x-m>
+     <y-m>0.003</y-m>
+     <z-m>0.435</z-m>
+     <pitch-deg>-13.6</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <name>Altimeter</name>
+   <path>Instruments/Altmeter/draken_alt-meter.xml</path>
+   <offsets>
+     <x-m>-4.248</x-m>
+     <y-m>-0.223</y-m>
+     <z-m>0.553</z-m>
+     <pitch-deg>-13.6</pitch-deg>
+     <yaw-deg>5</yaw-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <name>direction</name>
+   <path>Instruments/Compass/compass.xml</path>
+   <offsets>
+     <x-m>-4.226</x-m>
+     <y-m>-0.095</y-m>
+     <z-m>0.435</z-m>
+     <pitch-deg>-13.6</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <name>turn</name>
+   <path>Instruments/TC/draken_tc.xml</path>
+   <offsets>
+     <x-m>-4.225</x-m>
+     <y-m>-0.189</y-m>
+     <z-m>0.44</z-m>
+     <pitch-deg>-12</pitch-deg>
+   </offsets>
+ </model>
+ 
+ <model>
+   <name>course_selector</name>
+   <path>Instruments/Cselector/cs.xml</path>
+   <offsets>
+     <x-m>-4.216</x-m>
+     <y-m>-0.045</y-m>
+     <z-m>0.349</z-m>
+     <pitch-deg>-5</pitch-deg>
+   </offsets>
+ </model>
+ 
+ <model>
+   <name>tachometer</name>
+   <path>Instruments/RPM/rpm.xml</path>
+   <offsets>
+     <x-m>-4.212</x-m>
+     <y-m>0.055</y-m>
+     <z-m>0.352</z-m>
+     <pitch-deg>-5</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <name>EGT</name>
+   <path>Instruments/EGT/egt.xml</path>
+   <offsets>
+     <x-m>-4.227</x-m>
+     <y-m>0.203</y-m>
+     <z-m>0.444</z-m>
+     <pitch-deg>-13</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <name>Alfameter</name>
+   <path>Instruments/Alfameter/alfameter.xml</path>
+   <offsets>
+     <x-m>-4.30</x-m>
+     <y-m>-0.14</y-m>
+     <z-m>0.77</z-m>
+   </offsets>
+ </model>
+
+<!--    Indicators    -->
+
+ <model>
+   <name>Gearindicator</name>
+   <path>Instruments/Indicators/gearindicator.xml</path>
+   <offsets>
+     <x-m>-4.17</x-m>
+     <y-m>-0.385</y-m>
+     <z-m>0.29</z-m>
+     <pitch-deg>-76</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <name>Altidicator</name>
+   <path>Instruments/Indicators/altind.xml</path>
+   <offsets>
+     <x-m>-4.247</x-m>
+     <y-m>-0.289</y-m>
+     <z-m>0.532</z-m>
+     <pitch-deg>-13.6</pitch-deg>
+   </offsets>
+ </model>
+ 
+ <model>
+   <name>Gearwarning</name>
+   <path>Instruments/Indicators/gearwarning.xml</path>
+   <offsets>
+     <x-m>-4.236</x-m>
+     <y-m>-0.324</y-m>
+     <z-m>0.509</z-m>
+     <pitch-deg>-13</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <name>Droptanks</name>
+   <path>Instruments/Indicators/droptanks.xml</path>
+   <offsets>
+     <x-m>-4.225</x-m>
+     <y-m>0.273</y-m>
+     <z-m>0.426</z-m>
+     <pitch-deg>-12</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <name>Masteralarm</name>
+   <path>Instruments/Indicators/masteralarm.xml</path>
+   <offsets>
+     <x-m>-4.225</x-m>
+     <y-m>-0.239</y-m>
+     <z-m>0.468</z-m>
+     <pitch-deg>-13</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <name>Speedbrakes</name>
+   <path>Instruments/Indicators/airbrakes.xml</path>
+   <offsets>
+     <x-m>-4.225</x-m>
+     <y-m>-0.241</y-m>
+     <z-m>0.43</z-m>
+     <pitch-deg>-13</pitch-deg>
+   </offsets>
+ </model>
+
+<!--       Radar     -->
+
+ <model>
+   <name>Radar</name>
+   <path>Radar/radar.xml</path>
+   <offsets>
+     <x-m>-4.255</x-m>
+     <y-m>0.0</y-m>
+     <z-m>0.58</z-m>
+     <pitch-deg>-13</pitch-deg>
+   </offsets>
+ </model>
+
+<!--       Avionics   -->
+ <model>
+   <name>Autopilot</name>
+   <path>Avionics/autopilot.xml</path>
+   <offsets>
+     <x-m>-3.82</x-m>
+     <y-m>0.35</y-m>
+     <z-m>0.246</z-m>
+     <pitch-deg>-89</pitch-deg>
+     <heading-deg>2</heading-deg>
+     <roll-deg>0</roll-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <name>Caution panel</name>
+   <path>Avionics/caution.xml</path>
+   <offsets>
+     <x-m>-4.213</x-m>
+     <y-m>0.333</y-m>
+     <z-m>0.36</z-m>
+     <pitch-deg>-7.5</pitch-deg>
+     <heading-deg>0</heading-deg>
+     <roll-deg>0</roll-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <name>Navigation radio</name>
+   <path>Avionics/navradio.xml</path>
+   <offsets>
+     <x-m>-4.11</x-m>
+     <y-m>0.34</y-m>
+     <z-m>0.275</z-m>
+     <pitch-deg>-77</pitch-deg>
+     <heading-deg>1</heading-deg>
+     <roll-deg>0</roll-deg>
+   </offsets>
+ </model>
+ 
+</PropertyList>

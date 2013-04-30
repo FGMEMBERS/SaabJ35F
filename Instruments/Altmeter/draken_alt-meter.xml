@@ -4,10 +4,56 @@
 
  <path>draken_alt-meter.ac</path>
 
+ <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>10</max-m>
+ </animation>
 
+ <animation>
+  <type>material</type> 
+  <object-name>Cube</object-name>
+  <condition>		
+    <greater-than>		
+     <property>/sim/time/sun-angle-rad</property>
+     <value>1.57</value>
+    </greater-than>
+  </condition>
+  <emission>	
+   <red>0.15</red>	
+   <green>0.03</green>	
+   <blue>0.03</blue>
+   <factor-prop>controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+  
+ <animation>
+  <type>material</type> 
+  <object-name>Hundred_meter_hand</object-name>
+  <object-name>km_hand</object-name>
+  <object-name>Dig1000</object-name>
+  <object-name>Dig100</object-name>
+  <object-name>Dig10</object-name>
+  <object-name>Dig1</object-name>
+  <object-name>Dig0.1</object-name>
+  <object-name>Face</object-name>
+  <emission>	
+   <red>1</red>	
+   <green>0.3</green>	
+   <blue>0.3</blue>
+   <factor-prop>controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+ 
  <animation>
   <type>rotate</type>
   <object-name>Hundred_meter_hand</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/battery</property>
+    <value>20</value>
+   </greater-than>
+  </condition>
   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
   <factor>0.1098</factor>
   <center>
@@ -25,6 +71,12 @@
  <animation>
   <type>rotate</type>
   <object-name>km_hand</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/battery</property>
+    <value>20</value>
+   </greater-than>
+  </condition>
   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
   <factor>0.01098</factor>
   <center>

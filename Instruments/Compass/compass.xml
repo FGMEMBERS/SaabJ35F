@@ -4,9 +4,28 @@
  <path>compass.ac</path>
 
  <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>10</max-m>
+ </animation>
+ 
+ <animation>
+  <type>material</type> 
+  <object-name>Needle</object-name>
+  <object-name>Index</object-name>
+  <object-name>Face</object-name>
+  <emission>	
+   <red>1</red>	
+   <green>0.3</green>	
+   <blue>0.3</blue>
+   <factor-prop>controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+ 
+ <animation>
   <type>rotate</type>
   <object-name>Face</object-name>
-  <property>orientation/heading-deg</property>
+  <property>instrumentation/heading-indicator/indicated-heading-deg</property>
   <axis>
    <x>1</x>
    <y>0</y>
@@ -17,7 +36,7 @@
  <animation>
   <type>rotate</type>
   <object-name>Needle</object-name>
-  <property>orientation/heading-deg</property>
+  <property>instrumentation/heading-indicator/indicated-heading-deg</property>
   <axis>
    <x>1</x>
    <y>0</y>
@@ -28,7 +47,7 @@
  <animation>
   <type>rotate</type>
   <object-name>Needle</object-name>
-  <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
+  <property>instrumentation/navradio/dir</property>
   <axis>
    <x>-1</x>
    <y>0</y>

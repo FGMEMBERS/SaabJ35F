@@ -1,0 +1,414 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>navradio.ac</path>
+
+ <animation>
+  <type>material</type> 
+  <object-name>Selector</object-name>
+  <object-name>Anita1</object-name>
+  <object-name>Anita2</object-name>
+  <object-name>Barbro</object-name>
+  <object-name>Nav1</object-name>
+  <object-name>Nav2</object-name>
+  <object-name>Landn</object-name>
+  <object-name>Cube</object-name>
+  <condition>		
+    <greater-than>		
+     <property>/sim/time/sun-angle-rad</property>
+     <value>1.57</value>
+    </greater-than>
+  </condition>
+  <emission>	
+   <red>0.15</red>	
+   <green>0.03</green>	
+   <blue>0.03</blue>
+   <factor-prop>controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+  
+<!-- PICK -->
+
+ <animation>
+  <type>pick</type>
+   <object-name>Anita1R</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-cycle</command>
+      <property>/instrumentation/navradio/anita1</property>
+      <value type="int">0</value>
+      <value type="int">1</value>
+      <value type="int">2</value>
+      <value type="int">3</value>
+      <value type="int">4</value>
+      <value type="int">5</value>
+      <value type="int">6</value>
+      <value type="int">7</value>
+      <value type="int">8</value>
+      <value type="int">9</value>
+      <value type="int">10</value>
+      <value type="int">11</value>
+      <value type="int">12</value>
+      <value type="int">13</value>
+      <value type="int">14</value>
+      <value type="int">15</value>
+   </binding>
+   <mod-up>
+     <binding>
+       <command>nasal</command>
+       <script>SaabJ35F.set_beacon();</script>
+     </binding>
+   </mod-up>
+   </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+   <object-name>Anita1L</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-cycle</command>
+      <property>/instrumentation/navradio/anita1</property>
+      <value type="int">15</value>
+      <value type="int">14</value>
+      <value type="int">13</value>
+      <value type="int">12</value>
+      <value type="int">11</value>
+      <value type="int">10</value>
+      <value type="int">9</value>
+      <value type="int">8</value>
+      <value type="int">7</value>
+      <value type="int">6</value>
+      <value type="int">5</value>
+      <value type="int">4</value>
+      <value type="int">3</value>
+      <value type="int">2</value>
+      <value type="int">1</value>
+      <value type="int">0</value>
+   </binding>
+   <mod-up>
+     <binding>
+       <command>nasal</command>
+       <script>SaabJ35F.set_beacon();</script>
+     </binding>
+   </mod-up>
+   </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>Anita2R</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-cycle</command>
+      <property>/instrumentation/navradio/anita2</property>
+      <value type="int">0</value>
+      <value type="int">1</value>
+      <value type="int">2</value>
+      <value type="int">3</value>
+      <value type="int">4</value>
+      <value type="int">5</value>
+      <value type="int">6</value>
+      <value type="int">7</value>
+      <value type="int">8</value>
+      <value type="int">9</value>
+      <value type="int">10</value>
+      <value type="int">11</value>
+      <value type="int">12</value>
+      <value type="int">13</value>
+      <value type="int">14</value>
+      <value type="int">15</value>
+   </binding>
+   <mod-up>
+     <binding>
+       <command>nasal</command>
+       <script>SaabJ35F.set_beacon();</script>
+     </binding>
+   </mod-up>
+   </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+   <object-name>Anita2L</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-cycle</command>
+      <property>/instrumentation/navradio/anita2</property>
+      <value type="int">15</value>
+      <value type="int">14</value>
+      <value type="int">13</value>
+      <value type="int">12</value>
+      <value type="int">11</value>
+      <value type="int">10</value>
+      <value type="int">9</value>
+      <value type="int">8</value>
+      <value type="int">7</value>
+      <value type="int">6</value>
+      <value type="int">5</value>
+      <value type="int">4</value>
+      <value type="int">3</value>
+      <value type="int">2</value>
+      <value type="int">1</value>
+      <value type="int">0</value>
+   </binding>
+   <mod-up>
+     <binding>
+       <command>nasal</command>
+       <script>SaabJ35F.set_beacon();</script>
+     </binding>
+   </mod-up>
+   </action>
+ </animation>
+  
+ <animation>
+  <type>pick</type>
+   <object-name>BarbroR</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-cycle</command>
+      <property>/instrumentation/navradio/barbro</property>
+      <value type="int">0</value>
+      <value type="int">1</value>
+      <value type="int">2</value>
+      <value type="int">3</value>
+      <value type="int">4</value>
+      <value type="int">5</value>
+      <value type="int">6</value>
+      <value type="int">7</value>
+      <value type="int">8</value>
+      <value type="int">9</value>
+      <value type="int">10</value>
+      <value type="int">11</value>
+      <value type="int">12</value>
+      <value type="int">13</value>
+      <value type="int">14</value>
+      <value type="int">15</value>
+   </binding>
+   <mod-up>
+     <binding>
+       <command>nasal</command>
+       <script>SaabJ35F.set_beacon();</script>
+     </binding>
+   </mod-up>
+   </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+   <object-name>BarbroL</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-cycle</command>
+      <property>/instrumentation/navradio/barbro</property>
+      <value type="int">15</value>
+      <value type="int">14</value>
+      <value type="int">13</value>
+      <value type="int">12</value>
+      <value type="int">11</value>
+      <value type="int">10</value>
+      <value type="int">9</value>
+      <value type="int">8</value>
+      <value type="int">7</value>
+      <value type="int">6</value>
+      <value type="int">5</value>
+      <value type="int">4</value>
+      <value type="int">3</value>
+      <value type="int">2</value>
+      <value type="int">1</value>
+      <value type="int">0</value>
+   </binding>
+   <mod-up>
+     <binding>
+       <command>nasal</command>
+       <script>SaabJ35F.set_beacon();</script>
+     </binding>
+   </mod-up>
+   </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>SelectorR</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-cycle</command>
+      <property>/instrumentation/navradio/mode</property>
+      <value type="int">0</value> <!-- FRÅN -->
+      <value type="int">1</value> <!-- FÖRV -->
+      <value type="int">2</value> <!-- STRIL -->
+      <value type="int">3</value> <!-- STRID -->
+      <value type="int">4</value> <!-- NAVRIKTN -->
+      <value type="int">5</value> <!-- NAV 400 -->
+      <value type="int">6</value> <!-- NAV 40 -->
+      <value type="int">7</value> <!-- LANDN 40 -->
+      <value type="int">8</value> <!-- BARBRO -->
+   </binding>
+   <mod-up>
+     <binding>
+       <command>nasal</command>
+       <script>SaabJ35F.set_nav_mode();</script>
+     </binding>
+   </mod-up>
+   </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+   <object-name>SelectorL</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-cycle</command>
+      <property>/instrumentation/navradio/mode</property>
+      <value type="int">8</value>
+      <value type="int">7</value>
+      <value type="int">6</value>
+      <value type="int">5</value>
+      <value type="int">4</value>
+      <value type="int">3</value>
+      <value type="int">2</value>
+      <value type="int">1</value>
+      <value type="int">0</value>
+   </binding>
+   <mod-up>
+     <binding>
+       <command>nasal</command>
+       <script>SaabJ35F.set_nav_mode();</script>
+     </binding>
+   </mod-up>
+   </action>
+ </animation>
+ 
+
+<!-- Transformations -->
+
+ <animation>
+  <object-name>Selector</object-name>
+  <type>rotate</type>
+  <property>/instrumentation/navradio/mode</property>
+  <factor>-30</factor>
+  <center>
+   <x-m>0.005749</x-m>
+   <y-m>-0.02098</y-m>
+   <z-m>-0.05628</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <object-name>Anita1</object-name>
+  <type>rotate</type>
+  <property>/instrumentation/navradio/anita1</property>
+  <factor>-22.5</factor>
+  <center>
+   <x-m>0.005749</x-m>
+   <y-m>-0.02964</y-m>
+   <z-m>0.01958</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <object-name>Anita2</object-name>
+  <type>rotate</type>
+  <property>/instrumentation/navradio/anita2</property>
+  <factor>-22.5</factor>
+  <center>
+   <x-m>0.005749</x-m>
+   <y-m>0.02323</y-m>
+   <z-m>0.01958</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <object-name>Barbro</object-name>
+  <type>rotate</type>
+  <property>/instrumentation/navradio/barbro</property>
+  <factor>-22.5</factor>
+  <center>
+   <x-m>0.0006505</x-m>
+   <y-m>0.03287</y-m>
+   <z-m>-0.04113</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+     <type>textranslate</type>
+     <object-name>Nav1</object-name>
+     <property>/instrumentation/navradio/anita1</property>
+     <factor>0.0625</factor>
+     <axis>
+        <x>1</x>
+        <y>0</y>
+        <z>0</z>
+     </axis>
+ </animation>
+
+ <animation>
+     <type>textranslate</type>
+     <object-name>Nav2</object-name>
+     <property>/instrumentation/navradio/anita2</property>
+     <factor>0.0625</factor>
+     <axis>
+        <x>1</x>
+        <y>0</y>
+        <z>0</z>
+     </axis>
+ </animation>
+
+ <animation>
+     <type>textranslate</type>
+     <object-name>Landn</object-name>
+     <property>/instrumentation/navradio/barbro</property>
+     <factor>0.0625</factor>
+     <axis>
+        <x>1</x>
+        <y>0</y>
+        <z>0</z>
+     </axis>
+ </animation>
+     
+</PropertyList>

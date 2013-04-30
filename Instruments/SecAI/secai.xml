@@ -3,9 +3,33 @@
 
   <path>secai.ac</path>
 
+ <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>10</max-m>
+ </animation>
+ 
+ <animation>
+  <type>material</type> 
+  <object-name>Cylinder</object-name>
+  <object-name>Pointer</object-name>
+  <emission>	
+   <red>1</red>	
+   <green>0.3</green>	
+   <blue>0.3</blue>
+   <factor-prop>controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+ 
   <animation>
     <type>rotate</type>
     <object-name>Cylinder</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/inst_ac</property>
+    <value>40</value>
+   </greater-than>
+  </condition>
     <property>orientation/roll-deg</property>
     <center>
       <x-m>-0.02522</x-m>
@@ -18,6 +42,12 @@
   <animation>
     <type>rotate</type>
     <object-name>Pointer</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/inst_ac</property>
+    <value>40</value>
+   </greater-than>
+  </condition>
     <property>orientation/roll-deg</property>
     <center>
       <x-m>-0.02522</x-m>
@@ -30,6 +60,12 @@
   <animation>
     <type>rotate</type>
     <object-name>Cylinder</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/inst_ac</property>
+    <value>40</value>
+   </greater-than>
+  </condition>
     <property>orientation/pitch-deg</property>
     <factor>2</factor>
     <center>
@@ -38,12 +74,6 @@
       <z-m>0.0</z-m>
     </center>
     <axis><y>1</y></axis>
-  </animation>
-
-  <animation>
-    <type>range</type>
-    <min-m>0</min-m>
-    <max-m>15</max-m>
   </animation>
 
 </PropertyList>

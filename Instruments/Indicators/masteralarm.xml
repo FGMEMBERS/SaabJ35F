@@ -5,19 +5,25 @@
 
  <animation>
   <type>material</type> 
-  <object-name>Circle</object-name>				
+  <object-name>Circle</object-name>
+  <condition>
+    <property>/instrumentation/master_alarm/enabled</property>
+  </condition>				
   <emission>
    <red>1.0</red>
    <green>0.6</green>
    <blue>0.0</blue>
-   <factor-prop>/instrumentation/master_alarm</factor-prop>
+   <factor-prop>/instrumentation/master_alarm/on</factor-prop>
   </emission>
  </animation>
 
  <animation>
   <type>textranslate</type>
   <object-name>Circle</object-name>
-  <property>/instrumentation/master_alarm</property>
+  <condition>
+    <property>/instrumentation/master_alarm/enabled</property>
+  </condition>
+  <property>/instrumentation/master_alarm/on</property>
   <factor>0.5</factor>
   <axis>
    <x>1</x>
@@ -25,4 +31,18 @@
   </axis>
  </animation>
 
+ <animation>
+  <type>pick</type>
+   <object-name>Circle</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-toggle</command>
+      <property>/instrumentation/master_alarm/enabled</property>
+    </binding>
+   </action>
+ </animation>
+ 
 </PropertyList>

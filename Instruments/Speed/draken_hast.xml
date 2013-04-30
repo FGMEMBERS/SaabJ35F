@@ -3,8 +3,50 @@
   <path>draken_hast.ac</path>
 
  <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>10</max-m>
+ </animation>
+
+ <animation>
+  <type>material</type> 
+  <object-name>Instrument</object-name>
+  <condition>		
+    <greater-than>		
+     <property>/sim/time/sun-angle-rad</property>
+     <value>1.57</value>
+    </greater-than>
+  </condition>
+  <emission>	
+   <red>0.15</red>	
+   <green>0.03</green>	
+   <blue>0.03</blue>
+   <factor-prop>controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+  
+ <animation>
+  <type>material</type> 
+  <object-name>Needle_mach</object-name>
+  <object-name>Needle_kmh</object-name>
+  <object-name>Face</object-name>
+  <emission>	
+   <red>1</red>	
+   <green>0.3</green>	
+   <blue>0.3</blue>
+   <factor-prop>controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+ 
+ <animation>
   <type>textranslate</type>
   <object-name>Needle_kmh</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/battery</property>
+    <value>20</value>
+   </greater-than>
+  </condition>
   <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
   <interpolation>
    <entry><ind>70.2</ind><dep>0.0</dep></entry>
@@ -27,6 +69,12 @@
  <animation>
   <type>textranslate</type>
   <object-name>Needle_mach</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/battery</property>
+    <value>20</value>
+   </greater-than>
+  </condition>
   <property>instrumentation/airspeed-indicator/indicated-mach</property>
   <interpolation>
    <entry><ind>0.55</ind><dep>0.0</dep></entry>

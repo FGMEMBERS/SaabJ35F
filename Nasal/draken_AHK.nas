@@ -1,6 +1,6 @@
 #AHK functions
 
-#Modes: NOLLA=0, HOJDANDR=1, LANDA=2
+#Modes: NOLLA=0, HOJDANDR=1, LANDA=2, AVST. 40=3, AVST. 400=4, NYTT MAL=5, BARBRO=6
 
 #Running mean vectors
 var dv = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -91,9 +91,48 @@ var mode_nolla=func {
   getprop("/instrumentation/AHK/needle_target") != 0)) settimer(mode_nolla, 0.0625);
 }
 
+#AVST. 40
+var mode_av40=func {
+  var h=getprop("/instrumentation/altimeter/pressure-alt-ft");
+  var dhdt=getprop("/instrumentation/vertical-speed-indicator/indicated-speed-fpm")*0.305;
+  setprop("/instrumentation/AHK/needle_target", set_alt(dhdt+h*0.305, 0.00005));
+  setprop("/instrumentation/AHK/needle_dist", 
+          set_dist(getprop("/instrumentation/navradio/dis"), 0.000025));
+  if (getprop("/instrumentation/AHK/mode") == 3) settimer(mode_av40, 0.0625);
+}
+
+#AVST. 400
+var mode_av400=func {
+  var h=getprop("/instrumentation/altimeter/pressure-alt-ft");
+  var dhdt=getprop("/instrumentation/vertical-speed-indicator/indicated-speed-fpm")*0.305;
+  setprop("/instrumentation/AHK/needle_target", set_alt(dhdt+h*0.305, 0.00005));
+  setprop("/instrumentation/AHK/needle_dist", 
+          set_dist(getprop("/instrumentation/navradio/dis"), 0.0000025));
+  if (getprop("/instrumentation/AHK/mode") == 4) settimer(mode_av400, 0.0625);
+}
+
+#NYTT MAL
+var mode_nm=func {
+  setprop("/instrumentation/AHK/needle_target", 
+          set_alt(getprop("/autopilot/route-manager/cruise/altitude-ft"), 0.00001525));
+  setprop("/instrumentation/AHK/needle_dist", 
+          set_dist(getprop("/instrumentation/navradio/dis"), 0.00463));
+  if (getprop("/instrumentation/AHK/mode") == 5) settimer(mode_nm, 0.0625);
+}
+
+#BARBRO
+var mode_barbro=func {
+  var h=getprop("/instrumentation/altimeter/pressure-alt-ft");
+  var dhdt=getprop("/instrumentation/vertical-speed-indicator/indicated-speed-fpm")*0.305;
+  setprop("/instrumentation/AHK/needle_target", set_alt(dhdt+h*0.305, 0.0005));
+  setprop("/instrumentation/AHK/needle_dist", 
+          set_dist(getprop("/instrumentation/navradio/dis"), 0.000025));
+  if (getprop("/instrumentation/AHK/mode") == 6) settimer(mode_barbro, 0.0625);
+}
+
 #Setting modes
-var set_mode = func {
-  var ms = getprop("/instrumentation/AHK/mode");
+var set_AHK_mode = func(ms) {
+  setprop("/instrumentation/AHK/mode", ms);
   if (ms==0) {
     print("AHK mode NOLLA");
     mode_nolla();
@@ -103,6 +142,19 @@ var set_mode = func {
   } else if (ms==2) {
     print("AHK mode LANDA");
     mode_landa();
+  } else if (ms==3) {
+    print("AHK mode AVST. 40");
+    mode_av40();
+  } else if (ms==4) {
+    print("AHK mode AVST. 400");
+    mode_av400();
+  } else if (ms==5) {
+    print("AHK mode NYTT MAL");
+    mode_nm();
+  } else if (ms==6) {
+    print("AHK mode BARBRO");
+    mode_barbro();
   }
 }
+
 

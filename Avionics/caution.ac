@@ -1,0 +1,27 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "Material.001" rgb 0 0 0 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 64 trans 0
+OBJECT world
+kids 1
+OBJECT poly
+name "Caution"
+loc 0 0 -0
+data 7
+Caution
+texture "ctn.png"
+texrep 1.000000 1.000000
+crease 179.000000
+numvert 4
+0 -0.03825 0.06075
+0 0.03825 0.06075
+0 -0.03825 -0.06075
+0 0.03825 -0.06075
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+2 1 0.365220487118
+3 1 1
+1 0 1
+0 0 0.365220636129
+kids 0

@@ -14,6 +14,25 @@
  	<object-name>Gauge</object-name> 
 </effect -->
 
+ <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>10</max-m>
+ </animation>
+ 
+ <animation>
+  <type>material</type> 
+  <object-name>Gneedle</object-name>
+  <object-name>Gmaxneedle</object-name>
+  <object-name>Gauge</object-name>
+  <emission>	
+   <red>1</red>	
+   <green>0.3</green>	
+   <blue>0.3</blue>
+   <factor-prop>controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+ 
 <animation>
         <type>rotate</type>
         <object-name>Gneedle</object-name>

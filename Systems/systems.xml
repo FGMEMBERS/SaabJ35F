@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <!--electrical>
+    <name>electrical</name>
+    <number>0</number>
+    <path>Systems/electrical.xml</path>
+  </electrical-->
+
+  
+  <pitot>
+    <name>pitot</name>
+    <number>0</number>
+  </pitot>
+
+  <static>
+    <name>static</name>
+    <number>0</number>
+    <tau>1</tau>
+  </static>
+
+  <vacuum>
+    <name>vacuum</name>
+    <number>0</number>
+    <rpm>systems/electrical/outputs/inst_ac</rpm>
+    <scale>50.0</scale>
+  </vacuum>
+
+</PropertyList>

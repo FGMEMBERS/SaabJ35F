@@ -4,6 +4,27 @@
 
  <path>altselect.ac</path>
 
+ <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>10</max-m>
+ </animation>
+ 
+ <animation>
+  <type>material</type> 
+  <object-name>D10000</object-name>
+  <object-name>D1000</object-name>
+  <object-name>D100</object-name>
+  <object-name>D10</object-name>
+  <object-name>D1</object-name>
+  <emission>	
+   <red>1</red>	
+   <green>0.3</green>	
+   <blue>0.3</blue>
+   <factor-prop>controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+
     <!-- Altitude Display -->
     
     <animation>

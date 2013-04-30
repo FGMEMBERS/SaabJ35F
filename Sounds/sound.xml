@@ -356,6 +356,17 @@
       </volume>
     </stall>
 
+    <!--battery>
+      <name>Battery bus relay</name>
+      <path>Sounds/click.wav</path>
+      <condition>
+        <equals>
+          <property>/gear/gear[2]/position-norm</property>
+          <value>1</value>
+        </equals>
+      </condition>
+    </battery-->
+    
 <!-- no binding yet?
     <click>
       <name>click</name>

@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+
 <!--
 Draken model version 
 by Oliver Reischl
@@ -6,259 +8,352 @@ Anders  M
 
 <PropertyList>
  
-  <path>draken.ac</path>
- 
-<!-- Instruments -->
- <model>
-   <name>airspeed</name>
-   <path>Instruments/Speed/draken_hast.xml</path>
-   <offsets>
-     <x-m>-4.235</x-m>
-     <y-m>-0.137</y-m>
-     <z-m>0.499</z-m>
-     <pitch-deg>-13</pitch-deg>
-   </offsets>
- </model>
+ <path>draken.ac</path>
 
- <model>
-   <name>AHK</name>
-   <path>Instruments/AHK/draken_AHK.xml</path>
-   <offsets>
-     <x-m>-4.235</x-m>
-     <y-m>0.14</y-m>
-     <z-m>0.499</z-m>
-     <pitch-deg>-13</pitch-deg>
-   </offsets>
- </model>
+ <nasal>
+  <load>
+     var livery_update = aircraft.livery_update.new("Aircraft/SaabJ35F/Model/Liveries");
+  </load> 
+  <unload>
+     livery_update.stop();
+  </unload>
+ </nasal>
 
- <model>
-   <name>clock</name>
-   <path>Instruments/Clock/clock.xml</path>
-   <offsets>
-     <x-m>-4.263</x-m>
-     <y-m>0.220</y-m>
-     <z-m>0.648</z-m>
-     <pitch-deg>-12</pitch-deg>
-   </offsets>
- </model>
+ <animation>
+  <type>material</type>
+   <object-name>draken_fuselage</object-name>
+   <object-name>draken_elevon_left</object-name>
+   <object-name>draken_elevon_right</object-name>
+   <object-name>draken_canopy</object-name>
+   <object-name>draken_airbrake_left</object-name>
+   <object-name>draken_airbrake_right</object-name>
+   <object-name>draken_seitenruder</object-name>
+   <object-name>draken_quer_links</object-name>
+   <object-name>draken_quer_rechts</object-name>
+   <object-name>draken_wdf_left</object-name>
+   <object-name>draken_wdf_right</object-name>
+   <object-name>draken_wdl_left</object-name>
+   <object-name>draken_wdl_right</object-name>
+   <object-name>draken_wdr_left</object-name>
+   <object-name>draken_wdr_right</object-name>
+   <property-base>sim/model/livery</property-base>
+   <texture-prop>texture</texture-prop>
+   <texture>draken_main_sw2.png</texture>
+ </animation>
 
+<!-- ********** Instruments indicators and switches ********* -->
  <model>
-   <name>secAI</name>
-   <path>Instruments/SecAI/secai.xml</path>
-   <offsets>
-     <x-m>-4.24</x-m>
-     <y-m>0.232</y-m>
-     <z-m>0.57</z-m>
-     <pitch-deg>-13</pitch-deg>
-   </offsets>
- </model>
+   <path>Model/instruments.xml</path>
+ </model> 
  
  <model>
-   <name>altselector</name>
-   <path>Instruments/Altselector/altselector.xml</path>
-   <offsets>
-     <x-m>-4.24</x-m>
-     <y-m>0.234</y-m>
-     <z-m>0.50</z-m>
-     <pitch-deg>-13</pitch-deg>
-   </offsets>
+   <path>Model/switches.xml</path>
  </model>
+
+<!-- ************ Cockpit animations and controls *********** --> 
+<!-- Canopy -->
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_canopy</object-name>
+  <object-name>draken_canopy_glass02</object-name>
+  <object-name>MirrorTop</object-name>
+  <object-name>MirrorRight</object-name>
+  <object-name>MirrorLeft</object-name>
+  <property>/controls/canopy/position-norm</property>
+  <factor>55</factor>
+  <center>
+   <x-m>-2.7165</x-m>
+   <y-m>0.0</y-m>
+   <z-m>1.2040</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Inst_light_knb</object-name>
+  <property>instrumentation/switches/inst-light-knob/pos</property>
+  <factor>-200</factor>
+  <offset-deg>0</offset-deg>
+  <center>
+   <x-m>-3.7997</x-m>
+   <y-m>-0.40882</y-m>
+   <z-m>0.41663</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
  
- <model>
-   <name>Gmeter</name>
-   <path>Instruments/Gmeter/gmeter.xml</path>
-   <offsets>
-     <x-m>-4.272</x-m>
-     <y-m>-0.215</y-m>
-     <z-m>0.648</z-m>
-     <pitch-deg>-13</pitch-deg>
-   </offsets>
- </model>
+ <animation>
+  <type>pick</type>
+   <object-name>Inst_light_knb</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-cycle</command>
+      <property>instrumentation/switches/inst-light-knob/pos</property>
+      <value type="double">1</value>
+      <value type="double">0.75</value>
+      <value type="double">0.50</value>
+      <value type="double">0.25</value>
+      <value type="double">0</value>
+   </binding>
+   </action>
+ </animation>
+  
+ <animation>
+  <type>material</type> 
+  <object-name>draken_instrument</object-name>
+  <object-name>draken_cockpit</object-name>
+  <condition>		
+    <greater-than>		
+     <property>/sim/time/sun-angle-rad</property>
+     <value>1.57</value>
+    </greater-than>
+  </condition>
+  <emission>	
+   <red>0.15</red>	
+   <green>0.03</green>	
+   <blue>0.03</blue>
+   <factor-prop>controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+  
+ <!-- Cockpit controls -->
+ <animation>
+  <type>rotate</type>
+  <object-name>Gears</object-name>
+  <property>/controls/gear/gear-down</property>
+  <factor>30</factor>
+  <center>
+   <x-m>-3.83</x-m>
+   <y-m>-0.35</y-m>
+   <z-m>0.165</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
 
- <model>
-   <name>fuel</name>
-   <path>Instruments/Fuel/fuel_gauge.xml</path>
-   <offsets>
-     <x-m>-4.233</x-m>
-     <y-m>0.11</y-m>
-     <z-m>0.427</z-m>
-     <pitch-deg>-13</pitch-deg>
-     <yaw-deg>0</yaw-deg>
-   </offsets>
- </model>
-
- <model>
-   <name>AI</name>
-   <path>Instruments/AI/draken_ai.xml</path>
-   <offsets>
-     <x-m>-4.225</x-m>
-     <y-m>0.003</y-m>
-     <z-m>0.435</z-m>
-     <pitch-deg>-13.6</pitch-deg>
-   </offsets>
- </model>
-
- <model>
-   <name>Altimeter</name>
-   <path>Instruments/Altmeter/draken_alt-meter.xml</path>
-   <offsets>
-     <x-m>-4.248</x-m>
-     <y-m>-0.223</y-m>
-     <z-m>0.553</z-m>
-     <pitch-deg>-13.6</pitch-deg>
-     <yaw-deg>5</yaw-deg>
-   </offsets>
- </model>
-
- <model>
-   <name>direction</name>
-   <path>Instruments/Compass/compass.xml</path>
-   <offsets>
-     <x-m>-4.226</x-m>
-     <y-m>-0.095</y-m>
-     <z-m>0.435</z-m>
-     <pitch-deg>-13.6</pitch-deg>
-   </offsets>
- </model>
-
- <model>
-   <name>turn</name>
-   <path>Instruments/TC/draken_tc.xml</path>
-   <offsets>
-     <x-m>-4.225</x-m>
-     <y-m>-0.189</y-m>
-     <z-m>0.44</z-m>
-     <pitch-deg>-12</pitch-deg>
-   </offsets>
- </model>
+ <animation>
+  <type>pick</type>
+   <object-name>Gears</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-toggle</command>
+      <property>/controls/gear/gear-down</property>
+    </binding>
+   </action>
+ </animation>
  
- <model>
-   <name>course_selector</name>
-   <path>Instruments/Cselector/cs.xml</path>
-   <offsets>
-     <x-m>-4.216</x-m>
-     <y-m>-0.045</y-m>
-     <z-m>0.349</z-m>
-     <pitch-deg>-5</pitch-deg>
-   </offsets>
- </model>
+ <animation>
+  <type>translate</type>
+  <object-name>P_brake</object-name>
+  <property>/controls/gear/brake-parking</property>
+  <factor>0.03</factor>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>P_brake</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-toggle</command>
+      <property>/controls/gear/brake-parking</property>
+    </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>Canopy_control</object-name>
+  <property>/controls/canopy/control</property>
+  <factor>0.08</factor>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>Canopy_control</object-name>
+  <property>/controls/canopy/enabled</property>
+  <factor>-0.01</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
  
- <model>
-   <name>tachometer</name>
-   <path>Instruments/RPM/rpm.xml</path>
-   <offsets>
-     <x-m>-4.212</x-m>
-     <y-m>0.055</y-m>
-     <z-m>0.352</z-m>
-     <pitch-deg>-5</pitch-deg>
-   </offsets>
- </model>
-
- <model>
-   <name>EGT</name>
-   <path>Instruments/EGT/egt.xml</path>
-   <offsets>
-     <x-m>-4.227</x-m>
-     <y-m>0.203</y-m>
-     <z-m>0.444</z-m>
-     <pitch-deg>-13</pitch-deg>
-   </offsets>
- </model>
-
- <model>
-   <name>Alfameter</name>
-   <path>Instruments/Alfameter/alfameter.xml</path>
-   <offsets>
-     <x-m>-4.30</x-m>
-     <y-m>-0.14</y-m>
-     <z-m>0.77</z-m>
-     <yaw-deg>-5</yaw-deg>
-   </offsets>
- </model>
-
-<!--    Indicators    -->
-
-<model>
-   <name>Gearindicator</name>
-   <path>Instruments/Indicators/gearindicator.xml</path>
-   <offsets>
-     <x-m>-4.17</x-m>
-     <y-m>-0.385</y-m>
-     <z-m>0.29</z-m>
-     <pitch-deg>-76</pitch-deg>
-   </offsets>
-</model>
-
- <model>
-   <name>Altidicator</name>
-   <path>Instruments/Indicators/altind.xml</path>
-   <offsets>
-     <x-m>-4.247</x-m>
-     <y-m>-0.289</y-m>
-     <z-m>0.532</z-m>
-     <pitch-deg>-13.6</pitch-deg>
-   </offsets>
- </model>
+ <animation>
+  <type>pick</type>
+   <object-name>Canopy_control</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+	    <command>nasal</command>
+			<script>SaabJ35F.canopy_operate();</script>
+    </binding>
+   </action>
+ </animation>
  
-<model>
-   <name>Gearwarning</name>
-   <path>Instruments/Indicators/gearwarning.xml</path>
-   <offsets>
-     <x-m>-4.236</x-m>
-     <y-m>-0.324</y-m>
-     <z-m>0.509</z-m>
-     <pitch-deg>-13</pitch-deg>
-   </offsets>
-</model>
+ <animation>
+  <type>rotate</type>
+  <object-name>Throtle</object-name>
+  <property>/controls/engines/engine[0]/throttle</property>
+  <factor>-105</factor>
+  <center>
+   <x-m>-3.83</x-m>
+   <y-m>-0.35</y-m>
+   <z-m>0.165</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
 
-<model>
-   <name>Droptanks</name>
-   <path>Instruments/Indicators/droptanks.xml</path>
-   <offsets>
-     <x-m>-4.225</x-m>
-     <y-m>0.273</y-m>
-     <z-m>0.426</z-m>
-     <pitch-deg>-12</pitch-deg>
-   </offsets>
-</model>
+ <animation>
+  <type>rotate</type>
+  <object-name>Control</object-name>
+  <property>/controls/flight/elevator</property>
+  <interpolation>
+   <entry>
+    <ind> -1.0</ind>
+    <dep> 25.0</dep>
+   </entry>
+   <entry>
+    <ind> 0.0</ind>
+    <dep> 0.0</dep>
+   </entry>
+   <entry>
+    <ind> 0.5</ind>
+    <dep> -12</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>-4.075</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0695</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
 
-<model>
-   <name>Masteralarm</name>
-   <path>Instruments/Indicators/masteralarm.xml</path>
-   <offsets>
-     <x-m>-4.225</x-m>
-     <y-m>-0.239</y-m>
-     <z-m>0.468</z-m>
-     <pitch-deg>-13</pitch-deg>
-   </offsets>
-</model>
+ <animation>
+  <type>rotate</type>
+  <object-name>Control</object-name>
+  <property>/controls/flight/aileron</property>
+  <factor>-12</factor>
+  <center>
+   <x-m>-4.075</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0695</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
 
-<model>
-   <name>Speedbrakes</name>
-   <path>Instruments/Indicators/airbrakes.xml</path>
-   <offsets>
-     <x-m>-4.225</x-m>
-     <y-m>-0.241</y-m>
-     <z-m>0.43</z-m>
-     <pitch-deg>-13</pitch-deg>
-   </offsets>
-</model>
+ <animation>
+  <type>rotate</type>
+  <object-name>R_cont_R</object-name>
+  <property>/controls/flight/rudder</property>
+  <factor>10</factor>
+  <center>
+   <x-m>-4.269</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.334</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>R_cont_L</object-name>
+  <property>/controls/flight/rudder</property>
+  <factor>-10</factor>
+  <center>
+   <x-m>-4.269</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.334</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
 
-<!--       Radar     -->
-
-<model>
-   <name>Radar</name>
-   <path>Radar/radar.xml</path>
-   <offsets>
-     <x-m>-4.255</x-m>
-     <y-m>0.0</y-m>
-     <z-m>0.58</z-m>
-     <pitch-deg>-13</pitch-deg>
-   </offsets>
-</model>
-
-
- <!-- Ailerons, elevator, rudder -->
+ <animation>
+  <type>rotate</type>
+  <object-name>NoseW_control</object-name>
+  <property>/gear/gear[0]/steering-norm</property>
+  <factor>-88</factor>
+  <center>
+   <x-m>-3.93</x-m>
+   <y-m>0.314</y-m>
+   <z-m>0.026</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+    
+ <animation>
+  <type>pick</type>
+   <object-name>DT_jet</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+     <command>nasal</command>
+     <script>SaabJ35F.drophandle(1);</script>
+    </binding>
+   </action>
+ </animation>
+ 
+ <!-- ********** Aerosurfaces, gears ************** -->
  
  <animation>
   <type>rotate</type>
@@ -352,6 +447,7 @@ Anders  M
  <animation>
   <type>rotate</type>
   <object-name>draken_wheel_front</object-name>
+  <object-name>draken_gear_front</object-name>
   <property>gear/gear[0]/position-norm</property>
   <factor>-120</factor>
   <offset-deg>120</offset-deg>   
@@ -366,7 +462,42 @@ Anders  M
    <z>0</z>
   </axis>
  </animation>
-
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_wheel_front</object-name>
+  <object-name>draken_gear_front</object-name>
+  <property>gear/gear[0]/steering-norm</property>
+  <factor>-22</factor>   
+  <center>
+   <x-m>-2.07828</x-m>
+   <y-m>-0.0924916</y-m>
+   <z-m>-0.283818</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+    <type>spin</type>
+    <object-name>draken_wheel_front</object-name>
+    <property>gear/gear[0]/rollspeed-ms</property>
+    <factor> 30 </factor>
+    <center>
+      <x-m>-2.2809</x-m>
+      <y-m>0.000</y-m>
+      <z-m>-1.16956</z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+ </animation>
+   
  <animation>
   <type>rotate</type>
   <object-name>draken_wdf_right</object-name>
@@ -414,6 +545,7 @@ Anders  M
  <animation>
   <type>rotate</type>
   <object-name>draken_wheel_left</object-name>
+  <object-name>draken_gear_left</object-name>
   <property>gear/gear[1]/position-norm</property>
    <interpolation>
      <entry><ind>0.0</ind><dep>-100.0</dep></entry>
@@ -431,7 +563,22 @@ Anders  M
    <z>0</z>
   </axis>
  </animation>
- 
+
+ <animation>
+    <type>spin</type>
+    <object-name>draken_wheel_left</object-name>
+    <property>gear/gear[1]/rollspeed-ms</property>
+    <factor>26.655</factor>
+    <axis>
+     <x1-m>1.8325</x1-m>
+     <y1-m>-1.0527</y1-m>
+     <z1-m>-0.9590</z1-m>
+     <x2-m>1.8325</x2-m>
+     <y2-m>-1.2324</y2-m>
+     <z2-m>-0.9751</z2-m>
+    </axis>
+ </animation>
+  
  <animation>
   <type>rotate</type>
   <object-name>draken_wdl_right</object-name>
@@ -479,6 +626,7 @@ Anders  M
 <animation>
   <type>rotate</type>
   <object-name>draken_wheel_right</object-name>
+  <object-name>draken_gear_right</object-name>
   <property>gear/gear[2]/position-norm</property>
    <interpolation>
      <entry><ind>0.0</ind><dep>100.0</dep></entry>
@@ -496,7 +644,22 @@ Anders  M
    <z>0</z>
   </axis>
  </animation>
- 
+
+ <animation>
+    <type>spin</type>
+    <object-name>draken_wheel_right</object-name>
+    <property>gear/gear[2]/rollspeed-ms</property>
+    <factor>-26.655</factor>>
+    <axis>
+     <x1-m>1.8325</x1-m>
+     <y1-m>1.0527</y1-m>
+     <z1-m>-0.9590</z1-m>
+     <x2-m>1.8325</x2-m>
+     <y2-m>1.2324</y2-m>
+     <z2-m>-0.9751</z2-m>
+    </axis>
+ </animation>
+  
  <animation>
   <type>rotate</type>
   <object-name>draken_wdr_left</object-name>
@@ -732,4 +895,49 @@ Anders  M
    <z>0</z>
   </axis>
  </animation>
+ 
+ <!--    Pilot  -->
+     <model>
+       <path>Aircraft/Generic/Pilot/Fighter/pilot.xml</path>
+       <condition>
+         <not>
+            <property>/sim/current-view/internal</property>
+         </not>
+       </condition>
+       <offsets>
+          <x-m>-3.5</x-m>
+          <y-m>0.0</y-m>
+          <z-m>0.4</z-m>
+          <pitch-deg>10</pitch-deg>
+       </offsets>
+       <overlay>
+          <params>
+             <texture type="string">default.png</texture>
+             <head>
+                <roll-animation>
+                   <property type="string">controls/flight/aileron</property>
+                   <factor type="float">1</factor>
+                   <offset-deg type="float">-5</offset-deg>
+                   <min type="float">-10</min>
+                   <max type="float">10</max>
+                </roll-animation>
+			          <pitch-animation>
+           				<property type="string">controls/flight/elevator</property>
+           				<factor type="float">-3</factor>
+				          <offset-deg type="float">-</offset-deg>
+				          <min type="float">-3</min>
+				          <max type="float">3</max>
+			          </pitch-animation>
+			          <yaw-animation>
+          				<property type="string">controls/flight/rudder</property>
+          				<factor type="float">-5</factor>
+          				<offset-deg type="float">0</offset-deg>
+          				<min type="float">-5</min>
+          				<max type="float">5</max>
+          			</yaw-animation>
+             </head>
+          </params>
+       </overlay>
+    </model>
+    
 </PropertyList>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <path>caution.ac</path>
+
+<animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>10</max-m>
+ </animation>
+ 
+ <animation>
+  <type>material</type> 
+  <object-name>Caution</object-name>
+  <emission>	
+   <red>0.3</red>	
+   <green>0.3</green>	
+   <blue>0.3</blue>
+   <factor-prop>controls/electric/battery-switch</factor-prop>
+  </emission>
+ </animation>
+ 
+</PropertyList>

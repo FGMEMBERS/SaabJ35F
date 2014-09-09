@@ -1,0 +1,332 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<path>start_panel.ac</path>
+
+<!-- AB Fuel switch -->
+ <animation>
+  <type>translate</type>
+  <object-name>AB_Fuel</object-name>
+  <property>fdm/jsbsim/fcs/afterburner-valve</property>
+  <factor>-0.007</factor>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>AB_Fuel</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-cycle</command>
+    <property>fdm/jsbsim/fcs/afterburner-valve</property>
+    <value type="double">1</value>
+    <value type="double">0</value>
+   </binding>
+  </action>
+ </animation>
+
+<!-- Main Fuel switch and cover-->
+ <animation>
+  <type>rotate</type>
+  <object-name>LP_cover</object-name>
+  <property>controls/fuel_cover/position-norm</property>
+  <factor>-90</factor>
+  <center>
+   <x-m>-0.0391</x-m>
+   <y-m>0</y-m>
+   <z-m>0.0001</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>LP_cover</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>nasal</command>
+    <script>SaabJ35F.fuel_cover.toggle();</script>
+   </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Main_Fuel</object-name>
+  <property>instrumentation/switches/fuel/pos</property>
+  <factor>-50</factor>
+  <center>
+   <x-m>-0.0116</x-m>
+   <y-m>0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>Main_Fuel</object-name>
+  <condition>
+   <greater-than>
+    <property>controls/fuel_cover/position-norm</property>
+    <value>0.7</value>
+   </greater-than>
+  </condition>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>nasal</command>
+    <script>SaabJ35F.lt_switch_toggle();</script>>
+   </binding>
+  </action>
+ </animation>
+
+<!-- Fuel indicator lamps -->
+
+ <animation>
+  <type>material</type>
+  <object-name>LT_lamp</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>1.0</blue>
+   <factor-prop>instrumentation/fuel/LT_light</factor-prop>
+  </emission>
+ </animation>
+ 
+ <animation>
+  <type>textranslate</type>
+  <object-name>LT_lamp</object-name>
+  <property>instrumentation/fuel/LT_light</property>
+    <factor>-0.09375</factor>
+    <axis> 
+      <x> 0 </x> 
+      <y> 1 </y> 
+    </axis>
+ </animation>
+ 
+ <animation>
+  <type>material</type>
+  <object-name>FT_lamp</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>1.0</blue>
+   <factor-prop>instrumentation/fuel/LT_light</factor-prop>
+  </emission>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>FT_lamp</object-name>
+  <property>instrumentation/fuel/FT_light</property>
+    <factor>-0.09375</factor>
+    <axis> 
+      <x> 0 </x> 
+      <y> 1 </y> 
+    </axis>
+ </animation>
+   
+<!-- Battery switch -->
+ <animation>
+  <type>rotate</type>
+  <object-name>Battery_cover</object-name>
+  <property>controls/battery_cover/position-norm</property>
+  <factor>-90</factor>
+  <center>
+   <x-m>-0.0165</x-m>
+   <y-m>0</y-m>
+   <z-m>0.0002</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>Battery_cover</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>nasal</command>
+    <script>SaabJ35F.battery_cover.toggle();</script>
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>Battery</object-name>
+  <property>controls/electric/battery-switch</property>
+  <factor>-0.007</factor>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>Battery</object-name>
+  <condition>
+   <greater-than>
+    <property>controls/battery_cover/position-norm</property>
+    <value>0.7</value>
+   </greater-than>
+  </condition>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-toggle</command>
+    <property>controls/electric/battery-switch</property>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>SaabJ35F.battery_cover.toggle();</script>>
+   </binding>
+  </action>
+ </animation>
+
+<!-- Generator switch -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Generator</object-name>
+  <property>instrumentation/switches/generator/pos</property>
+  <factor>-20</factor>
+  <center>
+   <x-m>0.00224</x-m>
+   <y-m>0</y-m>
+   <z-m>-0.00587</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>Generator</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>nasal</command>
+      <script><![CDATA[
+        if (getprop("controls/electric/engine/generator")) {
+          setprop("instrumentation/switches/generator/pos",-1);
+          setprop("controls/electric/engine/generator",0);
+        } else {
+          setprop("instrumentation/switches/generator/pos",1);
+          if (getprop("engines/engine[0]/n1") > 27) 
+            setprop("controls/electric/engine/generator",1);        
+        }
+      ]]></script>
+   </binding>
+    <mod-up>
+     <binding>
+       <command>property-assign</command>
+       <property>instrumentation/switches/generator/pos</property>
+       <value>0</value>     
+     </binding>
+    </mod-up>
+  </action>
+ </animation>
+
+<!-- Start button -->
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>Start</object-name>
+  <property>instrumentation/switches/start/pos</property>
+  <factor>-0.005</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>Start</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+     <command>nasal</command>
+     <script>SaabJ35F.autostart();</script>
+   </binding>
+   <binding>
+     <command>property-assign</command>
+     <property>instrumentation/switches/start/pos</property>
+     <value>true</value>
+   </binding>
+    <mod-up>
+     <binding>
+       <command>property-assign</command>
+       <property>instrumentation/switches/start/pos</property>
+       <value>false</value>     
+     </binding>
+    </mod-up>
+  </action>
+ </animation>
+
+<!-- Restart button TODO-->
+
+ <animation>
+  <type>translate</type>
+  <object-name>Restart</object-name>
+  <property>instrumentation/switches/restart/pos</property>
+  <factor>-0.005</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>Restart</object-name>
+  <action>
+   <button>0</button>
+   <!--binding>
+     <command>nasal</command>
+     <script>SaabJ35F.autostart();</script>
+   </binding-->
+   <binding>
+     <command>property-assign</command>
+     <property>instrumentation/switches/restart/pos</property>
+     <value>true</value>
+   </binding>
+    <mod-up>
+     <binding>
+       <command>property-assign</command>
+       <property>instrumentation/switches/restart/pos</property>
+       <value>false</value>     
+     </binding>
+    </mod-up>
+  </action>
+ </animation>
+    
+</PropertyList>

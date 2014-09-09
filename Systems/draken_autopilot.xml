@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<PropertyList>
+
+<!-- Conversion m to ft -->
+   <filter>
+     <name>Altitude conversion</name>
+     <type>gain</type>
+     <gain>3.278689</gain>
+   <input>/autopilot/settings/target-altitude-m</input>
+   <output>/autopilot/settings/target-altitude-ft</output>
+   </filter>
+
+
+<!-- Shut off at Autopilot limits -->
+ <logic>
+  <name>Autopilot limits shut off</name>
+  <input>
+    <or>
+     <and>
+       <greater-than>
+        <property>velocities/mach</property>
+        <value type="double">0.95</value>
+       </greater-than>
+       <less-than>
+        <property>velocities/mach</property>
+        <value type="double">1.05</value>
+       </less-than>
+     </and>
+      <greater-than>
+        <property>/accelerations/pilot-gdamped</property>
+        <value type="double">4.0</value>
+       </greater-than>
+       <less-than>
+        <property>/accelerations/pilot-gdamped</property>
+        <value type="double">-0.5</value>
+       </less-than>
+     </or>    
+  </input>
+  <output>autopilot/disengage</output>
+ </logic>
+
+ <logic>
+  <name>Autopilot powercheck</name>
+  <input>
+      <and>
+        <property>autopilot/enabled</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/inst_ac</property>
+          <value type="double">40</value>
+        </greater-than>
+      </and>  
+  </input>
+  <output>/autopilot/on</output>
+ </logic>
+ 
+ <logic>
+  <name>Autopilot limits shut off 3</name>
+  <enable>
+    <condition>
+      <or>
+        <property>autopilot/disengage</property>
+        <not><property>autopilot/on</property></not>
+      </or>
+    </condition>
+  </enable>
+  <input>
+    <property>false</property>   
+  </input>
+  <output>/autopilot/locks/attitude</output>
+  <output>/autopilot/locks/altitude</output>
+ </logic> 
+ 
+<!-- Wing leveler -->
+
+ <pid-controller>
+  <name>Wing leveler</name>
+  <debug>false</debug>
+  <enable>
+    <condition>
+     <or>
+         <property>/autopilot/locks/attitude</property>
+         <property>/autopilot/locks/altitude</property>
+     </or>
+    </condition> 
+  </enable>
+  <input>
+   <prop>/orientation/roll-deg</prop>
+  </input>
+  <reference>/autopilot/settings/target-roll-deg</reference>
+  <output>
+   <prop>/controls/flight/aileron</prop>
+  </output>
+  <config>
+   <Kp>0.020</Kp>
+   <Ti>10.0</Ti>
+   <Td>0.0</Td>
+   <u_min>-1.0</u_min>
+   <u_max>1.0</u_max>
+  </config>
+ </pid-controller>
+
+<!-- Pitch hold -->
+ <filter>
+  <name>Pitch sample and hold</name>
+  <debug>false</debug>
+  <enable>
+   <condition>
+    <not>
+     <or>
+         <property>/autopilot/locks/attitude</property>
+         <property>/autopilot/locks/altitude</property>
+     </or>
+    </not>
+   </condition>
+  </enable>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>/orientation/pitch-deg</input>
+  <output>/autopilot/internal/target-pitch-deg</output>
+ </filter>
+
+ <filter>
+  <name>Pitch hold</name>
+  <debug>false</debug>
+  <enable>
+         <property>/autopilot/locks/attitude</property>
+  </enable>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>/autopilot/settings/target-pitch-deg</input>
+  <output>/autopilot/internal/target-pitch-deg</output>
+ </filter>
+  
+ <pid-controller>
+  <name>Pitch computer</name>
+  <debug>false</debug>
+  <enable>
+    <condition>
+     <or>
+         <property>/autopilot/locks/attitude</property>
+         <property>/autopilot/locks/altitude</property>
+     </or>
+    </condition>
+  </enable>
+  <input>
+   <prop>/orientation/pitch-deg</prop>
+  </input>
+  <reference>/autopilot/internal/target-pitch-deg</reference>
+  <output>
+   <prop>/autopilot/internal/elevator-cmd</prop>
+  </output>
+  <config>
+   <Kp>-0.005</Kp>
+   <Ti>1.0</Ti>
+   <Td>0.00001</Td>
+   <u_min>-1.0</u_min>
+   <u_max>1.0</u_max>
+  </config>
+ </pid-controller>
+   
+ <filter>
+  <name>SERVO-DRIVER:elevator</name>
+  <type>noise-spike</type>
+  <debug>false</debug>
+  <feedback-if-disabled>true</feedback-if-disabled>
+  <enable>
+    <condition>
+     <or>
+         <property>/autopilot/locks/attitude</property>
+         <property>/autopilot/locks/altitude</property>
+     </or>
+    </condition>
+  </enable>
+    <max-rate-of-change>0.06</max-rate-of-change>
+    <input>/autopilot/internal/elevator-cmd</input>
+    <output>/controls/flight/elevator</output>
+ </filter>
+
+<!-- Pitch hold constant vertical speed -->
+  <filter>
+  <type>derivative</type>
+  <input>/instrumentation/altimeter/indicated-altitude-ft</input>
+  <output>/autopilot/internal/vertical-speed-fpm</output>
+  <filter-time>60.0</filter-time>
+ </filter>
+ 
+
+ <filter>
+  <name>VS sample and hold</name>
+  <debug>false</debug>
+  <enable>
+   <condition>
+    <not>
+         <property>/autopilot/locks/altitude</property>
+    </not>
+   </condition>
+  </enable>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>/autopilot/internal/vertical-speed-fpm</input>
+  <output>/autopilot/internal/target-vertical-speed-fpm</output>
+ </filter>
+ 
+ <pid-controller>
+  <name>Vertical speed pitch hold</name>
+  <debug>false</debug>
+  <enable>
+   <prop>/autopilot/locks/altitude</prop>
+  </enable>
+  <input>
+   <prop>/autopilot/internal/vertical-speed-fpm</prop>
+  </input>
+  <reference>/autopilot/internal/target-vertical-speed-fpm</reference>
+  <output>
+   <prop>/autopilot/internal/target-pitch-deg</prop>
+  </output>
+  <config>
+   <Kp>0.0001</Kp>
+   <Ti>2.0</Ti>
+   <Td>0.0</Td>
+   <u_min>-15.0</u_min>
+   <u_max>20.0</u_max>
+  </config>
+ </pid-controller>
+ 
+ <!-- Altitude hold -->
+  
+  <filter>
+  <name>Target Rate of Climb Computer (ALT HOLD)</name>
+  <debug>false</debug>
+  <enable>
+   <prop>/autopilot/locks/altitude</prop>
+  </enable>
+  <type>gain</type>
+  <input>/instrumentation/altimeter/indicated-altitude-ft</input>
+  <reference>autopilot/settings/target-altitude-ft</reference>
+    <output>/autopilot/internal/target-vertical-speed-fpm</output>
+  <gain>-2</gain>
+  <min>-3000</min>
+  <max>6000</max>
+ </filter> 
+   
+</PropertyList>

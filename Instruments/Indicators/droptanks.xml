@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <path>droptanks.ac</path>
+
+<animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>10</max-m>
+ </animation>
+ 
+ <animation>
+  <type>material</type> 
+  <object-name>Plane</object-name>
+  <emission>	
+   <red>0.3</red>	
+   <green>0.3</green>	
+   <blue>0.3</blue>
+   <factor-prop>controls/electric/battery-switch</factor-prop>
+  </emission>
+ </animation>
+ 
+ <animation>
+  <type>textranslate</type>
+  <object-name>Plane</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/battery</property>
+    <value>20</value>
+   </greater-than>
+  </condition>
+  <property>/consumables/fuel/using-droptanks</property>
+  <factor>0.5</factor>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+  </axis>
+ </animation>
+
+</PropertyList>

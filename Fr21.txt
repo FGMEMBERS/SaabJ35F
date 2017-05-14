@@ -1,0 +1,16 @@
+#A B and 1 2 are set from airport frequencies
+#Do not change the order or remove any lines below
+#You can change the frequencies associated with the buttons
+C,121.50
+D,150.00
+E,130.00
+F,143.50
+G,120.20
+H,110.00
+I,115.70
+J,101.10
+K,105.50
+b3,121.50
+b4,119.00
+b5,112.80
+

@@ -46,17 +46,17 @@
     </function>  
   </fcs_function>
 
-  <summer>
+  <summer name="Movement R elevon">
      <input>fcs/right-aileron-pos-rad</input>
      <output>systems/hydraulic/internal/old-right-elevon</output>
   </summer>      
 
-  <summer>
+  <summer name="Movement L elevon">
      <input>fcs/left-aileron-pos-rad</input>
      <output>systems/hydraulic/internal/old-left-elevon</output>
   </summer>
 
-  <summer>
+  <summer name="Movement rudder">
      <input>fcs/rudder-pos-rad</input>
      <output>systems/hydraulic/internal/old-rudder</output>
   </summer>
@@ -94,7 +94,7 @@
      
   <channel name="Hydraulic I">    
 
-    <fcs_function>
+    <fcs_function name="Pump HydI">
       <function>
         <product>
           <quotient>
@@ -111,7 +111,7 @@
       <output>systems/hydraulic/hydI-pump-q</output>    
     </fcs_function>
     
-    <summer>
+    <summer name="Pressure HydI">
       <input>systems/hydraulic/hydI-sys-p</input>
       <input>systems/hydraulic/hydI-pump-q</input>
       <input>systems/hydraulic/internal/dq</input>
@@ -126,7 +126,7 @@
 
   <channel name="Hydraulic II">    
 
-    <fcs_function>
+    <fcs_function name="Pump HydII">
       <function>
         <product>
           <quotient>
@@ -143,7 +143,7 @@
       <output>systems/hydraulic/hydII-pump-q</output>    
     </fcs_function>
     
-    <fcs_function>
+    <fcs_function name="Accumulator HydI">
       <function>
         <difference>
           <property>systems/hydraulic/hydII-sys-p</property>
@@ -157,7 +157,7 @@
       <output>systems/hydraulic/hydII-acc-q</output>    
     </fcs_function>
     
-    <fcs_function>
+    <fcs_function name="Accumulator HydII">
       <function>
         <sum>
             <property>systems/hydraulic/hydII-acc-p</property>
@@ -171,7 +171,7 @@
     </fcs_function>
         
     
-    <summer>
+    <summer name="Pressure HydII">
       <input>systems/hydraulic/hydII-sys-p</input>
       <input>systems/hydraulic/hydII-pump-q</input>
       <input>systems/hydraulic/internal/dq</input>

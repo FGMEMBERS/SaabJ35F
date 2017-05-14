@@ -4,9 +4,14 @@
   <path>draken_ai.ac</path>
 
  <animation>
-  <type>range</type>
-  <min-m>0</min-m>
-  <max-m>10</max-m>
+  <type>select</type>
+  <object-name>nospin</object-name>
+  <condition>
+   <less-than>
+    <property>instrumentation/attitude-indicator/spin</property>
+    <value>0.4</value>
+   </less-than>
+  </condition>
  </animation>
  
  <animation>

@@ -45,8 +45,47 @@
  </animation>
 
   <!--             Course setting       -->  
+<animation>
+        <type>knob</type>
+        <object-name>Knob</object-name>
+        <property>instrumentation/heading-indicator/heading-bug-deg</property>
+        <factor>1</factor>
+        <center>
+            <x-m>0.00858</x-m>
+            <y-m>-0.03838</y-m>
+            <z-m>-0.03255</z-m>
+        </center>
+        <axis>
+          <x>1</x>
+          <y>0</y>
+          <z>0</z>
+        </axis>
 
- <animation>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/heading-indicator/heading-bug-deg</property>
+                <factor>1</factor>
+                <min>0</min>
+                <max>360</max>                
+                <wrap>true</wrap>
+            </binding>
+        </action>
+        
+        <shift-action>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/heading-indicator/heading-bug-deg</property>
+                <factor>10</factor>
+                <min>0</min>
+                <max>360</max>                
+                <wrap>true</wrap>
+            </binding>
+        </shift-action>
+
+    </animation>
+
+ <!--animation>
   <type>pick</type>
   <object-name>CCW</object-name>
   <visible>false</visible>
@@ -102,9 +141,9 @@
       <wrap>true</wrap>
     </binding>
   </action>
- </animation>
+ </animation-->
 
- <animation>
+ <!--animation>
   <type>pick</type>
   <object-name>CW</object-name>
   <visible>false</visible>
@@ -160,7 +199,7 @@
       <wrap>true</wrap>>
     </binding>
   </action>
- </animation>
+ </animation -->
 
 </PropertyList>
 

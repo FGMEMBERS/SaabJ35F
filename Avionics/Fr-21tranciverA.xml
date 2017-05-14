@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>Fr-21tranciver.ac</path>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>n100</object-name>
+        <property>/instrumentation/fr21/frequency_A</property>
+        <bias>0.0001</bias>
+        <factor>0.001</factor>
+        <step>100</step>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>n10</object-name>
+        <property>/instrumentation/fr21/frequency_A</property>
+        <bias>0.0001</bias>
+        <factor>0.01</factor>
+        <step>10</step>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>n1</object-name>
+        <property>/instrumentation/fr21/frequency_A</property>
+        <bias>0.0001</bias>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>n0.1</object-name>
+        <property>/instrumentation/fr21/frequency_A</property>
+        <bias>0.0001</bias>
+        <factor>1</factor>
+        <step>0.1</step>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>n0.01</object-name>
+        <property>/instrumentation/fr21/frequency_A</property>
+        <bias>0.0001</bias>
+        <factor>10</factor>
+        <step>0.01</step>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+  <animation>
+        <type>knob</type>
+        <object-name>SetC</object-name>
+        <factor>-18</factor>
+        <property>instrumentation/fr21/frequency_A_man</property>
+        <center>
+            <x-m>0.00509</x-m>
+            <y-m>-0.015</y-m>
+            <z-m>0.01311</z-m>
+        </center>
+        <axis>
+          <x>0</x>
+          <y>0</y>
+          <z>1</z>
+        </axis>
+
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/fr21/frequency_A_man</property>
+                <factor>1</factor>
+                <min>99.9499</min>
+                <max>159.95</max>                
+                <wrap>true</wrap>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>
+                  SaabJ35F.manual_handler("A");
+                </script>
+            </binding>
+        </action>
+    </animation>
+
+  <animation>
+        <type>knob</type>
+        <object-name>SetF</object-name>
+        <property>instrumentation/fr21/frequency_A_man</property>
+        <factor>-360</factor>
+        <center>
+            <x-m>0.00509</x-m>
+            <y-m>0.015</y-m>
+            <z-m>0.01311</z-m>
+        </center>
+        <axis>
+          <x>0</x>
+          <y>0</y>
+          <z>1</z>
+        </axis>
+
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/fr21/frequency_A_man</property>
+                <factor>0.05</factor>
+                <min>99.9499</min>
+                <max>159.95</max>                
+                <wrap>true</wrap>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>
+                  SaabJ35F.manual_handler("A");
+                </script>
+            </binding>
+        </action>
+    </animation>
+
+</PropertyList>
+

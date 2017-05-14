@@ -10,6 +10,7 @@
 #Alt indicator watch (alt_watch)
 #Autopilot locks (auto_settings)
 #Canopy operation (canopy_operate)
+#Light intensity setter (light_intens)
 #Start up
 
 #Debug setting
@@ -89,9 +90,9 @@
           getprop("/consumables/fuel/tank[2]/level-lbs")*0.248628692);
    } else {
        setprop("/instrumentation/fuel/needleF_rot", 
-          getprop("/consumables/fuel/tank[0]/level-lbs")*0.075787781);
+          getprop("/consumables/fuel/tank[0]/level-lbs")*0.097396697);
        setprop("/instrumentation/fuel/needleB_rot", 
-          getprop("/consumables/fuel/tank[3]/level-lbs")*0.075787781);
+          getprop("/consumables/fuel/tank[3]/level-lbs")*0.097396697);
    }
    #FT_light check
    if (getprop("/consumables/droptanks")) {
@@ -106,7 +107,7 @@
    } else setprop("/instrumentation/fuel/FT_light", 0);
    #LT light check
    if (getprop("/instrumentation/switches/fuel/pos") and
-       getprop("fdm/jsbsim/fcs/afterburner-valve"))
+       getprop("fdm/jsbsim/propulsion/afterburner-pump"))
      setprop("/instrumentation/fuel/LT_light", 0);
    else setprop("/instrumentation/fuel/LT_light", 1); 
    settimer(fuel_handler, 0.2);
@@ -195,7 +196,11 @@
        if (getprop("/gear/gear[0]/wow") > 0.05) {
          if (verbose > 0) print("Can not eject droptanks on ground"); 
          return;
-       }  
+       }
+       if (getprop("/consumables/droptanks")) {
+         setprop("/rendering/submodels/dropL", 1);
+         setprop("/rendering/submodels/dropR", 1);
+       }
        drop();
     } else {
        if (getprop("/velocities/groundspeed-kt") < 1e-3 and 
@@ -235,11 +240,12 @@
 #Alt indicator watch
  var alt_watch = func {
    var target=getprop("/autopilot/settings/target-altitude-ft");
-   if ( target > 0 ) {
+   if (getprop("/autopilot/locks/altitude") and getprop("controls/electric/engine[0]/generator") == 1) {
      var h=getprop("/instrumentation/altimeter/indicated-altitude-ft");
+     var dh=7765/getprop("/systems/static/pressure-inhg");
      var vs=getprop("/instrumentation/vertical-speed-indicator/indicated-speed-fpm");
      vs = vs < 0 ? -vs : vs ;
-     if (h-target>-90 and h-target<90 and vs < 100) 
+     if (h-target>-dh and h-target<dh and vs < 600 and !getprop("/autopilot/altoff") ) 
         setprop("/instrumentation/alt_indicator", 1);
      else setprop("/instrumentation/alt_indicator", 
                   1- getprop("/instrumentation/alt_indicator"));
@@ -321,6 +327,17 @@ var canopy_operate = func {
   }
 }
 
+
+#Light intensity setter
+ var light_intens = func {
+    var sa = getprop("/sim/time/sun-angle-rad") or 1;
+    var ns = getprop("/controls/lighting/nav-lights-setting") or 0;
+    var i= sa > 1.58 ? sa/4+0.315 : sa/10+0.443 ;
+    setprop("/rendering/lights-factor", i);
+    setprop("/rendering/nav-lights-factor", i/2.2*ns);
+    settimer(light_intens, 0.5);
+ }
+
 # Switch LT fuel valve
  var lt_switch_toggle = func {
    setprop("/fdm/jsbsim/propulsion/tank[4]/priority", 
@@ -341,10 +358,14 @@ var canopy_operate = func {
    setprop("/fdm/jsbsim/propulsion/tank[4]/priority", 1);
    setprop("/fdm/jsbsim/propulsion/tank[5]/priority", 1);
    setprop("instrumentation/switches/fuel/pos", 1);
-   setprop("/fdm/jsbsim/fcs/afterburner-valve", 1);
+   setprop("/fdm/jsbsim/propulsion/afterburner-pump", 1);
    if (getprop("/consumables/droptanks")) 
        setprop("/instrumentation/switches/drop_selector/pos", 1);
    auto_gen=1;
+   #Radio
+   setprop("/instrumentation/fr21/pwr", 1);
+   button_handlerAK("A");
+   button_handler15("b1");
    autostart();
  } 
   
@@ -360,10 +381,16 @@ var canopy_operate = func {
   g_watch();
   print("G-gauge ... Check");
   gear_watch();
+  #landinglight_check();
   print("Gears ... Check");
+  light_intens();
   settimer(alt_watch, 3);
   setlistener("/autopilot/enabled", autoOnOff, 0, 0);
   print("Autopilot ... Check");
+  init_fr21();
+  setlistener("instrumentation/comm/power-btn", fr21_Aonoff, 0, 0);
+  setlistener("instrumentation/comm[1]/power-btn", fr21_Bonoff, 0, 0);
+  print("Radio ... Check");
  }
 
 #Init Canopy movement

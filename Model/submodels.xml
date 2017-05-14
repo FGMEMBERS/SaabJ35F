@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+    <submodel>
+        <name>Droptank L</name>
+        <model>Model/draken_droptank.ac</model>
+        <trigger>/rendering/submodels/dropL</trigger>
+
+        <repeat>false</repeat>
+        <count>1</count>
+        <delay>0</delay>
+
+        <speed>0</speed>
+        <wind>false</wind>
+        <aero-stabilised>true</aero-stabilised>
+        <eda>3</eda>
+        <cd>0.20</cd>
+        <weight>200</weight>
+        <life>900</life>
+        <impact>false</impact>
+        <offsets>
+            <x-m>1.63</x-m>
+            <y-m>-0.57</y-m>
+            <z-m>-0.55</z-m>
+        </offsets>
+    </submodel>
+
+    <submodel>
+        <name>Droptank R</name>
+        <model>Model/draken_droptank.ac</model>
+        <trigger>/rendering/submodels/dropR</trigger>
+
+        <repeat>false</repeat>
+        <count>1</count>
+        <delay>0</delay>
+
+        <speed>0</speed>
+        <wind>false</wind>
+        <aero-stabilised>true</aero-stabilised>
+        <eda>3</eda>
+        <cd>0.20</cd>
+        <weight>200</weight>
+        <life>900</life>
+        <impact>false</impact>
+        <offsets>
+            <x-m>1.63</x-m>
+            <y-m>0.57</y-m>
+            <z-m>-0.55</z-m>
+        </offsets>
+    </submodel>
+
+</PropertyList>

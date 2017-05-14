@@ -1,19 +1,39 @@
-TODO:
-* Cockpit switches/knobs: lights, de-icing etc.
-* Radio
-* Adjust autopilot for better responce and stability
+TODO
+
+Will have:
+* Effects for material etc.
+* Tooltips
+* Better liveries
+* Afterburner nozzle (RAT)
+* Internal lights and iluminating lights.
+* Half/full instrument lighting.
+* Adjust front wheel suspension animation.
+* Adjust autopilot for better response and stability
 * Brake parachute
-* Radar functions: manual mode
-* Lights
-* Hysteresis in buffeting
-* Submodel droptanks
+* Navigation with altitude setter in plané mode (J35 SFI:1 s. 50-51)
+* Beacons and radio frequences dialogs
+* ALS shadow, maps etc https://forum.flightgear.org/viewtopic.php?p=234971#p234971
 * Effects when flying
+* Recheck layout of cockpit: J35F1 Radar controlls etc.
+* Adjustable speed brake deflection and servostall. Separate upper and lower Speed brakes.
+* Sounds: Parking brake, switches, wind
+
+Nice to have:
+* Does J35F have strobe or not?
+* Radar functions: horizont, buttons and switches
+* Clock: setting ring and stop watch
+* More cockpit switches/knobs: de-icing, HP-cock on throttle, AB switch etc.
+* Hysteresis in stall (buffeting)?
 * Battery sim in electric system.
+* Master gyro to main AI
 * Start fuel limit
 * Hydraulics - gears and brakes
 * Engine air restart and emergency generator
-* Faults
-* Rembrandt
+* Improved radio sim with normal/reserve mode and data reciver.
+* High temp warning fuselage 77 degrees
+* Faults, fire
+* Weapons
+* MP effects etc https://forum.flightgear.org/viewtopic.php?f=14&t=6915&p=308158#p308158
 * Transponder http://www.flightgear.org/forums/viewtopic.php?f=75&t=19826&p=182279#p182279
 
 And much more...

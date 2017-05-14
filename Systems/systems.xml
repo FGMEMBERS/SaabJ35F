@@ -18,13 +18,14 @@
     <name>static</name>
     <number>0</number>
     <tau>1</tau>
+    <type>2</type>
   </static>
 
-  <vacuum>
+  <!--vacuum>
     <name>vacuum</name>
     <number>0</number>
     <rpm>systems/electrical/outputs/inst_ac</rpm>
-    <scale>50.0</scale>
-  </vacuum>
+    <scale>500.0</scale>
+  </vacuum -->
 
 </PropertyList>

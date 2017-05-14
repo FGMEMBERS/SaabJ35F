@@ -17,6 +17,22 @@
   <name>Autopilot limits shut off</name>
   <input>
     <or>
+     <greater-than>
+       <property>/accelerations/pilot-gdamped</property>
+       <value type="double">4.0</value>
+     </greater-than>
+        <less-than>
+        <property>/accelerations/pilot-gdamped</property>
+        <value type="double">-0.5</value>
+       </less-than>
+     </or>    
+  </input>
+  <output>autopilot/disengage</output>
+ </logic>
+
+ <logic>
+  <name>Autopilot limits Altitude</name>
+  <input>
      <and>
        <greater-than>
         <property>velocities/mach</property>
@@ -27,17 +43,8 @@
         <value type="double">1.05</value>
        </less-than>
      </and>
-      <greater-than>
-        <property>/accelerations/pilot-gdamped</property>
-        <value type="double">4.0</value>
-       </greater-than>
-       <less-than>
-        <property>/accelerations/pilot-gdamped</property>
-        <value type="double">-0.5</value>
-       </less-than>
-     </or>    
-  </input>
-  <output>autopilot/disengage</output>
+   </input>
+   <output>/autopilot/altoff</output>
  </logic>
 
  <logic>
@@ -216,11 +223,11 @@
    <prop>/autopilot/internal/target-pitch-deg</prop>
   </output>
   <config>
-   <Kp>0.0001</Kp>
-   <Ti>2.0</Ti>
+   <Kp>0.001</Kp><!--0.0001-->
+   <Ti>100.0</Ti><!--2.0-->
    <Td>0.0</Td>
    <u_min>-15.0</u_min>
-   <u_max>20.0</u_max>
+   <u_max>15.0</u_max>
   </config>
  </pid-controller>
  
@@ -230,15 +237,48 @@
   <name>Target Rate of Climb Computer (ALT HOLD)</name>
   <debug>false</debug>
   <enable>
-   <prop>/autopilot/locks/altitude</prop>
+    <condition>
+      <and>
+        <propety>/autopilot/locks/altitude</propety>
+        <not>
+          <propety>/autopilot/altoff</propety>
+        </not>
+      </and>
+    </condition>
   </enable>
   <type>gain</type>
   <input>/instrumentation/altimeter/indicated-altitude-ft</input>
   <reference>autopilot/settings/target-altitude-ft</reference>
     <output>/autopilot/internal/target-vertical-speed-fpm</output>
-  <gain>-2</gain>
+  <gain>-4</gain>
   <min>-3000</min>
-  <max>6000</max>
+  <max>3000</max>
  </filter> 
-   
+ 
+ <!-- HACK Lift off auto steer HACK -->
+  <filter>
+    <name>Auto steer rudder</name>
+    <enable>
+      <condition>
+        <and>
+          <propety>/gear/gear[0]/wow</propety>
+          <propety>/autopilot/locks/autosteer</propety>
+          <greater-than>
+            <property>/gear/gear[0]/rollspeed-ms</property>
+            <value type="double">3</value>
+          </greater-than>
+         <less-than>
+            <property>/gear/gear[0]/rollspeed-ms</property>
+            <value type="double">70</value>
+          </less-than>
+        </and>
+      </condition>         
+    </enable>
+    <type>gain</type>
+    <gain>-0.5</gain>
+    <input>/orientation/yaw-rate-degps</input>
+    <output>/controls/flight/rudder</output>
+  </filter> 
+
+
 </PropertyList>

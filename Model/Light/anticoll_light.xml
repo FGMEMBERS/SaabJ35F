@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+  <path>/Models/Effects/procedural_light.ac</path>
+
+    <animation>
+      <type>select</type>
+      <object-name>procedural_light</object-name>
+      <condition>
+        <property>/controls/lighting/strobe</property>
+      </condition>
+    </animation>
+
+    <effect>
+        <inherits-from>Model/Effects/draken-light-anticoll</inherits-from>
+        <object-name>procedural_light</object-name>
+    </effect>
+
+</PropertyList>
+

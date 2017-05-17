@@ -1034,7 +1034,20 @@
            <property>metrics/bw-ft</property>
            <property>aero/bi2vel</property>
            <property>velocities/r-aero-rad_sec</property>
-           <value>0.15</value>
+          <table>
+            <independentVar lookup="row">aero/alpha-rad</independentVar>
+            <tableData>
+              -0.17   -0.10
+               0.00   -0.10
+               0.17   -0.10
+               0.34   -0.15
+               0.52   -0.30
+               0.69   -0.40
+               0.75   -0.50
+               0.87   -0.40	  
+               1.00   -0.25
+            </tableData>
+          </table>
        </product>
     </function>
 
@@ -1045,21 +1058,30 @@
           <property>metrics/Sw-sqft</property>
           <property>metrics/bw-ft</property>
           <property>fcs/left-aileron-control</property>
-          <value>0.11</value>
+          <table>
+            <independentVar lookup="row">velocities/mach</independentVar>
+            <tableData>
+              0.0     0.11
+              0.9     0.11
+              1.1     0.07
+              2.0     0.07
+            </tableData>
+          </table>
 <!-- Stall lowering of efficency -->
           <table>
             <independentVar lookup="row">aero/alpha-rad</independentVar>
             <tableData>
               0.0     1.0
-              0.35    1.0
-              0.5     0.7
-              0.8     0.2
-              2.0     0.15
+              0.24    1.0
+              0.35    0.6
+              0.8     0.15
+              2.0     0.1
             </tableData>
           </table>
        </product>
     </function>
 
+<!-- TODO adjust for alpha -->
     <function name="aero/moment/Roll_rudder">
        <description>Roll moment due to rudder</description>
        <product>
@@ -1067,7 +1089,7 @@
            <property>metrics/Sw-sqft</property>
            <property>metrics/bw-ft</property>
            <property>fcs/rudder-pos-rad</property>
-           <value>0.01</value>
+           <value>0.05</value>
        </product>
     </function>
 
@@ -1086,7 +1108,7 @@
             <independentVar lookup="row">aero/alpha-rad</independentVar>
             <tableData>
               -0.5    0.07
-              -0.35   0.06
+              -0.35   0.05
               -0.17   0.04
                0.0    0.0
                0.17  -0.04
@@ -1094,9 +1116,11 @@
                0.5   -0.08
                0.6   -0.065
                0.70  -0.025
-               0.75  -0.01
-               1.0   -0.15
-               1.6   -0.30
+               0.75   0.00
+               0.82   0.02
+               0.87   0.00
+               1.0   -0.12
+               1.7   -0.30
             </tableData>
            </table>
        </product>
@@ -1112,8 +1136,8 @@
           <table>
             <independentVar lookup="row">velocities/mach</independentVar>
             <tableData>
-              0.0     -0.46
-              0.9     -0.46
+              0.0     -0.41
+              0.9     -0.41
               1.1     -0.24
               2.0     -0.24
             </tableData>
@@ -1125,10 +1149,9 @@
               0.0     1.0
               0.24    1.0
               0.35    0.8
-              0.5     0.6
-              0.7     0.5
-              1.0     0.3
-              1.4     0.15
+              0.5     0.5
+              0.7     0.2
+              1.0     0.1
               1.7     0.1
             </tableData>
           </table>
@@ -1276,13 +1299,13 @@
     </function>
 
     <function name="aero/moment/Yaw_aileron">
-       <description>Adverse yaw</description>
+       <description>Aileron gas</description>
        <product>
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>metrics/bw-ft</property>
            <property>fcs/left-aileron-control</property>
-           <value>-0.01</value>
+           <value>0.01</value>
        </product>
     </function>
 

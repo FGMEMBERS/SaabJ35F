@@ -5,18 +5,21 @@ Will have:
 * Tooltips
 * Better liveries
 * Afterburner nozzle (RAT)
+* Knob animation altitude pressure setting.
 * Internal lights and iluminating lights.
 * Half/full instrument lighting.
-* Adjust front wheel suspension animation.
 * Adjust autopilot for better response and stability
 * Brake parachute
 * Navigation with altitude setter in plané mode (J35 SFI:1 s. 50-51)
 * Beacons and radio frequences dialogs
 * ALS shadow, maps etc https://forum.flightgear.org/viewtopic.php?p=234971#p234971
 * Effects when flying
-* Recheck layout of cockpit: J35F1 Radar controlls etc.
+* Recheck layout of cockpit: J35F1 Radar controls etc.
 * Adjustable speed brake deflection and servostall. Separate upper and lower Speed brakes.
 * Sounds: Parking brake, switches, wind
+
+Ongoing work
+* Tweek FDM. Eg. Is it too unstable in roll? 
 
 Nice to have:
 * Does J35F have strobe or not?

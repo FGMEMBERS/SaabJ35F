@@ -15,6 +15,7 @@
  }
 
  var button_handlerAK = func(btn) {
+   sound_helper("sound-small");
    for (var i=0; i<11; i=i+1) {
      setprop("/instrumentation/fr21/buttons/"~substr(btnsAK, i, 1), 0);
    }
@@ -25,6 +26,7 @@
  }
 
  var button_handler15 = func(btn) {
+   sound_helper("sound-small");
    for (var i=1; i<6; i=i+1) {
      setprop("/instrumentation/fr21/buttons/b"~i, 0);
    }

@@ -2,6 +2,7 @@
 #Start up (start_up)
 #Fuel control (fuel_handler)
 #G watcher (g_watch)
+#Sound helper (sound_helper)
 #Autostart (autostart)
 #Opening fuel valve autostart (waiting_n1)
 #Autopilot settings (auto_setting(set))
@@ -130,6 +131,18 @@
        if (verbose > 1) print("End of negative G");
     }
     settimer(g_watch, 0.1);
+ }
+
+# Triggers switch sound
+# name is sound-large or sound-small
+# that riggers different sounds.
+ var sound_helper = func(name) {
+   var sp = "/instrumentation/switches/"~name;
+   setprop(sp,1);
+   var timer = maketimer(0.1, func(){
+     setprop(sp,0); });
+   timer.singleShot = 1;
+   timer.start();
  }
 
 # Opens fuel valve in autostart
@@ -309,6 +322,7 @@ var autoOnOff = func(n) {
 
 #Canopy operation
 var canopy_operate = func {
+  sound_helper("sound-large");
   if (getprop("/controls/canopy/position-norm") > 0) {
     canopy.toggle();
     setprop("/controls/canopy/control", 1-getprop("/controls/canopy/control"));
@@ -347,6 +361,7 @@ var canopy_operate = func {
    setprop("instrumentation/switches/fuel/pos", 1-getprop("instrumentation/switches/fuel/pos"));
    fuel_cover.toggle();   
  }
+
 # Autostart aircraft
  var start_systems = func {
    setprop("controls/electric/battery-switch", 1);
@@ -391,6 +406,7 @@ var canopy_operate = func {
   setlistener("instrumentation/comm/power-btn", fr21_Aonoff, 0, 0);
   setlistener("instrumentation/comm[1]/power-btn", fr21_Bonoff, 0, 0);
   print("Radio ... Check");
+  setlistener("controls/gear/brake-parking", func {sound_helper("sound-large");}, 0, 0);
  }
 
 #Init Canopy movement

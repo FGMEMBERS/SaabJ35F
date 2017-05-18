@@ -5,7 +5,7 @@ Will have:
 * Tooltips
 * Better liveries
 * Afterburner nozzle (RAT)
-* Knob animation altitude pressure setting.
+* Knob animation altitude pressure setting, autopilot.
 * Internal lights and iluminating lights.
 * Half/full instrument lighting.
 * Adjust autopilot for better response and stability
@@ -16,7 +16,7 @@ Will have:
 * Effects when flying
 * Recheck layout of cockpit: J35F1 Radar controls etc.
 * Adjustable speed brake deflection and servostall. Separate upper and lower Speed brakes.
-* Sounds: Parking brake, switches, wind
+* Sounds: wind?
 
 Ongoing work
 * Tweek FDM. Eg. Is it too unstable in roll? 

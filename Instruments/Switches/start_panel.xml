@@ -58,6 +58,10 @@
     <command>nasal</command>
     <script>SaabJ35F.fuel_cover.toggle();</script>
    </binding>
+   <binding>
+    <command>nasal</command>
+      <script>SaabJ35F.sound_helper("sound-small");</script>
+   </binding>
   </action>
  </animation>
 
@@ -92,6 +96,10 @@
    <binding>
     <command>nasal</command>
     <script>SaabJ35F.lt_switch_toggle();</script>>
+   </binding>
+   <binding>
+    <command>nasal</command>
+      <script>SaabJ35F.sound_helper("sound-small");</script>
    </binding>
   </action>
  </animation>
@@ -242,6 +250,10 @@
             setprop("controls/electric/engine/generator",1);        
         }
       ]]></script>
+   </binding>
+   <binding>
+    <command>nasal</command>
+      <script>SaabJ35F.sound_helper("sound-small");</script>
    </binding>
     <mod-up>
      <binding>

@@ -215,23 +215,23 @@ models, FDM, instruments, systems: Anders Martinsson jandersmartinsson@gmail.com
  </consumables>
 
 
-  <controls>
-    <!-- Start with Parking Brake on -->
-     <gear>
-        <brake-parking type="double">1.0</brake-parking>
-     </gear>
-     <canopy>
-       <control type="bool">false</control>
-     </canopy>
-     <electric>
-       <battery-switch>false</battery-switch>
-     </electric>
-     <lighting>
-       <landing-lights type="bool">false</landing-lights>
-       <taxi-light type="bool">false</taxi-light>
-       <consol-norm type="double">0.0</consol-norm>
-     </lighting>
-  </controls>
+ <controls>
+   <!-- Start with Parking Brake on -->
+    <gear>
+       <brake-parking type="double">1.0</brake-parking>
+    </gear>
+    <canopy>
+      <control type="bool">false</control>
+    </canopy>
+    <electric>
+      <battery-switch>false</battery-switch>
+    </electric>
+    <lighting>
+      <landing-lights type="bool">false</landing-lights>
+      <taxi-light type="bool">false</taxi-light>
+      <consol-norm type="double">0.0</consol-norm>
+    </lighting>
+ </controls>
 
 
  <engines>
@@ -240,224 +240,225 @@ models, FDM, instruments, systems: Anders Martinsson jandersmartinsson@gmail.com
   </engine>
  </engines>
 
-<input>
- <keyboard>
+ <input>
+  <keyboard>
 
    <key n="81">
-    <name>Shift-Q</name>
-    <desc>Fuel Cutoff Switch or Lever.</desc>
+     <name>Shift-Q</name>
+     <desc>Fuel Cutoff Switch or Lever.</desc>
+     <binding>
+       <condition>
+         <property>/sim/input/selected/engine[0]</property>
+       </condition>
+       <command>property-toggle</command>
+       <property>/controls/engines/engine[0]/cutoff</property>
+     </binding>
+   </key>
+
+   <key n="83">
+     <name>Shift-S</name>
+     <desc>Autostart systems and engine.</desc>
+     <binding>
+       <command>nasal</command>
+       <script>SaabJ35F.start_systems();</script>
+     </binding>
+   </key>
+
+   <key n="74">
+    <name>Shift-J</name>
+    <desc>Drop droptanks.</desc>
     <binding>
-      <condition>
-        <property>/sim/input/selected/engine[0]</property>
-      </condition>
-     <command>property-toggle</command>
-     <property>/controls/engines/engine[0]/cutoff</property>
-   </binding>
-  </key>
+      <command>nasal</command>
+      <script>SaabJ35F.drophandle(1);</script>
+    </binding>
+   </key>
 
-  <key n="83">
-   <name>Shift-S</name>
-   <desc>Autostart systems and engine.</desc>
-   <binding>
-     <command>nasal</command>
-     <script>SaabJ35F.start_systems();</script>
-   </binding>
-  </key>
-
-  <key n="74">
-   <name>Shift-J</name>
-   <desc>Drop droptanks.</desc>
-   <binding>
-     <command>nasal</command>
-     <script>SaabJ35F.drophandle(1);</script>
-   </binding>
-  </key>
-
-  <key n="12">
-   <name>Ctrl-L</name>
-   <desc>Drop droptanks.</desc>
-   <binding>
-     <command>nasal</command>
-     <script>SaabJ35F.drophandle(0);</script>
-   </binding>
-  </key>
+   <key n="12">
+    <name>Ctrl-L</name>
+    <desc>Drop droptanks.</desc>
+    <binding>
+      <command>nasal</command>
+      <script>SaabJ35F.drophandle(0);</script>
+    </binding>
+   </key>
   
-	<key n="4">
-		<name>Ctrl-d</name>
-	        <desc>Toggle Canopy</desc>
-	          <binding> 
-	          	<command>nasal</command>
-			<script>SaabJ35F.canopy_operate();</script>
-		  </binding>
-	</key>
+   <key n="4">
+	<name>Ctrl-d</name>
+	<desc>Toggle Canopy</desc>
+	<binding> 
+	  <command>nasal</command>
+	  <script>SaabJ35F.canopy_operate();</script>
+	</binding>
+   </key>
 
- <key n="103">
-  <name>g</name>
-  <desc>Gear Up</desc>
-  <binding>
-   <command>nasal</command>
-   <script><![CDATA[
-      if (getprop("controls/engines/engine[0]/throttle") > 0.9) controls.gearDown(-1);
-   ]]></script>
-  </binding>
-  <mod-up>
-   <binding>
-    <command>nasal</command>
-    <script>controls.gearDown(0)</script>
-   </binding>
-  </mod-up>
- </key>
- 	
- </keyboard>
-</input>
+   <key n="103">
+    <name>g</name>
+    <desc>Gear Up</desc>
+    <binding>
+     <command>nasal</command>
+     <script><![CDATA[
+       if (getprop("controls/engines/engine[0]/throttle") > 0.9) controls.gearDown(-1);
+     ]]></script>
+    </binding>
+    <mod-up>
+     <binding>
+      <command>nasal</command>
+      <script>controls.gearDown(0)</script>
+     </binding>
+    </mod-up>
+   </key>	
+  </keyboard>
+ </input>
 
 <!-- Target in meters -->
-<autopilot>
-  <enabled type="bool">true</enabled>
-  <on type="bool">false</on>
-  <altoff type="bool">false</altoff>
-  <settings>
+ <autopilot>
+   <enabled type="bool">true</enabled>
+   <on type="bool">false</on>
+   <altoff type="bool">false</altoff>
+   <settings>
      <target-altitude-m type="double">0</target-altitude-m>
-  </settings>
-  <locks>
-    <altitude type="bool">false</altitude>
-    <attitude type="bool">false</attitude>
-    <damp type="bool">true</damp>
-    <autosteer type="bool">false</autosteer> <!-- Cheat to steer down the runway -->
-  </locks>
-</autopilot>
+   </settings>
+   <locks>
+     <altitude type="bool">false</altitude>
+     <attitude type="bool">false</attitude>
+     <damp type="bool">true</damp>
+     <autosteer type="bool">false</autosteer> <!-- Cheat to steer down the runway -->
+   </locks>
+ </autopilot>
 
            
-<instrumentation>
- <AHK>
-  <mode type="int">0</mode>
-  <needle_target type="double">0</needle_target>
-  <needle_dist type="double">0</needle_dist>
- </AHK>
- <navradio>
-  <mode type="int" archive="y">0</mode> 
-  <anita1 type="int" archive="y">0</anita1>
-  <anita2 type="int" archive="y">0</anita2>
-  <barbro type="int" archive="y">0</barbro>
-  <dir type="double">0</dir>
-  <dis type="double">0</dis>
-  <gs_alt type="double">0</gs_alt>
-  <gs_dir type="double">0</gs_dir>
- </navradio>
- <fr21>
-  <pwr type="bool">false</pwr>
-  <frequency_A type="double">100.0</frequency_A>
-  <frequency_B type="double">100.0</frequency_B>
-  <frequency_A_man type="double">100.0</frequency_A_man>
-  <frequency_B_man type="double">100.0</frequency_B_man>
-  <buttons>
-   <A type="bool">false</A>
-   <B type="bool">false</B>
-   <C type="bool">false</C>
-   <D type="bool">false</D>
-   <E type="bool">false</E>
-   <F type="bool">false</F>
-   <G type="bool">false</G>
-   <H type="bool">false</H>
-   <I type="bool">false</I>
-   <J type="bool">false</J>
-   <K type="bool">false</K>
-   <Uslash type="bool">true</Uslash>
-   <b1 type="bool">false</b1>
-   <b2 type="bool">false</b2>
-   <b3 type="bool">false</b3>
-   <b4 type="bool">false</b4>
-   <b5 type="bool">false</b5>
-   <Lslash type="bool">true</Lslash>
-  </buttons>
- </fr21>  
- <radar>
-  <mode type="int" archive="y">0</mode>
-  <scan_mode type="float">120</scan_mode>
-  <antenna_pitch type="float">0</antenna_pitch>
-  <antenna_yaw type="float">0</antenna_yaw>
- </radar>
- <gear_warning type="bool">false</gear_warning>
- <alt_indicator type="bool">false</alt_indicator>
- <master_alarm>
-   <on type="bool">false</on>
-   <enabled type="bool">true</enabled>
- </master_alarm>
- <fuel>
-  <needleF_rot type="double">0</needleF_rot>
-  <needleB_rot type="double">0</needleB_rot>
-  <FT_light type="bool">true</FT_light>
-  <LT_light type="bool">true</LT_light>
- </fuel>
- <switches>
-  <drop_selector>
-   <pos type="bool">false</pos>
-  </drop_selector>
-  <battery_cover>
-   <pos type="bool">false</pos>
-  </battery_cover>
-  <fuel_cover>
-   <pos type="bool">false</pos>
-  </fuel_cover>
+ <instrumentation>
+  <AHK>
+   <mode type="int">0</mode>
+   <needle_target type="double">0</needle_target>
+   <needle_dist type="double">0</needle_dist>
+  </AHK>
+  <navradio>
+   <mode type="int" archive="y">0</mode> 
+   <anita1 type="int" archive="y">0</anita1>
+   <anita2 type="int" archive="y">0</anita2>
+   <barbro type="int" archive="y">0</barbro>
+   <dir type="double">0</dir>
+   <dis type="double">0</dis>
+   <gs_alt type="double">0</gs_alt>
+   <gs_dir type="double">0</gs_dir>
+  </navradio>
+  <fr21>
+   <pwr type="bool">false</pwr>
+   <frequency_A type="double">100.0</frequency_A>
+   <frequency_B type="double">100.0</frequency_B>
+   <frequency_A_man type="double">100.0</frequency_A_man>
+   <frequency_B_man type="double">100.0</frequency_B_man>
+   <buttons>
+    <A type="bool">false</A>
+    <B type="bool">false</B>
+    <C type="bool">false</C>
+    <D type="bool">false</D>
+    <E type="bool">false</E>
+    <F type="bool">false</F>
+    <G type="bool">false</G>
+    <H type="bool">false</H>
+    <I type="bool">false</I>
+    <J type="bool">false</J>
+    <K type="bool">false</K>
+    <Uslash type="bool">true</Uslash>
+    <b1 type="bool">false</b1>
+    <b2 type="bool">false</b2>
+    <b3 type="bool">false</b3>
+    <b4 type="bool">false</b4>
+    <b5 type="bool">false</b5>
+    <Lslash type="bool">true</Lslash>
+   </buttons>
+  </fr21>  
+  <radar>
+   <mode type="int" archive="y">0</mode>
+   <scan_mode type="float">120</scan_mode>
+   <antenna_pitch type="float">0</antenna_pitch>
+   <antenna_yaw type="float">0</antenna_yaw>
+  </radar>
+  <gear_warning type="bool">false</gear_warning>
+  <alt_indicator type="bool">false</alt_indicator>
+  <master_alarm>
+    <on type="bool">false</on>
+    <enabled type="bool">true</enabled>
+  </master_alarm>
   <fuel>
-   <pos type="bool">false</pos>
+   <needleF_rot type="double">0</needleF_rot>
+   <needleB_rot type="double">0</needleB_rot>
+   <FT_light type="bool">true</FT_light>
+   <LT_light type="bool">true</LT_light>
   </fuel>
-  <generator>
-   <pos type="int">0</pos>
-  </generator>
-  <start>
-   <pos type="bool">false</pos>
-  </start>
-  <restart>
-   <pos type="bool">false</pos>
-  </restart>
-  <inst-light-knob>
-   <pos type="double" archive="y">1</pos>
-  </inst-light-knob>
-  <consol-light-knob>
-   <pos type="double" archive="y">1</pos>
-  </consol-light-knob>
-  <landing-light-left>
-   <pos type="bool">false</pos>
-  </landing-light-left>
-  <landing-light-right>
-   <pos type="bool">false</pos>
-  </landing-light-right>
-  <nav-lights-setting type="int">0</nav-lights-setting>
-  <strobe type="bool">false</strobe>
-  <default>
-   <pos type="bool">false</pos>
-  </default>
-  <on>
-   <pos type="bool">true</pos>
-  </on>
- </switches>
- <hydraulic>
-   <hydI-fail type="bool">true</hydI-fail>
-   <hydII-fail type="bool">true</hydII-fail>
- </hydraulic>
-</instrumentation>
+  <switches>
+   <drop_selector>
+    <pos type="bool">false</pos>
+   </drop_selector>
+   <battery_cover>
+    <pos type="bool">false</pos>
+   </battery_cover>
+   <fuel_cover>
+    <pos type="bool">false</pos>
+   </fuel_cover>
+   <fuel>
+    <pos type="bool">false</pos>
+   </fuel>
+   <generator>
+    <pos type="int">0</pos>
+   </generator>
+   <start>
+    <pos type="bool">false</pos>
+   </start>
+   <restart>
+    <pos type="bool">false</pos>
+   </restart>
+   <inst-light-knob>
+    <pos type="double" archive="y">1</pos>
+   </inst-light-knob>
+   <consol-light-knob>
+    <pos type="double" archive="y">1</pos>
+   </consol-light-knob>
+   <landing-light-left>
+    <pos type="bool">false</pos>
+   </landing-light-left>
+   <landing-light-right>
+    <pos type="bool">false</pos>
+   </landing-light-right>
+   <nav-lights-setting type="int">0</nav-lights-setting>
+   <strobe type="bool">false</strobe>
+   <default>
+    <pos type="bool">false</pos>
+   </default>
+   <on>
+    <pos type="bool">true</pos>
+   </on>
+   <sound-large type="bool">false</sound-large>
+   <sound-small type="bool">false</sound-small>
+  </switches>
+  <hydraulic>
+    <hydI-fail type="bool">true</hydI-fail>
+    <hydII-fail type="bool">true</hydII-fail>
+  </hydraulic>
+ </instrumentation>
 
-  <rendering>
-     <nav-lights-factor type="float">0</nav-lights-factor>
-     <lights-factor type="float">0</lights-factor>
-     <submodels>
-       <dropL type="bool">false</dropL>
-       <dropR type="bool">false</dropR>
-     </submodels>
-  </rendering>
+ <rendering>
+    <nav-lights-factor type="float">0</nav-lights-factor>
+    <lights-factor type="float">0</lights-factor>
+    <submodels>
+      <dropL type="bool">false</dropL>
+      <dropR type="bool">false</dropR>
+    </submodels>
+ </rendering>
 
-<nasal>
- <SaabJ35F>
-  <file>Nasal/draken_limits.nas</file>
-  <file>Nasal/caution_panel.nas</file> 
-  <file>Nasal/draken_AHK.nas</file>
-  <file>Nasal/draken_nav.nas</file>
-  <file>Nasal/draken_comm.nas</file>
-  <file>Nasal/systemp.nas</file>
-  <file>Radar/radar.nas</file>
-  <file>Nasal/SaabJ35F.nas</file>
- </SaabJ35F>
-</nasal>
+ <nasal>
+  <SaabJ35F>
+   <file>Nasal/draken_limits.nas</file>
+   <file>Nasal/caution_panel.nas</file> 
+   <file>Nasal/draken_AHK.nas</file>
+   <file>Nasal/draken_nav.nas</file>
+   <file>Nasal/draken_comm.nas</file>
+   <file>Nasal/systemp.nas</file>
+   <file>Radar/radar.nas</file>
+   <file>Nasal/SaabJ35F.nas</file>
+  </SaabJ35F>
+ </nasal>
 
 </PropertyList>

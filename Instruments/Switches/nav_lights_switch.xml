@@ -57,6 +57,10 @@
          <max>3</max> <!-- 0,1,2 blink not implemented-->               
          <wrap>true</wrap>
       </binding>
+      <binding>
+        <command>nasal</command>
+        <script>SaabJ35F.sound_helper("sound-small");</script>
+      </binding>
    </action>
  </animation>
   

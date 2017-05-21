@@ -293,25 +293,18 @@
       </pitch>
     </squeal>
 
-    <!--flap>
-      <name>flaps</name>
+    <canopy>
+      <name>canopy</name>
       <mode>in-transit</mode>
-      <path>Sounds/flaps.wav</path>
-      <property>/surface-positions/left-flap-pos-norm</property>
+      <path>Sounds/starter_loop.wav</path>
+      <property>/controls/canopy/position-norm</property>
       <volume>
-        <factor>0.15</factor>
+        <value>0.5</value>
       </volume>
-    </flap>
-
-    <flap>
-      <name>flaps</name>
-      <mode>in-transit</mode>
-      <path>Sounds/flaps.wav</path>
-      <property>/surface-positions/right-flap-pos-norm</property>
-      <volume>
-        <factor>0.25</factor>
-      </volume>
-    </flap -->
+      <pitch>
+        <value>0.5</value>
+      </pitch>
+    </canopy>
 
     <!--spoiler>
       <name>spoilers</name>

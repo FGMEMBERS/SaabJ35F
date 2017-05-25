@@ -57,9 +57,9 @@ or open when idle on the ground to keep engine from overheating. (Not lit consta
 TANK LUFT, OLJE TRYCK, EL FEL, HYDR I and HYDR II will be lit when engine not running. But should go off when engine starts.
 
 Radio
-The radio equipment consists of two trancivers and one control unit of model Fr-21. They are on the left horizontal panel. In the simulation both trancivers are used for communication. In the real aircraft one was the reciver for combat control data feeding the AHK and other avionics. The letters A-K stores pre set frequencies for tranciver A (closest to the control unit) and the numbers 1-5 ctores pre set frequencies fro tranciver B. A stores the COM1 frequency at FG start up, B stores COM1 standby frequency. Number 1 stores the COM2 frequency at FG start up, 2 stores COM2 standby frequency. The frequency for the other letters and numbers are in the text file Avionics/Fr21.txt and can be changed by the user.
-Pressing the buttons marked with dash (-) makes it possible to manually set the tranciver's frequency using the knobs on the unit.
-The radio is off at simulation start. Tranciver B uses battery power and tranciver A uses main AC.
+The radio equipment consists of two transceiver and one control unit of model Fr-21. They are on the left horizontal panel. In the simulation both transceivers are used for communication. In the real aircraft one was the receiver for combat control data feeding the AHK and other avionics. The letters A-K stores pre set frequencies for transceiver A (closest to the control unit) and the numbers 1-5 stores pre set frequencies fro transceiver B. A stores the COM1 frequency at FG start up, B stores COM1 standby frequency. Number 1 stores the COM2 frequency at FG start up, 2 stores COM2 standby frequency. The frequency for the other letters and numbers are in the text file Avionics/Fr21.txt and can be changed by the user.
+Pressing the buttons marked with dash (-) makes it possible to manually set the transceiver’s frequency using the knobs on the unit.
+The radio is off at simulation start. Transceiver B uses battery power and transceiver A uses main AC.
 
 Radar
 Showing a sweep and antenna azimut.
@@ -110,8 +110,8 @@ Droptank fuel valve: Right front canopy rim. Set to on (forward) when using drop
 Parking brake: Center console below instrument panel to the right.
 Jettison droptanks: Left side with red protection ring.
 Canopy handle: Left side
-Landing/taxi light switches: Left front canopy rim. Left and right landing light.
-Navigation lights (sv. "Lanternor"): Right aft panel. Two settings are implemented, dim and bright.
+Landing/taxi light switches: Left front canopy rim. Left and right landing light. If switches are in on position the lights will be automatically turned on/off as landing gear are lowered/rised. 
+Navigation lights (sv. "Lanternor"): Right aft panel. Three settings are implemented; off, dim and bright.
 Instrument lighting: Left side above throttle. Sets the brightness of the red instrument lighting.
 Start panel: Lower left instrument panel. Se below.
 

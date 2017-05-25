@@ -322,7 +322,7 @@ models, FDM, instruments, systems: Anders Martinsson jandersmartinsson@gmail.com
      <altitude type="bool">false</altitude>
      <attitude type="bool">false</attitude>
      <damp type="bool">true</damp>
-     <autosteer type="bool">false</autosteer> <!-- Cheat to steer down the runway -->
+     <!--autosteer type="bool">false</autosteer> < Cheat to steer down the runway -->
    </locks>
  </autopilot>
 

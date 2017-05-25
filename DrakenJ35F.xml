@@ -981,6 +981,7 @@
            <property>aero/qbarUV-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>metrics/bw-ft</property>
+           <property>aero/function/kCLge</property>
            <property>aero/beta-rad</property>
           <table>
             <independentVar lookup="row">aero/alpha-rad</independentVar>
@@ -1081,7 +1082,6 @@
        </product>
     </function>
 
-<!-- TODO adjust for alpha -->
     <function name="aero/moment/Roll_rudder">
        <description>Roll moment due to rudder</description>
        <product>
@@ -1089,7 +1089,18 @@
            <property>metrics/Sw-sqft</property>
            <property>metrics/bw-ft</property>
            <property>fcs/rudder-pos-rad</property>
-           <value>0.05</value>
+          <table>
+            <independentVar lookup="row">aero/alpha-rad</independentVar>
+            <tableData>
+             -0.17   1.5
+              0.0    1.0
+              0.37   0.0
+              0.75  -0.9
+              1.0	-2.0
+              1.6   -0.0
+            </tableData>
+          </table>
+           <value>0.03</value>
        </product>
     </function>
 

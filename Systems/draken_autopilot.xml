@@ -256,11 +256,10 @@
  </filter> 
  
  <!-- HACK Lift off auto steer HACK -->
-  <filter>
+  <!--filter>
     <name>Auto steer rudder</name>
     <enable>
       <condition>
-        <and>
           <propety>/gear/gear[0]/wow</propety>
           <propety>/autopilot/locks/autosteer</propety>
           <greater-than>
@@ -271,14 +270,13 @@
             <property>/gear/gear[0]/rollspeed-ms</property>
             <value type="double">70</value>
           </less-than>
-        </and>
       </condition>         
     </enable>
     <type>gain</type>
     <gain>-0.5</gain>
     <input>/orientation/yaw-rate-degps</input>
     <output>/controls/flight/rudder</output>
-  </filter> 
+  </filter--> 
 
 
 </PropertyList>

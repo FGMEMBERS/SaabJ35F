@@ -42,14 +42,21 @@ Anders  M
  </animation -->
 
  <effect>
-   <inherits-from>Effects/model-transparent</inherits-from>
+   <inherits-from>Effects/model-combined-transparent</inherits-from>
      <object-name>draken_canopy_glass01</object-name>
      <object-name>draken_canopy_glass02</object-name>
-     <object-name>draken_canopy_glassI1</object-name>
-     <object-name>draken_canopy_glassI2</object-name>
-     <object-name>HUD_glass</object-name>
  </effect>
 
+ <effect>
+   <inherits-from>Effects/glass</inherits-from>
+     <object-name>draken_canopy_glassI1</object-name>
+     <object-name>draken_canopy_glassI2</object-name>
+ </effect>
+
+ <effect>
+   <inherits-from>Effects/glass</inherits-from>
+     <object-name>HUD_glass</object-name>
+ </effect>
 
 <!-- LOD dependent Internal models  -->
   <model>

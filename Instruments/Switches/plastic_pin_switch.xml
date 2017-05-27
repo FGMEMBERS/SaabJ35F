@@ -34,6 +34,10 @@
     <command>property-toggle</command>
     <property alias="../../../../params/pos"/>
    </binding>
+   <binding>
+    <command>nasal</command>
+      <script>SaabJ35F.sound_helper("sound-small");</script>
+   </binding>
   </action>
  </animation>
   

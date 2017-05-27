@@ -30,6 +30,7 @@
   <object-name>Needle_mach</object-name>
   <object-name>Needle_kmh</object-name>
   <object-name>Face</object-name>
+  <object-name>AC_fail</object-name>
   <emission>	
    <red>1</red>	
    <green>0.3</green>	
@@ -87,6 +88,17 @@
    <x>1</x>
    <y>0</y>
   </axis>
+ </animation>
+
+ <animation>
+  <object-name>AC_fail</object-name>
+  <type>select</type>
+  <condition>
+   <less-than>
+    <property>systems/electrical/outputs/inst_ac</property>
+    <value>30</value>
+   </less-than>
+  </condition>
  </animation>
 
 </PropertyList>

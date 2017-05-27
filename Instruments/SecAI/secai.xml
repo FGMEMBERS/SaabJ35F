@@ -1,13 +1,7 @@
 <?xml version="1.0"?>
 <PropertyList>
 
-  <path>secai.ac</path>
-
- <animation>
-  <type>range</type>
-  <min-m>0</min-m>
-  <max-m>10</max-m>
- </animation>
+ <path>secai.ac</path>
  
  <animation>
   <type>material</type> 
@@ -24,13 +18,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Cylinder</object-name>
-  <condition>
-   <greater-than>
-    <property>systems/electrical/outputs/inst_ac</property>
-    <value>40</value>
-   </greater-than>
-  </condition>
-    <property>orientation/roll-deg</property>
+    <property>instrumentation/attitude-indicator[1]/indicated-roll-deg</property>
     <center>
       <x-m>-0.02522</x-m>
       <y-m>0</y-m>
@@ -42,13 +30,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Pointer</object-name>
-  <condition>
-   <greater-than>
-    <property>systems/electrical/outputs/inst_ac</property>
-    <value>40</value>
-   </greater-than>
-  </condition>
-    <property>orientation/roll-deg</property>
+    <property>instrumentation/attitude-indicator[1]/indicated-roll-deg</property>
     <center>
       <x-m>-0.02522</x-m>
       <y-m>0</y-m>
@@ -60,13 +42,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Cylinder</object-name>
-  <condition>
-   <greater-than>
-    <property>systems/electrical/outputs/inst_ac</property>
-    <value>40</value>
-   </greater-than>
-  </condition>
-    <property>orientation/pitch-deg</property>
+    <property>instrumentation/attitude-indicator[1]/indicated-pitch-deg</property>
     <factor>2</factor>
     <center>
       <x-m>-0.02522</x-m>

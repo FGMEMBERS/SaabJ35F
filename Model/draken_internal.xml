@@ -1,0 +1,352 @@
+<?xml version="1.0"?>
+
+<!--
+Draken internal models
+Anders  M
+-->
+
+<PropertyList>
+
+ <path>draken_internal.ac</path>
+
+<!-- ********** Instruments indicators and switches ********* -->
+ <model>
+   <path>Model/instruments.xml</path>
+ </model> 
+ 
+ <model>
+   <path>Model/switches.xml</path>
+ </model>
+
+
+<!-- Cockpit controls -->
+ <animation>
+  <type>rotate</type>
+  <object-name>Gears</object-name>
+  <property>/controls/gear/gear-down</property>
+  <factor>30</factor>
+  <center>
+   <x-m>-3.83</x-m>
+   <y-m>-0.35</y-m>
+   <z-m>0.165</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>Gears</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-toggle</command>
+      <property>/controls/gear/gear-down</property>
+    </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Parachute_handle</object-name>
+  <property>/controls/flight/drag-chute</property>
+  <factor>-33</factor>
+  <center>
+   <x-m>-3.83</x-m>
+   <y-m>-0.35</y-m>
+   <z-m>0.165</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+   <object-name>Parachute_handle</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-toggle</command>
+      <property>/controls/flight/drag-chute</property>
+    </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>P_brake</object-name>
+  <property>/controls/gear/brake-parking</property>
+  <factor>0.03</factor>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>P_brake</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-toggle</command>
+      <property>/controls/gear/brake-parking</property>
+    </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>Canopy_control</object-name>
+  <property>/controls/canopy/control</property>
+  <factor>0.08</factor>
+  <axis>
+   <x>1</x>
+   <y>0.1</y>
+   <z>0.120</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>Canopy_control</object-name>
+  <property>/controls/canopy/enabled</property>
+  <factor>-0.01</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+   <object-name>Canopy_control</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+	    <command>nasal</command>
+			<script>SaabJ35F.canopy_operate();</script>
+    </binding>
+   </action>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>Throttle</object-name>
+  <property>/controls/engines/engine[0]/throttle</property>
+  <factor>-75</factor>
+  <center>
+   <x-m>-3.83</x-m>
+   <y-m>-0.30</y-m>
+   <z-m>0.165</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Control</object-name>
+  <property>/controls/flight/elevator</property>
+  <interpolation>
+   <entry>
+    <ind> -1.0</ind>
+    <dep> 25.0</dep>
+   </entry>
+   <entry>
+    <ind> 0.0</ind>
+    <dep> 0.0</dep>
+   </entry>
+   <entry>
+    <ind> 0.5</ind>
+    <dep> -12</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>-4.075</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0695</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Control</object-name>
+  <property>/controls/flight/aileron</property>
+  <factor>-12</factor>
+  <center>
+   <x-m>-4.075</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0695</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>R_cont_R</object-name>
+  <property>/controls/flight/rudder</property>
+  <factor>10</factor>
+  <center>
+   <x-m>-4.269</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.334</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>R_cont_L</object-name>
+  <property>/controls/flight/rudder</property>
+  <factor>-10</factor>
+  <center>
+   <x-m>-4.269</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.334</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>NoseW_control</object-name>
+  <property>/gear/gear[0]/steering-norm</property>
+  <factor>-88</factor>
+  <center>
+   <x-m>-3.93</x-m>
+   <y-m>0.314</y-m>
+   <z-m>0.026</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+    
+ <animation>
+  <type>pick</type>
+   <object-name>DT_jet</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+     <command>nasal</command>
+     <script>SaabJ35F.drophandle(1);</script>
+    </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Inst_light_knb</object-name>
+  <property>instrumentation/switches/inst-light-knob/pos</property>
+  <factor>-200</factor>
+  <offset-deg>0</offset-deg>
+  <center>
+   <x-m>-3.751</x-m>
+   <y-m>-0.387</y-m>
+   <z-m>0.41663</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>Inst_light_knb</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-cycle</command>
+      <property>instrumentation/switches/inst-light-knob/pos</property>
+      <value type="double">1</value>
+      <value type="double">0.75</value>
+      <value type="double">0.50</value>
+      <value type="double">0.25</value>
+      <value type="double">0</value>
+   </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Consol_light_knb</object-name>
+  <property>instrumentation/switches/consol-light-knob/pos</property>
+  <factor>-200</factor>
+  <offset-deg>0</offset-deg>
+  <center>
+   <x-m>-3.712</x-m>
+   <y-m>-0.389</y-m>
+   <z-m>0.41663</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>Consol_light_knb</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>property-cycle</command>
+      <property>instrumentation/switches/consol-light-knob/pos</property>
+      <value type="double">1</value>
+      <value type="double">0.75</value>
+      <value type="double">0.50</value>
+      <value type="double">0.25</value>
+      <value type="double">0</value>
+   </binding>
+   </action>
+ </animation>
+
+</PropertyList>

@@ -8,7 +8,7 @@
  <animation>
   <type>translate</type>
   <object-name>AB_Fuel</object-name>
-  <property>fdm/jsbsim/fcs/afterburner-valve</property>
+  <property>fdm/jsbsim/propulsion/afterburner-pump</property>
   <factor>-0.007</factor>
   <axis>
    <x>1</x>
@@ -24,7 +24,7 @@
    <button>0</button>
    <binding>
     <command>property-cycle</command>
-    <property>fdm/jsbsim/fcs/afterburner-valve</property>
+    <property>fdm/jsbsim/propulsion/afterburner-pump</property>
     <value type="double">1</value>
     <value type="double">0</value>
    </binding>
@@ -57,6 +57,10 @@
    <binding>
     <command>nasal</command>
     <script>SaabJ35F.fuel_cover.toggle();</script>
+   </binding>
+   <binding>
+    <command>nasal</command>
+      <script>SaabJ35F.sound_helper("sound-small");</script>
    </binding>
   </action>
  </animation>
@@ -92,6 +96,10 @@
    <binding>
     <command>nasal</command>
     <script>SaabJ35F.lt_switch_toggle();</script>>
+   </binding>
+   <binding>
+    <command>nasal</command>
+      <script>SaabJ35F.sound_helper("sound-small");</script>
    </binding>
   </action>
  </animation>
@@ -243,6 +251,10 @@
         }
       ]]></script>
    </binding>
+   <binding>
+    <command>nasal</command>
+      <script>SaabJ35F.sound_helper("sound-small");</script>
+   </binding>
     <mod-up>
      <binding>
        <command>property-assign</command>
@@ -259,7 +271,7 @@
   <type>translate</type>
   <object-name>Start</object-name>
   <property>instrumentation/switches/start/pos</property>
-  <factor>-0.005</factor>
+  <factor>-0.0045</factor>
   <axis>
    <x>0</x>
    <y>0</y>
@@ -297,7 +309,7 @@
   <type>translate</type>
   <object-name>Restart</object-name>
   <property>instrumentation/switches/restart/pos</property>
-  <factor>-0.005</factor>
+  <factor>-0.0045</factor>
   <axis>
    <x>0</x>
    <y>0</y>

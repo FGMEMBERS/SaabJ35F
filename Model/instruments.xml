@@ -84,10 +84,10 @@
    <name>AI</name>
    <path>Instruments/AI/draken_ai.xml</path>
    <offsets>
-     <x-m>-4.225</x-m>
+     <x-m>-4.24</x-m>
      <y-m>0.003</y-m>
-     <z-m>0.435</z-m>
-     <pitch-deg>-13.6</pitch-deg>
+     <z-m>0.428</z-m>
+     <pitch-deg>-13</pitch-deg>
    </offsets>
  </model>
 
@@ -107,7 +107,7 @@
    <name>direction</name>
    <path>Instruments/Compass/compass.xml</path>
    <offsets>
-     <x-m>-4.226</x-m>
+     <x-m>-4.232</x-m>
      <y-m>-0.095</y-m>
      <z-m>0.435</z-m>
      <pitch-deg>-13.6</pitch-deg>
@@ -175,9 +175,9 @@
    <path>Instruments/Indicators/gearindicator.xml</path>
    <offsets>
      <x-m>-4.17</x-m>
-     <y-m>-0.385</y-m>
-     <z-m>0.29</z-m>
-     <pitch-deg>-76</pitch-deg>
+     <y-m>-0.435</y-m>
+     <z-m>0.289</z-m>
+     <pitch-deg>-74</pitch-deg>
    </offsets>
  </model>
 
@@ -256,8 +256,8 @@
    <offsets>
      <x-m>-3.82</x-m>
      <y-m>0.35</y-m>
-     <z-m>0.246</z-m>
-     <pitch-deg>-89</pitch-deg>
+     <z-m>0.248</z-m>
+     <pitch-deg>-90</pitch-deg>
      <heading-deg>2</heading-deg>
      <roll-deg>0</roll-deg>
    </offsets>
@@ -288,5 +288,43 @@
      <roll-deg>0</roll-deg>
    </offsets>
  </model>
+
+ <model>
+   <name>Radio Fr-21 manoeuvre unit</name>
+   <path>Avionics/Fr-21manover.xml</path>
+   <offsets>
+     <x-m>-4.16</x-m>
+     <y-m>-0.348</y-m>
+     <z-m>0.284</z-m>
+     <pitch-deg>-75</pitch-deg>
+     <roll-deg>2</roll-deg>
+     <heading-deg>-1</heading-deg>
+   </offsets>
+ </model>
  
+<model>
+   <name>Radio Fr-21 tranciver A</name>
+   <path>Avionics/Fr-21tranciverA.xml</path>
+   <offsets>
+     <x-m>-4.073</x-m>
+     <y-m>-0.32</y-m>
+     <z-m>0.268</z-m>
+     <pitch-deg>14</pitch-deg>
+     <roll-deg>2</roll-deg>
+     <heading-deg>-1</heading-deg>
+   </offsets>
+ </model>
+
+<model>
+   <name>Radio Fr-21 tranciver A</name>
+   <path>Avionics/Fr-21tranciverB.xml</path>
+   <offsets>
+     <x-m>-4.01</x-m>
+     <y-m>-0.32</y-m>
+     <z-m>0.257</z-m>
+     <pitch-deg>4</pitch-deg>
+     <roll-deg>2</roll-deg>
+     <!--heading-deg>-1</heading-deg -->
+   </offsets>
+ </model>
 </PropertyList>

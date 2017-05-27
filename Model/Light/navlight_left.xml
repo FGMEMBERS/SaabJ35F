@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+  <path>/Models/Effects/procedural_light.ac</path>
+
+    <!-- Intensity controlled in .eff file -->
+    <animation>
+      <type>select</type>
+      <object-name>procedural_light</object-name>
+      <condition>
+          <greater-than>
+          <property>/controls/lighting/nav-lights-setting</property>
+          <value>0</value>
+        </greater-than>
+      </condition>
+    </animation>
+
+    <effect>
+        <inherits-from>Model/Effects/draken-light-nav-left</inherits-from>
+        <object-name>procedural_light</object-name>
+    </effect>
+
+</PropertyList>
+

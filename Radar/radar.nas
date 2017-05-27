@@ -105,7 +105,6 @@ var radar = {
              .setSourceRect(0,0,1,1)
              .setSize(1024,1024)
              .setTranslation(0,0);
-
     return m;
   },
 
@@ -160,7 +159,6 @@ var radar = {
     }
 
     #Guide animation
-    #TODO mode 6,5
     if (rmode < 5) {
         me.glide_target=480;
         me.course_target=480;

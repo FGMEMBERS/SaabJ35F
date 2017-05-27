@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <path>nav_lights_switch.ac</path>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Pin</object-name>
+  <property>/instrumentation/switches/nav-lights-setting</property>
+  <factor>-120</factor>
+  <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Pin</object-name>
+  <expression>
+    <product>
+      <min>
+        <property>/instrumentation/switches/nav-lights-setting</property>
+        <value>1</value>
+      </min>
+      <value>25</value>
+    </product>
+  </expression>
+  <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>knob</type>
+  <object-name>Pin</object-name>
+    <action>
+      <binding>
+         <command>property-adjust</command>
+         <property>/instrumentation/switches/nav-lights-setting</property>
+         <factor>1</factor>
+         <min>0</min>
+         <max>3</max> <!-- 0,1,2 blink not implemented-->               
+         <wrap>true</wrap>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>SaabJ35F.sound_helper("sound-small");</script>
+      </binding>
+   </action>
+ </animation>
+  
+</PropertyList>

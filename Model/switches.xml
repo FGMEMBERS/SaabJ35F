@@ -8,14 +8,16 @@
    <name>Start panel</name>
    <path>Instruments/Switches/start_panel.xml</path>
    <offsets>
-     <x-m>-3.95</x-m>
+     <x-m>-3.935</x-m>
      <y-m>-0.36</y-m>
-     <z-m>0.245</z-m>
+     <z-m>0.243</z-m>
      <pitch-deg>7</pitch-deg>
-     <roll-deg>1.5</roll-deg>
+     <roll-deg>1.4</roll-deg>
      <heading-deg>-2</heading-deg>
    </offsets>
 </model>
+
+<!-- Canopy rim -->
 
 <model>
    <name>Drop tank switch</name>
@@ -47,28 +49,172 @@
 </model>
 
 <model>
-   <name>Landing lights switch</name>
-   <path>Instruments/Switches/pin_switch.ac</path>
+   <name>Landing light left switch</name>
+   <path>Instruments/Switches/pin_switch.xml</path>
+   <overlay>
+    <params>
+     <pos>/instrumentation/switches/landing-light-left/pos</pos>
+    </params>
+   </overlay>
    <offsets>
-     <x-m>-4.027</x-m>
-     <y-m>-0.30</y-m>
-     <z-m>0.646</z-m>
-     <pitch-deg>-5</pitch-deg>
-     <roll-deg>-10</roll-deg>
+     <x-m>-4.147</x-m>
+     <y-m>-0.308</y-m>
+     <z-m>0.560</z-m>
+     <pitch-deg>0</pitch-deg>
+     <roll-deg>-104</roll-deg>
    </offsets>
 </model>
 
 <model>
-   <name>Taxing lights switch</name>
-   <path>Instruments/Switches/pin_switch.ac</path>
+   <name>Landing light right switch</name>
+   <path>Instruments/Switches/pin_switch.xml</path>
+   <overlay>
+    <params>
+     <pos>/instrumentation/switches/landing-light-right/pos</pos>
+    </params>
+   </overlay>
    <offsets>
-     <x-m>-4.079</x-m>
-     <y-m>-0.298</y-m>
-     <z-m>0.639</z-m>
-     <pitch-deg>-5</pitch-deg>
-     <roll-deg>-10</roll-deg>
+     <x-m>-4.146</x-m>
+     <y-m>-0.311</y-m>
+     <z-m>0.549</z-m>
+     <pitch-deg>0</pitch-deg>
+     <roll-deg>-104</roll-deg>
    </offsets>
 </model>
 
+<!-- Right rear panel -->
+
+<model>
+   <name>Deice engine</name>
+   <path>Instruments/Switches/pin_switch.ac</path>
+   <offsets>
+     <x-m>-3.702</x-m>
+     <y-m>0.4244</y-m>
+     <z-m>0.3055</z-m>
+     <heading-deg>-90</heading-deg>
+     <pitch-deg>104</pitch-deg>
+   </offsets>
+</model>
+
+<model>
+   <name>Cockpit AC setting</name>
+   <path>Instruments/Switches/pin_switch.ac</path>
+   <offsets>
+     <x-m>-3.5889</x-m>
+     <y-m>0.4319</y-m>
+     <z-m>0.2914</z-m>
+     <heading-deg>-90</heading-deg>
+     <pitch-deg>104</pitch-deg>
+   </offsets>
+</model>
+
+<model>
+   <name>Emergency power</name>
+   <path>Instruments/Switches/slide_switch.ac</path>
+   <offsets>
+     <x-m>-3.6027</x-m>
+     <y-m>0.4122</y-m>
+     <z-m>0.3752</z-m>
+     <heading-deg>-90</heading-deg>
+     <pitch-deg>102</pitch-deg>
+   </offsets>
+</model>
+
+<model>
+   <name>Cockpit AC main switch</name>
+   <path>Instruments/Switches/slide_switch.ac</path>
+   <offsets>
+     <x-m>-3.5568</x-m>
+     <y-m>0.43233</y-m>
+     <z-m>0.2951</z-m>
+     <roll-deg>0</roll-deg>
+     <heading-deg>90</heading-deg>
+     <pitch-deg>-104</pitch-deg>
+   </offsets>
+</model>
+
+<model>
+   <name>Deice canopy</name>
+   <path>Instruments/Switches/plastic_pin_switch.ac</path>
+   <offsets>
+     <x-m>-3.672</x-m>
+     <y-m>0.4288</y-m>
+     <z-m>0.2953</z-m>
+     <heading-deg>-90</heading-deg>
+     <pitch-deg>104</pitch-deg>
+   </offsets>
+</model>
+
+<model>
+   <name>Nav light switch</name>
+   <path>Instruments/Switches/nav_lights_switch.xml</path>
+   <offsets>
+     <x-m>-3.693</x-m>
+     <y-m>0.4097</y-m>
+     <z-m>0.3723</z-m>
+     <heading-deg>-90</heading-deg>
+     <pitch-deg>104</pitch-deg>
+   </offsets>
+</model>
+
+<model>
+   <name>Pitot heating nose</name>
+   <path>Instruments/Switches/plastic_pin_switch.ac</path>
+   <offsets>
+     <x-m>-3.708</x-m>
+     <y-m>0.3878</y-m>
+     <z-m>0.4825</z-m>
+     <heading-deg>-90</heading-deg>
+     <pitch-deg>64</pitch-deg>
+   </offsets>
+</model>
+
+<model>
+   <name>Pitot heating fin</name>
+   <path>Instruments/Switches/plastic_pin_switch.ac</path>
+   <offsets>
+     <x-m>-3.6933</x-m>
+     <y-m>0.3887</y-m>
+     <z-m>0.4828</z-m>
+     <heading-deg>-90</heading-deg>
+     <pitch-deg>64</pitch-deg>
+   </offsets>
+</model>
+
+<model>
+   <name>Stall warning</name>
+   <path>Instruments/Switches/plastic_pin_switch.ac</path>
+   <offsets>
+     <x-m>-3.6788</x-m>
+     <y-m>0.3893</y-m>
+     <z-m>0.4832</z-m>
+     <heading-deg>-90</heading-deg>
+     <pitch-deg>64</pitch-deg>
+   </offsets>
+</model>
+
+<model>
+   <name>Servo stall</name>
+   <path>Instruments/Switches/plastic_pin_switch.ac</path>
+   <offsets>
+     <x-m>-3.6643</x-m>
+     <y-m>0.3900</y-m>
+     <z-m>0.4835</z-m>
+     <heading-deg>-90</heading-deg>
+     <pitch-deg>114</pitch-deg>
+   </offsets>
+</model>
+
+<model>
+   <name>Emergency lighting</name>
+   <path>Instruments/Switches/plastic_pin_switch.ac</path>
+   <offsets>
+     <x-m>-3.5682</x-m>
+     <y-m>0.3945</y-m>
+     <z-m>0.4846</z-m>
+     <heading-deg>-90</heading-deg>
+     <pitch-deg>64</pitch-deg>
+   </offsets>
+</model>
 
 </PropertyList>

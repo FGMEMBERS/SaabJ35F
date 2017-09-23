@@ -194,24 +194,39 @@ models, FDM, instruments, systems: Anders Martinsson jandersmartinsson@gmail.com
  </limits>
 
  <consumables>
- <!-- 0=forward internal, 1 and 2=droptanks L and R, 3=rear internal -->
-  <fuel>
-   <tank n="0">
-    <level-gal_us archive="y">469.0</level-gal_us>
-   </tank>
-   <tank n="1">
-    <level-gal_us archive="y">143.5</level-gal_us>
-   </tank>
-   <tank n="2">
-    <level-gal_us archive="y">143.5</level-gal_us>
-   </tank>
-   <tank n="3">
-    <level-gal_us archive="y">469.0</level-gal_us>
-   </tank>
-   <using-droptanks type ="bool">false</using-droptanks>
-   <pressure-fail type="bool">false</pressure-fail>
-  </fuel>
-  <droptanks type="bool">true</droptanks>
+   <fuel>
+     <tank n="0">
+       <name type="string">Forward internal</name>
+       <level-gal_us archive="y">469.0</level-gal_us>
+       <selected alias="/fdm/jsbsim/propulsion/tank[0]/collector-valve"/>
+     </tank>
+     <tank n="1">
+       <name type="string">Left drop tank</name>
+       <level-gal_us archive="y">143.5</level-gal_us>
+       <selected alias="/fdm/jsbsim/propulsion/tank[1]/collector-valve"/>
+     </tank>
+     <tank n="2">
+       <name type="string">Right drop tank</name>
+       <level-gal_us archive="y">143.5</level-gal_us>
+       <selected alias="/fdm/jsbsim/propulsion/tank[2]/collector-valve"/>
+     </tank>
+     <tank n="3">
+       <name type="string">Aft internal</name>
+       <level-gal_us archive="y">469.0</level-gal_us>
+       <selected alias="/fdm/jsbsim/propulsion/tank[3]/collector-valve"/>
+     </tank>
+     <tank n="4">
+       <name type="string">Collector tank Forward+Left</name>
+       <hidden type="bool">1</hidden>
+     </tank>
+     <tank n="5">
+       <name type="string">Collector tank Aft+Right</name>
+       <hidden type="bool">1</hidden>
+     </tank>
+     <using-droptanks type ="bool">false</using-droptanks>
+     <pressure-fail type="bool">false</pressure-fail>
+   </fuel>
+   <droptanks type="bool">true</droptanks>
  </consumables>
 
 

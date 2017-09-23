@@ -354,11 +354,10 @@ var canopy_operate = func {
 
 # Switch LT fuel valve
  var lt_switch_toggle = func {
-   setprop("/fdm/jsbsim/propulsion/tank[4]/priority", 
-           1-getprop("/fdm/jsbsim/propulsion/tank[4]/priority"));
-   setprop("/fdm/jsbsim/propulsion/tank[5]/priority", 
-           1-getprop("/fdm/jsbsim/propulsion/tank[4]/priority"));
-   setprop("instrumentation/switches/fuel/pos", 1-getprop("instrumentation/switches/fuel/pos"));
+   var new_pos = 1 - getprop("instrumentation/switches/fuel/pos");
+   setprop("/fdm/jsbsim/propulsion/tank[4]/priority", new_pos);
+   setprop("/fdm/jsbsim/propulsion/tank[5]/priority", new_pos);
+   setprop("instrumentation/switches/fuel/pos", new_pos);
    fuel_cover.toggle();   
  }
 

@@ -415,3 +415,14 @@ var canopy_opening = 1 - getprop("/controls/canopy/enabled");
 var fuel_cover = aircraft.door.new ("/controls/fuel_cover/", 0.4);
 var battery_cover = aircraft.door.new ("/controls/battery_cover/", 0.4);
 start_up();
+
+# We must establish these aliases only after the FDM is initialized:
+setlistener ("/sim/signals/fdm-initialized", func (node) {
+  if (node != nil and node.getValue() != 0) {
+    for (var j = 0; j < 4; j += 1) {
+      props.globals.getNode ("fdm/jsbsim/propulsion/tank[" ~ j ~ "]/collector-valve", 0)
+                   .alias   ("consumables/fuel/tank[" ~ j ~ "]/selected");
+    }
+  }
+});
+

@@ -10,16 +10,20 @@ Anders  M
  
  <path>draken.ac</path>
 
- <!--nasal>
-  <load>
-     var livery_update = aircraft.livery_update.new("Aircraft/SaabJ35F/Model/Liveries");
-  </load> 
-  <unload>
-     livery_update.stop();
-  </unload>
- </nasal>
+  <!-- Multiplayer events =========================================-->
+  <nasal>
+    <load><![CDATA[
+io.load_nasal (getprop ("/sim/fg-aircraft") ~ "/SaabJ35F/Nasal/bombable.nas", "SaabJ35F_bombable");
+SaabJ35F_bombable.load(rplayer);
+    ]]></load>
+    <unload><![CDATA[
+var rplayer = cmdarg();
+print("UNLOAD SaabJ35F ", rplayer.getPath());
+SaabJ35F_bombable.unload(rplayer);
+    ]]></unload>
+  </nasal>
 
- <animation>
+ <!-- animation>
   <type>material</type>
    <object-name>draken_fuselage</object-name>
    <object-name>draken_elevon_left</object-name>

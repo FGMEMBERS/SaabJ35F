@@ -217,7 +217,7 @@ var bombableObject = {
       # 0,90=directly up,
       # 0,180=directly back, etc.
 
-      weaponOffset_m: {x:2, y:1, z:0},
+      weaponOffset_m: {x:-1.1, y:1.8, z:0.2},
       # Offset of the weapon from the main aircraft center
 
       weaponSize_m : {start:.1, end:.1},

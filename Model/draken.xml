@@ -46,7 +46,8 @@ SaabJ35F_bombable.unload(rplayer);
  </animation -->
 
  <effect>
-   <inherits-from>Effects/model-combined-transparent</inherits-from>
+   <!--inherits-from>Effects/model-combined-transparent</inherits-from -->
+   <inherits-from>Effects/model-transparent</inherits-from>
      <object-name>draken_canopy_glass01</object-name>
      <object-name>draken_canopy_glass02</object-name>
  </effect>

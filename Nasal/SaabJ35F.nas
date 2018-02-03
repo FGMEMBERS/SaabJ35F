@@ -12,6 +12,7 @@
 #Autopilot locks (auto_settings)
 #Canopy operation (canopy_operate)
 #Light intensity setter (light_intens)
+#Drag chute handler (chute_handler)
 #Start up
 
 #Debug setting
@@ -382,7 +383,37 @@ var canopy_operate = func {
    button_handler15("b1");
    autostart();
  } 
-  
+
+# Drag chute handling
+# chute_state: 0=no drag chute, 1=loaded, 2=deployed, 3=dropped
+ var chute_handler = func {
+   if (getprop("controls/dragchute/chute-lever") == 0 and 
+       getprop("/controls/engines/engine[0]/throttle") < 0.85) {
+     setprop("controls/dragchute/chute-lever", 1);
+     var timer = maketimer(0.5, func(){
+       setprop("controls/dragchute/chute-lever", 0);
+       });
+     timer.singleShot = 1;
+     timer.start();
+     var cs=getprop("/instrumentation/chute_state");
+     if (cs==1) {
+       var timer = maketimer(3, func() {
+           setprop("/instrumentation/chute_state", 2);
+           setprop("/fdm/jsbsim/fcs/drag-chute-deployed", 1);
+           setprop("/controls/dragchute/chute-cap",1);
+         });
+       timer.singleShot = 1;
+       timer.start();       
+     } else if (cs==2) {
+       setprop("/instrumentation/chute_state", 3);
+       setprop("/fdm/jsbsim/fcs/drag-chute-deployed", 0);
+       #TODO problem dropping at too low speed or (maybe) broken/unserviceable (see DrakenJ35F)
+     }
+   } else {
+     setprop("controls/dragchute/chute-lever", 0);
+   }
+ }
+
 #Start up script to initiate functions
  var start_up  = func {
   aircraft.livery.init("Aircraft/SaabJ35F/Model/Liveries");

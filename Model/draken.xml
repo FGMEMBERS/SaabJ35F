@@ -799,7 +799,7 @@ SaabJ35F_bombable.unload(rplayer);
   <animation>
    <type>rotate</type>
    <object-name>draken_paracap_left</object-name>
-   <property>/controls/flight/drag-chute</property>
+   <property>/controls/dragchute/chute-cap</property>
    <factor>95</factor> 
    <center>
      <x-m>7.26</x-m>
@@ -816,7 +816,7 @@ SaabJ35F_bombable.unload(rplayer);
   <animation>
    <type>rotate</type>
    <object-name>draken_paracap_right</object-name>
-   <property>/controls/flight/drag-chute</property>
+   <property>/controls/dragchute/chute-cap</property>
    <factor>-95</factor> 
    <center>
      <x-m>7.26</x-m>

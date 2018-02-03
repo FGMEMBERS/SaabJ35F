@@ -10,6 +10,7 @@ Will have:
 * Half/full instrument lighting.
 * Adjust autopilot for better response and stability
 * Brake parachute
+* Menu items: load droptanks and reset parachute (landed), Payload? 
 * Navigation with altitude setter in plané mode (J35 SFI:1 s. 50-51)
 * Beacons and radio frequences dialogs
 * ALS shadow, maps etc https://forum.flightgear.org/viewtopic.php?p=234971#p234971

@@ -124,7 +124,7 @@ models, FDM, instruments, systems: Anders Martinsson jandersmartinsson@gmail.com
       </key>
       <key>
         <name>Shift+P</name>
-        <desc>Deploy drag chute</desc>
+        <desc>Use drag chute handle</desc>
       </key>
       <key>
         <name>Shift+Q</name>
@@ -268,6 +268,10 @@ models, FDM, instruments, systems: Anders Martinsson jandersmartinsson@gmail.com
       <taxi-light type="bool">false</taxi-light>
       <consol-norm type="double">0.0</consol-norm>
     </lighting>
+    <dragchute>
+      <chute-lever type="bool">false</chute-lever>
+      <chute-cap type="bool">false</chute-cap>
+    </dragchute>
   </controls>
 
 
@@ -301,12 +305,11 @@ models, FDM, instruments, systems: Anders Martinsson jandersmartinsson@gmail.com
       </key>
 
       <key n="80">
-        <name>Shift+P</name>
+        <name>Shift-P</name>
         <desc>Deploy drag chute</desc>
         <binding>
-          <command>property-assign</command>
-          <property>controls/flight/drag-chute</property>
-          <value>1</value>
+	      <command>nasal</command>
+			<script>SaabJ35F.chute_handler();</script>
         </binding>
       </key>
 
@@ -455,6 +458,8 @@ models, FDM, instruments, systems: Anders Martinsson jandersmartinsson@gmail.com
       <FT_light type="bool">true</FT_light>
       <LT_light type="bool">true</LT_light>
     </fuel>
+    <!-- 0=no drag chute, 1=loaded, 2=deployed, 3=dropped -->
+    <chute_state type="int">1</chute_state>
     <switches>
       <drop_selector>
         <pos type="bool">false</pos>
@@ -478,10 +483,10 @@ models, FDM, instruments, systems: Anders Martinsson jandersmartinsson@gmail.com
         <pos type="bool">false</pos>
       </restart>
       <inst-light-knob>
-        <pos type="double" archive="y">1</pos>
+        <pos type="double" archive="y">0.25</pos>
       </inst-light-knob>
       <consol-light-knob>
-        <pos type="double" archive="y">1</pos>
+        <pos type="double" archive="y">0.25</pos>
       </consol-light-knob>
       <landing-light-left>
         <pos type="bool">false</pos>

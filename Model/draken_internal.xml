@@ -54,7 +54,7 @@ Anders  M
  <animation>
   <type>rotate</type>
   <object-name>Parachute_handle</object-name>
-  <property>/controls/flight/drag-chute</property>
+  <property>/controls/dragchute/chute-lever</property>
   <factor>-33</factor>
   <center>
    <x-m>-3.83</x-m>
@@ -76,8 +76,8 @@ Anders  M
     <repeatable>false</repeatable>
     <interval-sec>0.2</interval-sec>
     <binding>
-      <command>property-toggle</command>
-      <property>/controls/flight/drag-chute</property>
+	    <command>nasal</command>
+			<script>SaabJ35F.chute_handler();</script>
     </binding>
    </action>
  </animation>

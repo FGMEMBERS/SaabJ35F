@@ -236,6 +236,17 @@
    </offsets>
  </model>
 
+ <model>
+   <name>DragChute</name>
+   <path>Instruments/Indicators/chuteindicator.xml</path>
+   <!--offsets>
+     <x-m>-4.225</x-m>
+     <y-m>-0.241</y-m>
+     <z-m>0.43</z-m>
+     <pitch-deg>-13</pitch-deg>
+   </offsets -->
+ </model>
+
 <!--       Radar     -->
 
  <model>

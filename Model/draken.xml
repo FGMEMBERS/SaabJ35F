@@ -794,7 +794,7 @@ SaabJ35F_bombable.unload(rplayer);
   <path>Model/afterburner.xml</path>
  </model>
 
-<!--  Brake parachute  -->
+<!--  Drag parachute  -->
 
   <animation>
    <type>rotate</type>
@@ -830,6 +830,17 @@ SaabJ35F_bombable.unload(rplayer);
    </axis>
  </animation>
 
+ <model>
+  <name>Drag Chute</name>
+  <path>Model/chute.xml</path>
+   <offsets>
+      <x-m> 7.12 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> 1.15 </z-m>
+      <pitch-deg>-4</pitch-deg>
+   </offsets>
+ </model>
+  
  <!--    Pilot  -->
      <model>
        <path>Aircraft/Generic/Pilot/Fighter/pilot.xml</path>

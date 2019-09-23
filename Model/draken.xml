@@ -10,16 +10,20 @@ Anders  M
  
  <path>draken.ac</path>
 
- <!--nasal>
-  <load>
-     var livery_update = aircraft.livery_update.new("Aircraft/SaabJ35F/Model/Liveries");
-  </load> 
-  <unload>
-     livery_update.stop();
-  </unload>
- </nasal>
+  <!-- Multiplayer events =========================================-->
+  <nasal>
+    <load><![CDATA[
+io.load_nasal (getprop ("/sim/fg-aircraft") ~ "/SaabJ35F/Nasal/bombable.nas", "SaabJ35F_bombable");
+SaabJ35F_bombable.load(rplayer);
+    ]]></load>
+    <unload><![CDATA[
+var rplayer = cmdarg();
+print("UNLOAD SaabJ35F ", rplayer.getPath());
+SaabJ35F_bombable.unload(rplayer);
+    ]]></unload>
+  </nasal>
 
- <animation>
+ <!-- animation>
   <type>material</type>
    <object-name>draken_fuselage</object-name>
    <object-name>draken_elevon_left</object-name>
@@ -42,7 +46,8 @@ Anders  M
  </animation -->
 
  <effect>
-   <inherits-from>Effects/model-combined-transparent</inherits-from>
+   <!--inherits-from>Effects/model-combined-transparent</inherits-from -->
+   <inherits-from>Effects/model-transparent</inherits-from>
      <object-name>draken_canopy_glass01</object-name>
      <object-name>draken_canopy_glass02</object-name>
  </effect>
@@ -789,12 +794,12 @@ Anders  M
   <path>Model/afterburner.xml</path>
  </model>
 
-<!--  Brake parachute  -->
+<!--  Drag parachute  -->
 
   <animation>
    <type>rotate</type>
    <object-name>draken_paracap_left</object-name>
-   <property>/controls/flight/drag-chute</property>
+   <property>/controls/dragchute/chute-cap</property>
    <factor>95</factor> 
    <center>
      <x-m>7.26</x-m>
@@ -811,7 +816,7 @@ Anders  M
   <animation>
    <type>rotate</type>
    <object-name>draken_paracap_right</object-name>
-   <property>/controls/flight/drag-chute</property>
+   <property>/controls/dragchute/chute-cap</property>
    <factor>-95</factor> 
    <center>
      <x-m>7.26</x-m>
@@ -825,6 +830,17 @@ Anders  M
    </axis>
  </animation>
 
+ <model>
+  <name>Drag Chute</name>
+  <path>Model/chute.xml</path>
+   <offsets>
+      <x-m> 7.12 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> 1.15 </z-m>
+      <pitch-deg>-4</pitch-deg>
+   </offsets>
+ </model>
+  
  <!--    Pilot  -->
      <model>
        <path>Aircraft/Generic/Pilot/Fighter/pilot.xml</path>

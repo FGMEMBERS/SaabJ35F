@@ -12,6 +12,7 @@
 #Autopilot locks (auto_settings)
 #Canopy operation (canopy_operate)
 #Light intensity setter (light_intens)
+#Drag chute handler (chute_handler)
 #Start up
 
 #Debug setting
@@ -354,11 +355,10 @@ var canopy_operate = func {
 
 # Switch LT fuel valve
  var lt_switch_toggle = func {
-   setprop("/fdm/jsbsim/propulsion/tank[4]/priority", 
-           1-getprop("/fdm/jsbsim/propulsion/tank[4]/priority"));
-   setprop("/fdm/jsbsim/propulsion/tank[5]/priority", 
-           1-getprop("/fdm/jsbsim/propulsion/tank[4]/priority"));
-   setprop("instrumentation/switches/fuel/pos", 1-getprop("instrumentation/switches/fuel/pos"));
+   var new_pos = 1 - getprop("instrumentation/switches/fuel/pos");
+   setprop("/fdm/jsbsim/propulsion/tank[4]/priority", new_pos);
+   setprop("/fdm/jsbsim/propulsion/tank[5]/priority", new_pos);
+   setprop("instrumentation/switches/fuel/pos", new_pos);
    fuel_cover.toggle();   
  }
 
@@ -383,7 +383,37 @@ var canopy_operate = func {
    button_handler15("b1");
    autostart();
  } 
-  
+
+# Drag chute handling
+# chute_state: 0=no drag chute, 1=loaded, 2=deployed, 3=dropped
+ var chute_handler = func {
+   if (getprop("controls/dragchute/chute-lever") == 0 and 
+       getprop("/controls/engines/engine[0]/throttle") < 0.85) {
+     setprop("controls/dragchute/chute-lever", 1);
+     var timer = maketimer(0.5, func(){
+       setprop("controls/dragchute/chute-lever", 0);
+       });
+     timer.singleShot = 1;
+     timer.start();
+     var cs=getprop("/instrumentation/chute_state");
+     if (cs==1) {
+       var timer = maketimer(3, func() {
+           setprop("/instrumentation/chute_state", 2);
+           setprop("/fdm/jsbsim/fcs/drag-chute-deployed", 1);
+           setprop("/controls/dragchute/chute-cap",1);
+         });
+       timer.singleShot = 1;
+       timer.start();       
+     } else if (cs==2) {
+       setprop("/instrumentation/chute_state", 3);
+       setprop("/fdm/jsbsim/fcs/drag-chute-deployed", 0);
+       #TODO problem dropping at too low speed or (maybe) broken/unserviceable (see DrakenJ35F)
+     }
+   } else {
+     setprop("controls/dragchute/chute-lever", 0);
+   }
+ }
+
 #Start up script to initiate functions
  var start_up  = func {
   aircraft.livery.init("Aircraft/SaabJ35F/Model/Liveries");
@@ -416,3 +446,14 @@ var canopy_opening = 1 - getprop("/controls/canopy/enabled");
 var fuel_cover = aircraft.door.new ("/controls/fuel_cover/", 0.4);
 var battery_cover = aircraft.door.new ("/controls/battery_cover/", 0.4);
 start_up();
+
+# We must establish these aliases only after the FDM is initialized:
+setlistener ("/sim/signals/fdm-initialized", func (node) {
+  if (node != nil and node.getValue() != 0) {
+    for (var j = 0; j < 4; j += 1) {
+      props.globals.getNode ("fdm/jsbsim/propulsion/tank[" ~ j ~ "]/collector-valve", 0)
+                   .alias   ("consumables/fuel/tank[" ~ j ~ "]/selected");
+    }
+  }
+});
+

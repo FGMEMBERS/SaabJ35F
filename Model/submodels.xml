@@ -50,4 +50,28 @@
         </offsets>
     </submodel>
 
+    <submodel>
+        <name>ADEN 30mm round</name>
+        <model>Aircraft/SaabJ35F/Model/ADEN-30mm-round.xml</model>
+        <trigger>ai/submodels/ADEN</trigger>
+        <speed>2591.9</speed> <!-- 790 m/s -->
+        <repeat>true</repeat>
+        <delay>0.03529</delay> <!-- 1700 rounds/minute -->
+        <count>100</count>
+        <offsets>
+            <x-m>-1.08</x-m>
+            <y-m>1.82</y-m>
+            <z-m>0.22</z-m>
+        </offsets>
+        <eda>0.0122</eda>
+        <weight>0.485</weight> <!-- 220 grams -->
+        <cd>0.295</cd>
+        <buoyancy>32</buoyancy>
+        <wind>false</wind>
+        <aero-stabilised>true</aero-stabilised>
+        <life>5</life>
+        <collision>true</collision>
+        <impact>true</impact>
+    </submodel>
+
 </PropertyList>

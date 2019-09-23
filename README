@@ -4,6 +4,7 @@ Shift-L Attach or remove droptanks on ground. (Stationary and fuel cut off.)
 Ctrl-J Jettison droptanks in air.
 Ctrl-D Unlocks and opens/closes and locks canopy. Closed and locked canopy - first press unlocks second opens canopy. Closed and unlocked canopy at simulation start - first press locks. Open canopy - first press closes canopy second locks 
 Shift-Q Fuel cut off, not normally needed.
+Shift-P use drag chute handle
 
 Special indicators
 GLÖM EJ LAND-STÄLL: ("Do not forget landing gear") flashes if altitude < 1450 m, airspeed < 450 km/h and throttle < 85% if landing gears are retracted.
@@ -114,6 +115,7 @@ Landing/taxi light switches: Left front canopy rim. Left and right landing light
 Navigation lights (sv. "Lanternor"): Right aft panel. Three settings are implemented; off, dim and bright.
 Instrument lighting: Left side above throttle. Sets the brightness of the red instrument lighting.
 Start panel: Lower left instrument panel. Se below.
+Drag chute handle: Lower left. First use deploys drag chute. Second drops it. It takes approx. 3 seconds to deploy and should be done under 320 km/h and above 200 km/h. The handle can not be used if throttle above 85%.
 
 Starting the aircraft
 Either press Shift-S and let the automatic start make the work or follow the checklist below.

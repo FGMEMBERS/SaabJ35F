@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+    <path>Model/chute.ac</path>
+    <nopreview/>
+
+  <animation>
+    <type>select</type>
+    <object-name>chute</object-name>
+    <object-name>rope</object-name>
+    <condition>
+      <property>fdm/jsbsim/fcs/drag-chute-deployed</property>
+    </condition>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>chute</object-name>
+   <object-name>rope</object-name>
+   <property>fdm/jsbsim/aero/alpha-deg</property>
+   <factor>-1</factor>
+   <condition>
+       <property>fdm/jsbsim/fcs/drag-chute-deployed</property>
+   </condition>
+   <center>
+     <x-m>0</x-m>
+     <y-m>0</y-m>
+     <z-m>0</z-m>
+   </center>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>chute</object-name>
+   <object-name>rope</object-name>
+   <property>fdm/jsbsim/aero/beta-deg</property>
+   <factor>-1</factor>
+   <condition>
+     <property>fdm/jsbsim/fcs/drag-chute-deployed</property>
+   </condition>
+   <center>
+     <x-m>0</x-m>
+     <y-m>0</y-m>
+     <z-m>0</z-m>
+   </center>
+   <axis>
+     <x>0</x>
+     <y>0</y>
+     <z>1</z>
+   </axis>
+ </animation>
+
+
+ <!--animation>
+   <type>rotate</type>
+   <object-name>chute</object-name>
+   <object-name>rope</object-name>
+   <property>fdm/jsbsim/aero/alpha-deg</property>
+   <offset-deg>180</offset-deg>
+   <condition>
+     <and>
+       <property>fdm/jsbsim/fcs/drag-chute-deployed</property>
+       <less-than>
+         <property>fdm/jsbsim/aero/alpha-deg</property>
+         <value>-90</value>
+       </less-than>
+     </and>
+   </condition>
+   <center>
+     <x-m>0</x-m>
+     <y-m>0</y-m>
+     <z-m>0</z-m>
+   </center>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation-->
+
+ <animation>
+   <type>select</type>
+   <object-name>chute_packed</object-name>
+   <condition>
+     <equals>
+      <property>instrumentation/chute_state</property>
+      <value>1</value>
+     </equals>
+   </condition>
+ </animation>
+
+</PropertyList>
+

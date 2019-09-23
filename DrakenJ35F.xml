@@ -311,6 +311,7 @@
   </tank>
 
   <!-- Collector tanks: no 4 for tank 0 and 1, no 5 for tank 2 and 3 -->
+  <!-- priority is initially 0 but becomes 1 when the fuel pump is switched on, see SaabJ35F.nas -->
   <tank type="FUEL" number="4">
      <location unit="IN">
        <x> 315.8 </x>
@@ -319,7 +320,7 @@
      </location>
      <capacity unit="LBS"> 130.00 </capacity>
      <contents unit="LBS"> 130.00 </contents>
-     <priority> 1 </priority>
+     <priority> 0 </priority>
   </tank>
   
   <tank type="FUEL" number="5">
@@ -330,7 +331,7 @@
      </location>
      <capacity unit="LBS"> 130.00 </capacity>
      <contents unit="LBS"> 130.00 </contents>
-     <priority> 1 </priority>
+     <priority> 0 </priority>
   </tank>
    
  </propulsion>
@@ -338,7 +339,7 @@
  <system file="fuel"/>
 
  <system file="hydraulic"/>
- 
+
  <flight_control name="FCS: Draken J35F">
 
   <function name="fcs/qbar-hydr-quot">
@@ -731,6 +732,23 @@
 
   </channel>
 
+
+  <property value="0">fcs/drag-chute-deployed</property>
+  <property value="1">fcs/drag-chute-serviceable</property>
+
+  <channel name="Dragchute">
+<!-- Drag Chute test for too high drag -->
+    <switch>
+      <default value="fcs/drag-chute-serviceable"/>
+      <test locic="AND" value="0">
+        aero/qbar-psf GE 206 <!-- Gives a force of 20 000 N -->
+        fcs/drag-chute-deployed EQ 1
+      </test>
+      <output>fcs/drag-chute-serviceable</output> 
+    </switch>
+
+  </channel>
+
  </flight_control>
 
     <!-- **************** AERODYNAMICS ********************* -->
@@ -947,6 +965,7 @@
            <value>0.42</value>
        </product>
     </function>
+
   </axis>
 
   <axis name="SIDE">
@@ -1326,6 +1345,27 @@
  </aerodynamics>
 
  <external_reactions>
+   
+   <force name="parachute" frame="WIND">
+      <function>
+        <product>
+          <property>aero/qbar-psf</property>
+          <property>fcs/drag-chute-deployed</property>
+          <property>fcs/drag-chute-serviceable</property>
+          <value> 44 </value>  <!-- ACd -->
+        </product>
+      </function>
+      <location unit="IN">
+        <x>596</x>
+        <y>0</y>
+        <z>65</z>
+      </location>
+      <direction>
+        <x>-1</x>
+        <y>0</y>
+        <z>0</z>
+      </direction>
+    </force>
  </external_reactions>
 
 </fdm_config>
